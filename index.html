@@ -156,7 +156,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
   .strip .wrap{grid-template-columns:repeat(2,1fr)}
   .plans{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
   .market{grid-template-columns:1fr}
-  .nav-links a:not(.btn){display:none}
+  .nav-links a:not(.btn):not([href="/blog/"]){display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -192,8 +192,6 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     </div>
     <p class="hero-note"><b>Crédits offerts à l'inscription</b> — sans carte bancaire.</p>
   </div>
-
-  <!-- Signature : le radar d'extraction -->
   <div class="terminal" aria-label="Démonstration du radar d'extraction en temps réel">
     <div class="term-bar">
       <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -416,7 +414,6 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 </footer>
 
 <script>
-/* ── Radar animation : le moteur en action ── */
 const lines = [
   ['t-dim','> Fichier verrouillé : <span class="t-teal">prospection_bruxelles.csv</span>'],
   ['t-dim','> Cibles : <span class="t-amber">[\'Bruxelles\', \'Liège\']</span> | Pays : Belgique'],
