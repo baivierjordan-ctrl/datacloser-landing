@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog DataCloser — Prospection B2B, Génération de leads, IA commerciale</title>
+  <meta name="description" content="Guides, conseils et stratégies pour automatiser votre prospection B2B en Belgique, France et Luxembourg. Tous les articles DataCloser."/>
+  <link rel="canonical" href="https://datacloser.com/blog/"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0d12; --bg-card: #0d1117; --border: #1e2733;
+      --mint: #00e5b0; --blue: #0055ff;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,13,18,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 1.1rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+    .nav-logo .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 8px var(--mint); }
+    .nav-logo span { color: var(--mint); }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { color: var(--dim); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: var(--mint); }
+    .nav-cta { background: var(--mint); color: #0a0d12; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; padding: 0.5rem 1.2rem; border-radius: 6px; text-decoration: none; }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* HERO */
+    .hero { max-width: 900px; margin: 0 auto; padding: 5rem 2rem 3rem; text-align: center; }
+    .hero-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mint); border: 1px solid rgba(0,229,176,0.25); background: rgba(0,229,176,0.06); padding: 3px 10px; border-radius: 20px; margin-bottom: 1.2rem; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; }
+    .hero h1 em { color: var(--mint); font-style: normal; }
+    .hero p { color: var(--muted); font-size: 1rem; max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+    /* GRID ARTICLES */
+    .blog-grid { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 6rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+
+    .article-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.6rem;
+      text-decoration: none; display: flex; flex-direction: column; gap: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .article-card:hover { border-color: var(--mint); transform: translateY(-2px); }
+
+    .card-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mint); }
+    .card-title { font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.35; letter-spacing: -0.01em; }
+    .card-excerpt { font-size: 0.82rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .card-meta { font-size: 0.75rem; color: var(--dim); display: flex; align-items: center; gap: 8px; }
+    .card-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border); }
+    .card-arrow { font-size: 0.8rem; color: var(--mint); margin-top: auto; }
+
+    /* COMING SOON CARD */
+    .article-card.soon { opacity: 0.45; cursor: default; pointer-events: none; }
+    .soon-badge { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); background: var(--border); padding: 2px 8px; border-radius: 10px; display: inline-block; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--dim); font-size: 0.8rem; }
+    footer a { color: var(--mint); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 1.2rem 2rem; }
+      .blog-grid { padding: 2rem 1.2rem 4rem; grid-template-columns: 1fr; }
+      .nav-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="https://datacloser.com">
+    <div class="dot"></div>
+    Data<span>Closer</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-link active" href="https://datacloser.com/blog/">Blog</a>
+    <a class="nav-cta" href="https://app.datacloser.com">Essayer gratuitement →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-tag">Blog DataCloser</div>
+  <h1>Prospection B2B,<br><em>guides & stratégies</em></h1>
+  <p>Méthodes, outils et conseils concrets pour automatiser votre acquisition de leads B2B en Belgique, France et Luxembourg.</p>
+</header>
+
+<main class="blog-grid">
+
+  <!-- Article 1 — LIVE -->
+  <a class="article-card" href="https://datacloser.com/blog/generation-leads-b2b-belgique.html">
+    <div class="card-tag">Guide complet</div>
+    <div class="card-title">Génération de leads B2B en Belgique : le guide complet 2026</div>
+    <div class="card-excerpt">Méthodes, outils et stratégies pour trouver des clients B2B qualifiés sur le marché belge. Comparatif des solutions et conformité RGPD.</div>
+    <div class="card-meta">
+      <span>12 juin 2026</span>
+      <div class="card-meta-dot"></div>
+      <span>12 min</span>
+    </div>
+    <div class="card-arrow">Lire l'article →</div>
+  </a>
+
+  <!-- Article 2 — COMING SOON -->
+  <div class="article-card soon">
+    <div class="soon-badge">Bientôt disponible</div>
+    <div class="card-title">Comment trouver l'email d'un dirigeant en Belgique</div>
+    <div class="card-excerpt">Méthodes légales et efficaces pour identifier l'email nominatif d'un CEO, directeur commercial ou DSI en Belgique.</div>
+    <div class="card-meta"><span>Prospection B2B</span></div>
+  </div>
+
+  <!-- Article 3 — COMING SOON -->
+  <div class="article-card soon">
+    <div class="soon-badge">Bientôt disponible</div>
+    <div class="card-title">Prospection B2B : automatiser sa recherche de leads en 2026</div>
+    <div class="card-excerpt">Comment passer de la prospection manuelle à l'automatisation complète grâce à l'IA. Guide pratique étape par étape.</div>
+    <div class="card-meta"><span>Automatisation</span></div>
+  </div>
+
+  <!-- Article 4 — COMING SOON -->
+  <div class="article-card soon">
+    <div class="soon-badge">Bientôt disponible</div>
+    <div class="card-title">Alternatives à Kaspr et Lusha pour le marché belge</div>
+    <div class="card-excerpt">Comparatif complet des outils de prospection B2B adaptés au marché belge et francophone en 2026.</div>
+    <div class="card-meta"><span>Comparatif</span></div>
+  </div>
+
+  <!-- Article 5 — COMING SOON -->
+  <div class="article-card soon">
+    <div class="soon-badge">Bientôt disponible</div>
+    <div class="card-title">Comment enrichir ses données prospects avec l'IA</div>
+    <div class="card-excerpt">Emails nominatifs, profils LinkedIn, signaux d'intention : comment l'IA transforme un nom d'entreprise en lead actionnable.</div>
+    <div class="card-meta"><span>IA commerciale</span></div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 <a href="https://datacloser.com">DataCloser</a> · 
+  <a href="https://datacloser.com">Accueil</a> · 
+  <a href="https://app.datacloser.com">Plateforme</a> · 
+  Marque déposée BOIP n°160599</p>
+</footer>
+
+</body>
+</html>
