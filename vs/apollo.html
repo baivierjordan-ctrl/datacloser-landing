@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataCloser vs Apollo.io — Alternative européenne avec IA 2026</title>
+  <meta name="description" content="Comparaison complète entre DataCloser et Apollo.io. Précision des données en Europe, prix par siège, scoring IA. Découvrez pourquoi DataCloser est l'alternative Apollo.io pensée pour la Belgique, la France et la Suisse." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://datacloser.com/vs/apollo" />
+
+  <meta property="og:title" content="DataCloser vs Apollo.io — L'alternative européenne" />
+  <meta property="og:description" content="Apollo.io perd 27-40% de précision hors États-Unis. DataCloser scanne le web en temps réel pour les marchés BE, FR, LU, CH — avec scoring IA et icebreakers inclus." />
+  <meta property="og:url" content="https://datacloser.com/vs/apollo" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0d12; --card: #0d1117; --card2: #111620;
+      --border: #1e2530; --accent: #00e5b0; --blue: #0055ff;
+      --red: #ff4444; --text: #e8edf3; --muted: #6b7a8d;
+      --font: 'Space Grotesk', sans-serif; --mono: 'JetBrains Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,13,18,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-size: 18px; font-weight: 700; color: var(--text); }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #000; font-weight: 600; font-size: 14px; padding: 8px 18px; border-radius: 6px; }
+    .nav-cta:hover { text-decoration: none; opacity: 0.9; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    section + section { border-top: 1px solid var(--border); }
+    h1 { font-size: clamp(28px, 5vw, 46px); font-weight: 700; line-height: 1.15; }
+    h2 { font-size: clamp(20px, 3vw, 28px); font-weight: 700; }
+    h3 { font-size: 18px; font-weight: 600; }
+    .label { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid rgba(0,229,176,0.3); padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; }
+
+    .hero { padding: 90px 0 70px; text-align: center; }
+    .hero h1 { margin-bottom: 20px; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto 40px; }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: #000; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 8px; display: inline-block; }
+    .btn-primary:hover { text-decoration: none; opacity: 0.9; }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); font-weight: 500; font-size: 15px; padding: 14px 28px; border-radius: 8px; display: inline-block; }
+    .btn-ghost:hover { text-decoration: none; border-color: var(--accent); }
+
+    /* accuracy meter */
+    .accuracy-block { margin-top: 48px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+    .accuracy-title { font-size: 14px; color: var(--muted); margin-bottom: 20px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; }
+    .accuracy-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .accuracy-label { width: 180px; font-size: 14px; flex-shrink: 0; }
+    .accuracy-bar-bg { flex: 1; background: rgba(255,255,255,0.06); border-radius: 4px; height: 8px; }
+    .accuracy-bar-fill { height: 8px; border-radius: 4px; }
+    .accuracy-value { width: 50px; text-align: right; font-family: var(--mono); font-size: 14px; font-weight: 600; }
+
+    .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-top: 40px; }
+    .verdict-col { background: var(--card); padding: 32px 28px; }
+    .verdict-col.winner { background: var(--card2); }
+    .verdict-col-header { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+    .tool-name { font-size: 20px; font-weight: 700; }
+    .badge-winner { background: rgba(0,229,176,0.12); color: var(--accent); font-family: var(--mono); font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 4px; }
+    .verdict-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .verdict-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
+    .verdict-list li .icon { flex-shrink: 0; margin-top: 1px; }
+    .check { color: var(--accent); } .cross { color: var(--red); } .warn { color: #f5a623; }
+
+    .comp-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+    .comp-table thead tr { border-bottom: 2px solid var(--border); }
+    .comp-table th { padding: 14px 16px; text-align: left; font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .comp-table th:not(:first-child) { text-align: center; }
+    .comp-table td { padding: 16px 16px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .comp-table td:not(:first-child) { text-align: center; }
+    .comp-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .feature-name { font-weight: 500; }
+    .feature-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .col-dc { color: var(--accent); font-weight: 600; }
+    .col-apollo { color: var(--muted); }
+    .th-dc { color: var(--accent) !important; }
+
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+    .pricing-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+    .pricing-card.featured { border-color: rgba(0,229,176,0.4); }
+    .tool-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+    .plan-name { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .price-amount { font-size: 36px; font-weight: 700; color: var(--accent); font-family: var(--mono); }
+    .price-amount.grey { color: var(--muted); }
+    .price-period { font-size: 13px; color: var(--muted); margin-left: 4px; }
+    .price-note { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .pricing-features { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+    .pricing-features li { font-size: 13px; display: flex; gap: 8px; }
+
+    .warning-box { background: rgba(255,68,68,0.06); border: 1px solid rgba(255,68,68,0.25); border-radius: 10px; padding: 24px 28px; margin-top: 40px; }
+    .warning-title { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: #ff6b6b; margin-bottom: 10px; }
+    .warning-box p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    .usecase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
+    .usecase-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+    .usecase-card h3 { font-size: 15px; margin-bottom: 8px; }
+    .usecase-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .tool-badge { display: inline-block; margin-top: 12px; font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 4px; }
+    .badge-dc { background: rgba(0,229,176,0.1); color: var(--accent); }
+    .badge-apollo { background: rgba(107,122,141,0.15); color: var(--muted); }
+
+    .cta-section { text-align: center; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 60px 40px; margin: 80px 0; }
+    .cta-section h2 { margin-bottom: 16px; }
+    .cta-section p { color: var(--muted); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+    .faq-list { margin-top: 40px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
+    .faq-item h3 { font-size: 16px; margin-bottom: 10px; }
+    .faq-item p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); }
+
+    @media (max-width: 640px) {
+      .verdict-grid, .pricing-grid, .usecase-grid { grid-template-columns: 1fr; }
+      .accuracy-row { flex-wrap: wrap; }
+      .accuracy-label { width: 100%; }
+      .hero { padding: 60px 0 40px; }
+      section { padding: 50px 0; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "DataCloser vs Apollo.io — Comparaison complète 2026",
+    "description": "Comparaison entre DataCloser et Apollo.io pour la génération de leads B2B en Belgique, France, Luxembourg et Suisse.",
+    "url": "https://datacloser.com/vs/apollo"
+  }
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="https://datacloser.com" class="nav-logo">Data<span>Closer</span></a>
+  <a href="https://app.datacloser.com" class="nav-cta">Essayer gratuitement</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="label">Comparatif 2026</div>
+    <h1>DataCloser vs <em>Apollo.io</em><br/>Un outil américain pour un marché européen ?</h1>
+    <p>Apollo.io affiche 210M+ contacts — mais sa précision chute à 60-73% hors États-Unis. DataCloser scanne le web en temps réel et est nativement pensé pour la Belgique, la France et la Suisse.</p>
+    <div class="hero-btns">
+      <a href="https://app.datacloser.com" class="btn-primary">Essayer DataCloser gratuitement</a>
+      <a href="#comparaison" class="btn-ghost">Voir la comparaison</a>
+    </div>
+
+    <!-- accuracy meter -->
+    <div class="accuracy-block">
+      <div class="accuracy-title">Précision des données par région — Apollo.io</div>
+      <div class="accuracy-row">
+        <div class="accuracy-label">États-Unis</div>
+        <div class="accuracy-bar-bg"><div class="accuracy-bar-fill" style="width:85%; background: var(--accent);"></div></div>
+        <div class="accuracy-value" style="color: var(--accent)">80-88%</div>
+      </div>
+      <div class="accuracy-row">
+        <div class="accuracy-label">Europe (général)</div>
+        <div class="accuracy-bar-bg"><div class="accuracy-bar-fill" style="width:67%; background: #f5a623;"></div></div>
+        <div class="accuracy-value" style="color: #f5a623">60-73%</div>
+      </div>
+      <div class="accuracy-row">
+        <div class="accuracy-label" style="color: var(--accent)">DataCloser (FR/BE)</div>
+        <div class="accuracy-bar-bg"><div class="accuracy-bar-fill" style="width:93%; background: var(--accent);"></div></div>
+        <div class="accuracy-value" style="color: var(--accent)">Live ✅</div>
+      </div>
+      <div style="font-size: 12px; color: var(--muted); margin-top: 12px;">Sources : G2 reviews & analyses indépendantes 2026. DataCloser scrappe les données en temps réel — pas de base statique.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VERDICT -->
+<section id="comparaison">
+  <div class="container">
+    <div class="label">Verdict rapide</div>
+    <h2>Ce que chaque outil fait bien</h2>
+    <div class="verdict-grid">
+      <div class="verdict-col winner">
+        <div class="verdict-col-header">
+          <div class="tool-name">DataCloser</div>
+          <span class="badge-winner">Recommandé Europe</span>
+        </div>
+        <ul class="verdict-list">
+          <li><span class="icon check">✅</span> Données fraîches — scraping live du web</li>
+          <li><span class="icon check">✅</span> Précision maximale sur BE, FR, LU, CH</li>
+          <li><span class="icon check">✅</span> Prix flat 49€ — pas de per seat</li>
+          <li><span class="icon check">✅</span> Score IA (/10) + analyse des besoins</li>
+          <li><span class="icon check">✅</span> Icebreakers personnalisés par IA</li>
+          <li><span class="icon check">✅</span> Module Outreach email natif</li>
+          <li><span class="icon check">✅</span> Détection automatique de la langue</li>
+          <li><span class="icon check">✅</span> Crédits sans expiration mensuelle</li>
+        </ul>
+      </div>
+      <div class="verdict-col">
+        <div class="verdict-col-header">
+          <div class="tool-name">Apollo.io</div>
+        </div>
+        <ul class="verdict-list">
+          <li><span class="icon check">✅</span> Immense base de données (210M+ contacts)</li>
+          <li><span class="icon check">✅</span> Séquences email avancées incluses</li>
+          <li><span class="icon check">✅</span> Dialer intégré (plans élevés)</li>
+          <li><span class="icon check">✅</span> Très fort sur le marché américain</li>
+          <li><span class="icon warn">⚠️</span> Précision 60-73% hors États-Unis</li>
+          <li><span class="icon warn">⚠️</span> Prix per seat — monte vite en équipe</li>
+          <li><span class="icon warn">⚠️</span> Crédits qui expirent chaque mois</li>
+          <li><span class="icon cross">❌</span> Pas d'icebreakers personnalisés</li>
+          <li><span class="icon cross">❌</span> Scoring IA uniquement sur Organization ($119/seat)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABLE -->
+<section>
+  <div class="container">
+    <div class="label">Fonctionnalités</div>
+    <h2>Comparaison détaillée</h2>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Fonctionnalité</th>
+          <th class="th-dc">DataCloser</th>
+          <th>Apollo.io</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="feature-name">Source des données</div><div class="feature-desc">Comment les leads sont trouvés</div></td>
+          <td class="col-dc">Scraping live Google Search & Maps</td>
+          <td class="col-apollo">Base de données statique 210M+ contacts</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Précision sur les marchés européens</div></td>
+          <td class="col-dc">✅ Temps réel — toujours à jour</td>
+          <td class="col-apollo">⚠️ 60-73% (données potentiellement obsolètes)</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Modèle de tarification</div></td>
+          <td class="col-dc">Prix flat — pas de per seat</td>
+          <td class="col-apollo">Par utilisateur ($49-$119/siège/mois)</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Expiration des crédits</div></td>
+          <td class="col-dc">✅ Pas d'expiration mensuelle</td>
+          <td class="col-apollo">⚠️ Reset mensuel — les crédits non utilisés sont perdus</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Score IA des leads</div></td>
+          <td class="col-dc">✅ Inclus dès le Starter (49€)</td>
+          <td class="col-apollo">⚠️ Uniquement sur Organization ($119/siège)</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Icebreakers personnalisés</div></td>
+          <td class="col-dc">✅ Générés automatiquement par IA</td>
+          <td class="col-apollo">❌ Non disponible</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Outreach email intégré</div></td>
+          <td class="col-dc">✅ Module natif complet</td>
+          <td class="col-apollo">✅ Séquences avancées incluses</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Marchés francophones</div><div class="feature-desc">BE, FR, LU, CH</div></td>
+          <td class="col-dc">✅ Optimisé nativement</td>
+          <td class="col-apollo">⚠️ Couverture partielle, précision réduite</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Détection de langue automatique</div></td>
+          <td class="col-dc">✅ FR, NL, EN selon le site prospect</td>
+          <td class="col-apollo">❌ Non disponible</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Taux de bounce email signalé</div></td>
+          <td class="col-dc">✅ Vérification en temps réel</td>
+          <td class="col-apollo">⚠️ 15-20% sur certains segments (G2)</td>
+        </tr>
+        <tr>
+          <td><div class="feature-name">Engagement annuel obligatoire</div></td>
+          <td class="col-dc">❌ Sans engagement</td>
+          <td class="col-apollo">⚠️ Oui pour les tarifs affichés (-20%)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section>
+  <div class="container">
+    <div class="label">Tarifs</div>
+    <h2>Apollo.io : 49$/mois en façade, 150-400$ en réalité</h2>
+
+    <div class="pricing-grid">
+      <div class="pricing-card featured">
+        <div class="tool-label">DataCloser</div>
+        <div class="plan-name">Plan Starter</div>
+        <div>
+          <span class="price-amount">49€</span>
+          <span class="price-period">/mois</span>
+        </div>
+        <div class="price-note">Prix flat · Sans engagement · Sans per seat</div>
+        <ul class="pricing-features">
+          <li><span class="check">✅</span> Scraping live + scoring IA inclus</li>
+          <li><span class="check">✅</span> Icebreakers personnalisés</li>
+          <li><span class="check">✅</span> Module Outreach natif</li>
+          <li><span class="check">✅</span> Données fraîches en temps réel</li>
+          <li><span class="check">✅</span> 50 crédits offerts à l'inscription</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="tool-label">Apollo.io</div>
+        <div class="plan-name">Plan Basic</div>
+        <div>
+          <span class="price-amount grey">49$</span>
+          <span class="price-period">/utilisateur/mois</span>
+        </div>
+        <div class="price-note">Facturation annuelle · Coût réel : 150-400$/user/mois avec overages</div>
+        <ul class="pricing-features">
+          <li><span class="warn">⚠️</span> 75 crédits mobile/mois (téléphone)</li>
+          <li><span class="warn">⚠️</span> Crédits expirent chaque mois (no rollover)</li>
+          <li><span class="warn">⚠️</span> Précision 60-73% sur les marchés européens</li>
+          <li><span class="cross">❌</span> Pas de scoring IA (Organization uniquement)</li>
+          <li><span class="cross">❌</span> Pas d'icebreakers personnalisés</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div class="warning-title">⚠️ Le vrai coût Apollo.io pour une équipe de 5</div>
+      <p>
+        Apollo Basic à 49$/siège × 5 utilisateurs = <strong style="color: #ff6b6b;">245$/mois</strong> — et c'est le prix de base avant overages. Les analyses indépendantes montrent que les équipes en prospection active dépensent en réalité <strong style="color: #ff6b6b;">150 à 400$/utilisateur/mois</strong> une fois les crédits supplémentaires comptabilisés. Pour 5 utilisateurs actifs, la facture peut dépasser 2 000$/mois. Et le scoring IA n'est disponible que sur l'Organization à 119$/siège.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section>
+  <div class="container">
+    <div class="label">Quand choisir quoi</div>
+    <h2>Le bon outil selon votre situation</h2>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <h3>Vous prospectez principalement aux États-Unis</h3>
+        <p>Votre marché cible est américain et vous avez besoin d'une base de données massive avec des numéros directs et des données d'intention d'achat avancées.</p>
+        <span class="tool-badge badge-apollo">→ Apollo.io peut convenir</span>
+      </div>
+      <div class="usecase-card">
+        <h3>Vous prospectez en Belgique, France, Luxembourg ou Suisse</h3>
+        <p>Vous ciblez les marchés francophones et avez besoin de données précises et à jour sur des PME locales, avec des messages personnalisés en français ou néerlandais.</p>
+        <span class="tool-badge badge-dc">→ DataCloser</span>
+      </div>
+      <div class="usecase-card">
+        <h3>Vous voulez éviter les crédits qui expirent</h3>
+        <p>Votre prospection est saisonnière ou irrégulière — vous ne voulez pas perdre des crédits payés chaque mois parce que vous ne les avez pas tous utilisés.</p>
+        <span class="tool-badge badge-dc">→ DataCloser</span>
+      </div>
+      <div class="usecase-card">
+        <h3>Vous voulez le scoring IA sans payer 119$/siège</h3>
+        <p>Vous avez besoin que l'IA priorise vos leads automatiquement, mais le plan Organization d'Apollo à 119$/utilisateur est hors budget.</p>
+        <span class="tool-badge badge-dc">→ DataCloser (49€ tout inclus)</span>
+      </div>
+      <div class="usecase-card">
+        <h3>Vous êtes solo founder ou petite équipe</h3>
+        <p>Vous prospectez seul ou à deux — le per seat d'Apollo double votre facture dès que vous ajoutez un collaborateur.</p>
+        <span class="tool-badge badge-dc">→ DataCloser</span>
+      </div>
+      <div class="usecase-card">
+        <h3>Vous avez une grande équipe US avec budget enterprise</h3>
+        <p>Vous avez 15+ SDRs, un budget de plusieurs milliers de dollars par mois, et prospectez principalement en Amérique du Nord.</p>
+        <span class="tool-badge badge-apollo">→ Apollo.io Organization</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="label">Questions fréquentes</div>
+    <h2>DataCloser vs Apollo.io — FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Apollo.io fonctionne-t-il bien pour la Belgique et la France ?</h3>
+        <p>Apollo.io est avant tout conçu pour le marché américain. Hors États-Unis, sa précision descend à 60-73% selon des analyses indépendantes de 2026 — contre 80-88% aux USA. Concrètement, sur 100 leads Apollo en Belgique ou en France, 27 à 40 auront des informations obsolètes ou incorrectes. DataCloser scrappe le web en temps réel et ne dépend pas d'une base de données statique, ce qui garantit des données fraîches quel que soit le marché.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Apollo.io propose-t-il un scoring IA des leads ?</h3>
+        <p>Oui, mais uniquement sur le plan Organization à 119$/utilisateur/mois (facturation annuelle). Sur les plans Basic (49$) et Professional (79$), il n'y a pas de scoring IA natif. DataCloser inclut le scoring IA (/10) avec analyse des besoins dès le plan Starter à 49€, sans engagement annuel.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Que se passe-t-il si je n'utilise pas tous mes crédits Apollo ce mois-ci ?</h3>
+        <p>Les crédits Apollo expirent à la fin de chaque mois. Il n'y a pas de report (rollover). Si vous êtes en période creuse ou en congés, vous perdez les crédits payés. DataCloser n'impose pas d'expiration mensuelle sur les crédits.</p>
+      </div>
+      <div class="faq-item">
+        <h3>DataCloser peut-il envoyer des séquences email comme Apollo ?</h3>
+        <p>Oui. DataCloser inclut un module Outreach natif qui permet de créer des campagnes email personnalisées avec délais aléatoires, plages horaires et signatures. Pour des séquences très avancées avec A/B testing et dialer intégré, Apollo Professional offre plus d'options — mais à un coût par siège significativement plus élevé.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Quel outil choisir si je prospecte à la fois en Europe et aux États-Unis ?</h3>
+        <p>Dans ce cas, les deux outils peuvent être complémentaires : DataCloser pour la prospection Europe francophone (données fraîches, icebreakers en français), Apollo pour le marché américain (base de données plus complète aux USA). Cependant, si votre priorité est l'Europe, DataCloser seul couvre la grande majorité des cas d'usage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="cta-section">
+    <div class="label">Prêt à tester ?</div>
+    <h2>Des données fraîches pour les marchés<br/>que vous ciblez vraiment</h2>
+    <p>50 crédits offerts à l'inscription. Aucune carte bancaire requise. Aucun engagement annuel.</p>
+    <a href="https://app.datacloser.com" class="btn-primary">Créer un compte gratuit</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 DataCloser — <a href="https://datacloser.com">datacloser.com</a> · <a href="https://datacloser.com/mentions-legales">Mentions légales</a> · <a href="https://datacloser.com/politique-de-confidentialite">Confidentialité</a></p>
+  <p style="margin-top: 8px;">DataCloser n'est pas affilié à Apollo.io. Les informations tarifaires Apollo.io sont issues de sources publiques et peuvent évoluer.</p>
+</footer>
+
+</body>
+</html>
