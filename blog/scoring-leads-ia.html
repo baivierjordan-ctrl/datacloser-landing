@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scoring de leads par IA — Comment prioriser vos prospects B2B en 2026</title>
+  <meta name="description" content="Qu'est-ce que le lead scoring IA ? Comment ça fonctionne, quels critères, quels bénéfices pour votre prospection B2B. Guide complet scoring leads par intelligence artificielle 2026."/>
+  <link rel="canonical" href="https://datacloser.com/guide/scoring-leads-ia"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Scoring de leads par IA — Guide complet 2026","description":"Comment utiliser l'intelligence artificielle pour scorer et prioriser vos leads B2B.","author":{"@type":"Organization","name":"DataCloser"}}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0d12;--card:#0d1117;--border:#1e2530;--accent:#00e5b0;--text:#e8edf3;--muted:#6b7a8d;--font:'Space Grotesk',sans-serif}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,13,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .nav-logo{font-size:18px;font-weight:700;color:var(--text)}.nav-logo span{color:var(--accent)}
+    .nav-cta{background:var(--accent);color:#000;font-weight:600;font-size:14px;padding:8px 18px;border-radius:6px}
+    .container{max-width:780px;margin:0 auto;padding:0 24px}
+    .hero{padding:80px 0 50px}
+    .label{display:inline-block;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(0,229,176,.3);padding:4px 10px;border-radius:4px;margin-bottom:20px}
+    h1{font-size:clamp(26px,5vw,42px);font-weight:700;line-height:1.15;margin-bottom:16px}
+    .hero-meta{display:flex;gap:16px;align-items:center;margin-top:20px;font-size:13px;color:var(--muted)}
+    .toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px 28px;margin:40px 0}
+    .toc-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+    .toc ol{padding-left:20px;display:flex;flex-direction:column;gap:6px}
+    .toc li{font-size:14px}.toc a{color:var(--muted)}.toc a:hover{color:var(--accent)}
+    .prose h2{font-size:22px;font-weight:700;margin:56px 0 16px;padding-top:56px;border-top:1px solid var(--border);scroll-margin-top:80px}
+    .prose h2:first-child{margin-top:0;padding-top:0;border-top:none}
+    .prose p{color:var(--muted);margin-bottom:16px;font-size:15px}
+    .prose strong{color:var(--text)}
+    .prose ul{padding-left:20px;margin-bottom:16px;display:flex;flex-direction:column;gap:6px}
+    .prose ul li{font-size:15px;color:var(--muted)}
+    .info-box{background:rgba(0,229,176,.05);border:1px solid rgba(0,229,176,.2);border-radius:8px;padding:20px 24px;margin:24px 0}
+    .info-box p{font-size:14px;color:var(--muted);margin:0}
+    .score-visual{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:24px 0}
+    .score-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px}
+    .score-row{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+    .score-range{width:80px;font-size:13px;font-weight:600;flex-shrink:0}
+    .score-bar{flex:1;height:8px;border-radius:4px}
+    .score-label{width:140px;font-size:13px;flex-shrink:0}
+    .score-action{font-size:12px;color:var(--muted)}
+    .criteria-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+    .criteria-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px}
+    .criteria-card h3{font-size:14px;font-weight:600;margin-bottom:6px;margin-top:0}
+    .criteria-card p{font-size:13px;color:var(--muted);margin:0}
+    .criteria-weight{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin-top:8px;background:rgba(0,229,176,.1);color:var(--accent)}
+    .example-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;margin:24px 0}
+    .example-label{font-size:11px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+    .example-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px}
+    .example-row:last-child{border-bottom:none}
+    .example-key{color:var(--muted)}
+    .example-val{color:var(--text);font-weight:500}
+    .cta-box{background:var(--card);border:1px solid rgba(0,229,176,.3);border-radius:16px;padding:48px 32px;text-align:center;margin:48px 0}
+    .cta-box h2{font-size:22px;font-weight:700;margin-bottom:12px}
+    .cta-box p{color:var(--muted);margin-bottom:28px;font-size:15px}
+    .btn{background:var(--accent);color:#000;font-weight:700;font-size:15px;padding:14px 28px;border-radius:8px;display:inline-block}
+    footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;font-size:13px;color:var(--muted)}
+    @media(max-width:640px){.criteria-grid{grid-template-columns:1fr}.hero{padding:50px 0 30px}.score-row{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+<nav><a href="https://datacloser.com" class="nav-logo">Data<span>Closer</span></a><a href="https://app.datacloser.com" class="nav-cta">Essai gratuit</a></nav>
+<section class="hero">
+  <div class="container">
+    <div class="label">Guide IA</div>
+    <h1>Scoring de leads par IA — Comment prioriser vos prospects B2B</h1>
+    <p style="font-size:17px;color:var(--muted);max-width:620px;margin-top:16px">Le lead scoring par IA analyse automatiquement chaque prospect et lui attribue un score de pertinence. Résultat : vous contactez en premier les leads les plus susceptibles de convertir.</p>
+    <div class="hero-meta"><span>📅 Juin 2026</span><span>⏱️ 7 min</span><span>🤖 IA & Lead Scoring</span></div>
+  </div>
+</section>
+<div class="prose">
+  <div class="container">
+    <div class="toc">
+      <div class="toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#definition">Qu'est-ce que le scoring de leads IA ?</a></li>
+        <li><a href="#vs-manuel">Scoring IA vs scoring manuel</a></li>
+        <li><a href="#criteres">Les critères analysés par l'IA</a></li>
+        <li><a href="#echelle">Lire un score (/10)</a></li>
+        <li><a href="#besoins">L'identification des besoins</a></li>
+        <li><a href="#pratique">Utiliser le scoring en pratique</a></li>
+        <li><a href="#datacloser">Le scoring IA dans DataCloser</a></li>
+      </ol>
+    </div>
+
+    <h2 id="definition">1. Qu'est-ce que le scoring de leads IA ?</h2>
+    <p>Le lead scoring par IA est un processus qui analyse automatiquement le profil d'une entreprise prospect et lui attribue un <strong>score de pertinence</strong> selon votre cible. Ce score permet de prioriser vos efforts commerciaux — contacter en premier les leads les plus susceptibles de convertir.</p>
+    <p>Contrairement au scoring traditionnel (basé sur des règles manuelles comme "entreprise de plus de 50 employés = +10 points"), le scoring IA <strong>analyse le contenu réel</strong> du site web de l'entreprise pour comprendre son activité, ses besoins et son adéquation avec votre offre.</p>
+    <div class="info-box"><p>💡 Une étude de Forrester montre que les équipes qui utilisent le lead scoring convertissent en moyenne 3x plus de prospects en clients que celles qui traitent tous les leads de la même façon.</p></div>
+
+    <h2 id="vs-manuel">2. Scoring IA vs scoring manuel</h2>
+    <ul>
+      <li><strong>Scoring manuel</strong> : vous définissez des règles (secteur = X points, taille = Y points) et les appliquez manuellement. Long, subjectif, peu précis.</li>
+      <li><strong>Scoring IA</strong> : l'IA lit le site web de l'entreprise, comprend son activité réelle, détecte ses signaux d'achat et attribue un score automatiquement. Rapide, objectif, précis.</li>
+    </ul>
+    <p>Le scoring IA de DataCloser analyse le contenu textuel du site web en quelques secondes et produit un score /10 avec une explication des 3 besoins principaux détectés.</p>
+
+    <h2 id="criteres">3. Les critères analysés par l'IA</h2>
+    <div class="criteria-grid">
+      <div class="criteria-card"><h3>🎯 Adéquation avec votre ICP</h3><p>L'entreprise correspond-elle au profil client idéal défini par votre secteur et votre zone géographique ?</p><span class="criteria-weight">Poids fort</span></div>
+      <div class="criteria-card"><h3>💼 Maturité digitale</h3><p>Le site web révèle-t-il une entreprise qui investit dans le digital et serait réceptive à de nouveaux outils ?</p><span class="criteria-weight">Poids moyen</span></div>
+      <div class="criteria-card"><h3>📈 Signaux de croissance</h3><p>L'entreprise recrute-t-elle ? Lance-t-elle de nouveaux produits ? Ouvre-t-elle de nouvelles agences ?</p><span class="criteria-weight">Poids fort</span></div>
+      <div class="criteria-card"><h3>🔧 Technologies détectées</h3><p>Quels outils l'entreprise utilise-t-elle déjà ? Sont-ils complémentaires ou concurrents de votre solution ?</p><span class="criteria-weight">Poids moyen</span></div>
+      <div class="criteria-card"><h3>🌐 Présence et crédibilité</h3><p>L'entreprise a-t-elle un site professionnel, des références clients, une présence claire sur son marché ?</p><span class="criteria-weight">Poids faible</span></div>
+      <div class="criteria-card"><h3>📊 Taille estimée</h3><p>Le contenu du site permet d'estimer la taille de l'équipe et donc le budget probable disponible.</p><span class="criteria-weight">Poids moyen</span></div>
+    </div>
+
+    <h2 id="echelle">4. Lire un score /10</h2>
+    <div class="score-visual">
+      <div class="score-title">Échelle de scoring DataCloser</div>
+      <div class="score-row">
+        <div class="score-range" style="color:#00e5b0">8-10/10</div>
+        <div class="score-bar" style="background:linear-gradient(90deg,#00e5b0,#00e5b0);width:90%"></div>
+        <div class="score-label" style="color:#00e5b0">🔥 Lead prioritaire</div>
+        <div class="score-action">Contacter immédiatement</div>
+      </div>
+      <div class="score-row">
+        <div class="score-range" style="color:#f5a623">6-7/10</div>
+        <div class="score-bar" style="background:linear-gradient(90deg,#f5a623,#f5a623);width:65%"></div>
+        <div class="score-label" style="color:#f5a623">⚡ Lead qualifié</div>
+        <div class="score-action">Contacter cette semaine</div>
+      </div>
+      <div class="score-row">
+        <div class="score-range" style="color:#6b7a8d">4-5/10</div>
+        <div class="score-bar" style="background:linear-gradient(90deg,#6b7a8d,#6b7a8d);width:45%"></div>
+        <div class="score-label" style="color:#6b7a8d">⚠️ Lead moyen</div>
+        <div class="score-action">Séquence longue terme</div>
+      </div>
+      <div class="score-row">
+        <div class="score-range" style="color:#ff4444">1-3/10</div>
+        <div class="score-bar" style="background:linear-gradient(90deg,#ff4444,#ff4444);width:25%"></div>
+        <div class="score-label" style="color:#ff4444">❌ Score faible</div>
+        <div class="score-action">Exclure ou archiver</div>
+      </div>
+    </div>
+    <p>DataCloser n'ajoute en campagne Outreach que les leads avec un score ≥ 6/10. Les leads à score faible sont enregistrés dans le CRM mais exclus des envois automatiques.</p>
+
+    <h2 id="besoins">5. L'identification des besoins par l'IA</h2>
+    <p>Au-delà du score, l'IA de DataCloser identifie les <strong>3 besoins principaux</strong> détectés pour chaque lead. Exemples :</p>
+    <div class="example-box">
+      <div class="example-label">Exemple — Agence marketing Lyon, score 8/10</div>
+      <div class="example-row"><span class="example-key">Besoin 1</span><span class="example-val">Acquisition de nouveaux clients B2B</span></div>
+      <div class="example-row"><span class="example-key">Besoin 2</span><span class="example-val">Automatisation des processus commerciaux</span></div>
+      <div class="example-row"><span class="example-key">Besoin 3</span><span class="example-val">Expansion sur de nouveaux marchés géographiques</span></div>
+      <div class="example-row"><span class="example-key">Icebreaker généré</span><span class="example-val">"J'ai vu que vous accompagnez des clients dans le retail — c'est exactement le secteur pour lequel DataCloser génère les meilleurs résultats."</span></div>
+    </div>
+
+    <h2 id="pratique">6. Utiliser le scoring en pratique</h2>
+    <ul>
+      <li><strong>Prioriser votre temps</strong> : commencez toujours par les leads 8-10/10. Ils ont 3-4x plus de chances de convertir que les leads 4-5/10.</li>
+      <li><strong>Adapter le message</strong> : les besoins identifiés par l'IA guident la personnalisation de votre email — mentionnez directement le besoin principal détecté.</li>
+      <li><strong>Segmenter les campagnes</strong> : créez des campagnes séparées pour les leads prioritaires (message direct) et les leads moyens (nurturing long terme).</li>
+      <li><strong>Affiner votre ICP</strong> : si vous observez que les leads d'un secteur spécifique convertissent mieux, concentrez vos scans sur ce secteur.</li>
+    </ul>
+
+    <h2 id="datacloser">7. Le scoring IA dans DataCloser</h2>
+    <p>DataCloser intègre le scoring IA directement dans le pipeline de prospection :</p>
+    <ul>
+      <li>Chaque lead reçoit un score /10 automatiquement à la fin du scan</li>
+      <li>Les 3 besoins principaux sont identifiés et stockés dans le CRM</li>
+      <li>L'icebreaker personnalisé est généré depuis ces besoins</li>
+      <li>Les leads avec score ≥ 6/10 sont proposés pour l'Outreach</li>
+      <li>Les leads avec score < 6/10 sont archivés avec le label "Score faible"</li>
+    </ul>
+    <p>Ce filtrage automatique garantit que vos crédits Outreach sont utilisés uniquement sur les leads à forte valeur.</p>
+
+    <div class="cta-box">
+      <h2>Scannez et scorez vos leads par IA</h2>
+      <p>DataCloser analyse chaque prospect, attribue un score /10 et génère un icebreaker personnalisé automatiquement. 50 crédits offerts à l'inscription.</p>
+      <a href="https://app.datacloser.com" class="btn">Essayer gratuitement</a>
+    </div>
+  </div>
+</div>
+<footer><p>© 2026 DataCloser — <a href="https://datacloser.com">datacloser.com</a> · <a href="https://datacloser.com/faq">FAQ</a></p></footer>
+</body>
+</html>
