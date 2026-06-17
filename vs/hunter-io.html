@@ -1,464 +1,54 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DataCloser vs Hunter.io — Meilleure alternative pour le marché francophone 2026</title>
-  <meta name="description" content="Comparaison complète entre DataCloser et Hunter.io. Scoring IA, icebreakers, prospection francophone. Découvrez pourquoi DataCloser est l'alternative Hunter.io pensée pour la Belgique, la France et la Suisse." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://datacloser.com/vs/hunter-io" />
-
-  <meta property="og:title" content="DataCloser vs Hunter.io — Alternative francophone avec IA" />
-  <meta property="og:description" content="Hunter.io trouve des emails. DataCloser trouve des leads, les score par IA, génère des icebreakers et envoie vos campagnes — tout-en-un, optimisé pour BE, FR, LU, CH." />
-  <meta property="og:url" content="https://datacloser.com/vs/hunter-io" />
-  <meta property="og:type" content="website" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0a0d12; --card: #0d1117; --card2: #111620;
-      --border: #1e2530; --accent: #00e5b0; --blue: #0055ff;
-      --red: #ff4444; --text: #e8edf3; --muted: #6b7a8d;
-      --font: 'Space Grotesk', sans-serif; --mono: 'JetBrains Mono', monospace;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,13,18,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .nav-logo { font-size: 18px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; }
-    .nav-logo span { color: var(--accent); }
-    .nav-cta { background: var(--accent); color: #000; font-weight: 600; font-size: 14px; padding: 8px 18px; border-radius: 6px; }
-    .nav-cta:hover { text-decoration: none; opacity: 0.9; }
-
-    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 80px 0; }
-    section + section { border-top: 1px solid var(--border); }
-    h1 { font-size: clamp(28px, 5vw, 46px); font-weight: 700; line-height: 1.15; }
-    h2 { font-size: clamp(20px, 3vw, 28px); font-weight: 700; }
-    h3 { font-size: 18px; font-weight: 600; }
-
-    .label { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid rgba(0,229,176,0.3); padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; }
-
-    .hero { padding: 90px 0 70px; text-align: center; }
-    .hero h1 { margin-bottom: 20px; }
-    .hero h1 em { color: var(--accent); font-style: normal; }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto 40px; }
-    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent); color: #000; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 8px; display: inline-block; }
-    .btn-primary:hover { text-decoration: none; opacity: 0.9; }
-    .btn-ghost { border: 1px solid var(--border); color: var(--text); font-weight: 500; font-size: 15px; padding: 14px 28px; border-radius: 8px; display: inline-block; }
-    .btn-ghost:hover { text-decoration: none; border-color: var(--accent); }
-
-    /* stat bar */
-    .stat-bar { display: flex; gap: 2px; margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-    .stat-item { flex: 1; background: var(--card); padding: 24px 20px; text-align: center; }
-    .stat-item.highlight { background: var(--card2); }
-    .stat-value { font-size: 28px; font-weight: 700; font-family: var(--mono); color: var(--accent); }
-    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-    .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-top: 40px; }
-    .verdict-col { background: var(--card); padding: 32px 28px; }
-    .verdict-col.winner { background: var(--card2); }
-    .verdict-col-header { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
-    .verdict-col-header .tool-name { font-size: 20px; font-weight: 700; }
-    .badge-winner { background: rgba(0,229,176,0.12); color: var(--accent); font-family: var(--mono); font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.08em; }
-    .verdict-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .verdict-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); }
-    .verdict-list li .icon { flex-shrink: 0; margin-top: 1px; }
-    .check { color: var(--accent); } .cross { color: var(--red); } .warn { color: #f5a623; }
-
-    .comp-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
-    .comp-table thead tr { border-bottom: 2px solid var(--border); }
-    .comp-table th { padding: 14px 16px; text-align: left; font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-    .comp-table th:not(:first-child) { text-align: center; }
-    .comp-table td { padding: 16px 16px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
-    .comp-table td:not(:first-child) { text-align: center; }
-    .comp-table tr:hover td { background: rgba(255,255,255,0.02); }
-    .feature-name { font-weight: 500; color: var(--text); }
-    .feature-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
-    .col-dc { color: var(--accent); font-weight: 600; }
-    .col-hunter { color: var(--muted); }
-    .th-dc { color: var(--accent) !important; }
-
-    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-    .pricing-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
-    .pricing-card.featured { border-color: rgba(0,229,176,0.4); }
-    .pricing-card-header { margin-bottom: 20px; }
-    .tool { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
-    .plan { font-size: 18px; font-weight: 700; }
-    .price-amount { font-size: 36px; font-weight: 700; color: var(--accent); font-family: var(--mono); }
-    .price-period { font-size: 13px; color: var(--muted); margin-left: 4px; }
-    .price-note { font-size: 12px; color: var(--muted); margin-top: 6px; }
-    .pricing-features { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
-    .pricing-features li { font-size: 13px; display: flex; gap: 8px; }
-
-    .info-box { background: rgba(0,85,255,0.06); border: 1px solid rgba(0,85,255,0.2); border-radius: 10px; padding: 24px 28px; margin-top: 40px; }
-    .info-box .info-title { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: #6b9fff; margin-bottom: 10px; }
-    .info-box p { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-    .usecase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
-    .usecase-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
-    .usecase-card h3 { font-size: 15px; margin-bottom: 8px; }
-    .usecase-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-    .tool-badge { display: inline-block; margin-top: 12px; font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 4px; }
-    .badge-dc { background: rgba(0,229,176,0.1); color: var(--accent); }
-    .badge-hunter { background: rgba(107,122,141,0.15); color: var(--muted); }
-
-    .cta-section { text-align: center; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 60px 40px; margin: 80px 0; }
-    .cta-section h2 { margin-bottom: 16px; }
-    .cta-section p { color: var(--muted); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
-
-    .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
-    .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
-    .faq-item h3 { font-size: 16px; margin-bottom: 10px; color: var(--text); }
-    .faq-item p { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-    footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--muted); }
-    footer a { color: var(--muted); }
-
-    @media (max-width: 640px) {
-      .verdict-grid, .pricing-grid, .usecase-grid, .stat-bar { grid-template-columns: 1fr; flex-direction: column; }
-      .stat-bar { flex-direction: column; }
-      .hero { padding: 60px 0 40px; }
-      section { padding: 50px 0; }
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "DataCloser vs Hunter.io — Comparaison complète 2026",
-    "description": "Comparaison entre DataCloser et Hunter.io pour la génération de leads B2B en Belgique, France, Luxembourg et Suisse.",
-    "url": "https://datacloser.com/vs/hunter-io"
-  }
-  </script>
-</head>
+<html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DataCloser vs Hunter.io 2026 — Comparatif pour le marché francophone</title>
+<meta name="description" content="DataCloser vs Hunter.io : comparatif complet 2026. Prix, fonctionnalités, couverture FR/BE, RGPD. Quel outil pour prospecter en Belgique et France ?"/>
+<link rel="canonical" href="https://datacloser.com/vs/hunter-io"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#0a0d12;--card:#0d1117;--border:#1e2530;--accent:#00e5b0;--text:#e8edf3;--muted:#6b7a8d;--font:'Space Grotesk',sans-serif}body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}a{color:var(--accent);text-decoration:none}nav{position:sticky;top:0;z-index:100;background:rgba(10,13,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}.nav-logo{font-size:18px;font-weight:700;color:var(--text)}.nav-logo span{color:var(--accent)}.nav-cta{background:var(--accent);color:#000;font-weight:600;font-size:14px;padding:8px 18px;border-radius:6px}.container{max-width:820px;margin:0 auto;padding:0 24px}.hero{padding:80px 0 56px}.label{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(0,229,176,.3);padding:4px 12px;border-radius:4px;margin-bottom:20px}h1{font-size:clamp(28px,5vw,44px);font-weight:700;line-height:1.1;margin-bottom:16px}.lede{font-size:17px;color:var(--muted);max-width:640px;margin-top:12px}.hero-meta{display:flex;gap:16px;margin-top:20px;font-size:13px;color:var(--muted)}.prose h2{font-size:23px;font-weight:700;margin:52px 0 14px;padding-top:52px;border-top:1px solid var(--border)}.prose h2:first-child{margin-top:0;padding-top:0;border-top:none}.prose h3{font-size:17px;font-weight:600;margin:24px 0 8px}.prose p{color:var(--muted);margin-bottom:14px;font-size:15px;line-height:1.8}.prose strong{color:var(--text)}.prose ul,.prose ol{padding-left:22px;margin-bottom:16px;display:flex;flex-direction:column;gap:7px}.prose li{font-size:15px;color:var(--muted);line-height:1.7}.info-box{background:rgba(0,229,176,.05);border:1px solid rgba(0,229,176,.2);border-radius:10px;padding:20px 26px;margin:24px 0}.info-box p{font-size:14px;color:var(--muted);margin:0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px}.card h3{font-size:14px;font-weight:600;margin-bottom:7px;margin-top:0}.card p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}.tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:4px;margin-top:8px;font-weight:500}.tag-g{background:rgba(0,229,176,.1);color:var(--accent)}.tag-m{background:rgba(245,166,35,.1);color:#f5a623}.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}.cmp-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px}.cmp-card.winner{border-color:var(--accent)}.cmp-name{font-size:16px;font-weight:700;margin-bottom:4px}.cmp-name.dc{color:var(--accent)}.cmp-price{font-size:13px;color:var(--muted);margin-bottom:14px}.cmp-list{list-style:none;display:flex;flex-direction:column;gap:7px;padding:0}.cmp-list li{font-size:13px;color:var(--muted);padding-left:20px;position:relative;line-height:1.6}.cmp-list li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-weight:700}.cmp-list li.no::before{content:'✗';color:#ff6b6b}.faq{display:flex;flex-direction:column;gap:12px;margin:20px 0}.faq details{background:var(--card);border:1px solid var(--border);border-radius:10px}.faq summary{cursor:pointer;padding:18px 22px;font-size:15px;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}.faq summary::after{content:'+';font-size:20px;color:var(--accent)}.faq details[open] summary::after{content:'−'}.faq details p{padding:0 22px 18px;color:var(--muted);font-size:14px;line-height:1.7;margin:0}.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}.stat .n{font-size:28px;font-weight:700;color:var(--accent)}.stat .l{font-size:12px;color:var(--muted);margin-top:4px}.step-list{display:flex;flex-direction:column;gap:0}.step{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--border)}.step:last-child{border-bottom:none}.step-num{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:rgba(0,229,176,.1);border:1px solid rgba(0,229,176,.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--accent)}.step-body h3{font-size:16px;font-weight:600;margin-bottom:6px;margin-top:0}.step-body p{font-size:14px;color:var(--muted);margin:0}.cta-box{background:var(--card);border:1px solid rgba(0,229,176,.35);border-radius:16px;padding:52px 36px;text-align:center;margin:52px 0}.cta-box h2{font-size:24px;font-weight:700;margin-bottom:12px}.cta-box p{color:var(--muted);margin-bottom:30px;font-size:15px;max-width:520px;margin-left:auto;margin-right:auto}.btn{background:var(--accent);color:#000;font-weight:700;font-size:15px;padding:15px 32px;border-radius:9px;display:inline-block}footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-size:13px;color:var(--muted)}@media(max-width:640px){.grid2,.cmp-grid,.stat-grid{grid-template-columns:1fr}.hero{padding:52px 0 32px}.step{flex-direction:column;gap:12px}}</style></head>
 <body>
-
-<nav>
-  <a href="https://datacloser.com" class="nav-logo">Data<span>Closer</span></a>
-  <a href="https://app.datacloser.com" class="nav-cta">Essayer gratuitement</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="label">Comparatif 2026</div>
-    <h1>DataCloser vs <em>Hunter.io</em><br/>Au-delà de la recherche d'emails</h1>
-    <p>Hunter.io trouve des adresses email. DataCloser trouve des entreprises, les qualifie par IA, génère des icebreakers et envoie vos campagnes — sans quitter la plateforme.</p>
-    <div class="hero-btns">
-      <a href="https://app.datacloser.com" class="btn-primary">Essayer DataCloser gratuitement</a>
-      <a href="#comparaison" class="btn-ghost">Voir la comparaison</a>
-    </div>
-
-    <div class="stat-bar">
-      <div class="stat-item highlight">
-        <div class="stat-value">49€</div>
-        <div class="stat-label">DataCloser Starter / mois</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">34€</div>
-        <div class="stat-label">Hunter.io Starter / mois (annuel)</div>
-      </div>
-      <div class="stat-item highlight">
-        <div class="stat-value">+5</div>
-        <div class="stat-label">Features incluses non disponibles sur Hunter</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">0</div>
-        <div class="stat-label">Scoring IA chez Hunter.io</div>
-      </div>
-    </div>
+<nav><a href="https://datacloser.com" class="nav-logo">Data<span>Closer</span></a><a href="https://app.datacloser.com" class="nav-cta">Essai gratuit</a></nav>
+<section class="hero"><div class="container">
+  <div class="label">Comparatif 2026</div>
+  <h1>DataCloser vs Hunter.io</h1>
+  <p class="lede">Comparatif objectif 2026 pour les équipes commerciales en Belgique, France, Luxembourg et Suisse. Fonctionnalités, prix, couverture locale et conformité RGPD.</p>
+  <div class="hero-meta"><span>📅 Juin 2026</span><span>⏱️ 6 min</span><span>🆚 Analyse détaillée</span></div>
+</div></section>
+<div class="prose"><div class="container">
+<h2>Comparaison directe</h2>
+<div class="cmp-grid">
+  <div class="cmp-card winner">
+    <div class="cmp-name dc">DataCloser</div>
+    <div class="cmp-price">À partir de 49€/mois</div>
+    <ul class="cmp-list">
+      <li>Scraping web temps réel (pas de base statique)</li><li>Couverture native BE/FR/LU/CH</li><li>Scoring IA /10 par lead</li><li>Icebreakers IA personnalisés inclus</li><li>Outreach email intégré + relance J+4</li><li>Conformité RGPD native</li>
+      <li class="no">Pas de recherche par email domaine isolé</li>
+    </ul>
   </div>
-</section>
-
-<!-- VERDICT -->
-<section id="comparaison">
-  <div class="container">
-    <div class="label">Verdict rapide</div>
-    <h2>Ce que chaque outil fait bien</h2>
-    <div class="verdict-grid">
-      <div class="verdict-col winner">
-        <div class="verdict-col-header">
-          <div class="tool-name">DataCloser</div>
-          <span class="badge-winner">Recommandé</span>
-        </div>
-        <ul class="verdict-list">
-          <li><span class="icon check">✅</span> Découverte d'entreprises depuis zéro — aucune liste de départ requise</li>
-          <li><span class="icon check">✅</span> Score IA (/10) + analyse des besoins de chaque lead</li>
-          <li><span class="icon check">✅</span> Icebreakers personnalisés générés automatiquement</li>
-          <li><span class="icon check">✅</span> Module Outreach email intégré natif</li>
-          <li><span class="icon check">✅</span> Détection automatique de la langue du prospect</li>
-          <li><span class="icon check">✅</span> Données fraîches en temps réel — scraping live du site web</li>
-          <li><span class="icon check">✅</span> Optimisé Belgique, France, Luxembourg, Suisse</li>
-        </ul>
-      </div>
-      <div class="verdict-col">
-        <div class="verdict-col-header">
-          <div class="tool-name">Hunter.io</div>
-        </div>
-        <ul class="verdict-list">
-          <li><span class="icon check">✅</span> Recherche d'email par domaine efficace</li>
-          <li><span class="icon check">✅</span> Prix d'entrée compétitif ($34/mois annuel)</li>
-          <li><span class="icon check">✅</span> Vérification email fiable</li>
-          <li><span class="icon warn">⚠️</span> Données indexées — peut être obsolète</li>
-          <li><span class="icon cross">❌</span> Aucun scoring IA des leads</li>
-          <li><span class="icon cross">❌</span> Pas d'icebreakers ni de personnalisation</li>
-          <li><span class="icon cross">❌</span> Pas de numéros de téléphone sur aucun plan</li>
-          <li><span class="icon cross">❌</span> Couverture limitée des petites entreprises</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TABLE -->
-<section>
-  <div class="container">
-    <div class="label">Fonctionnalités</div>
-    <h2>Comparaison détaillée</h2>
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th>Fonctionnalité</th>
-          <th class="th-dc">DataCloser</th>
-          <th>Hunter.io</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="feature-name">Mode de découverte</div><div class="feature-desc">Comment les leads sont trouvés</div></td>
-          <td class="col-dc">Scraping live Google Search & Maps</td>
-          <td class="col-hunter">Index web statique (base de données)</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Fraîcheur des données</div><div class="feature-desc">Actualité des informations</div></td>
-          <td class="col-dc">✅ Temps réel — scrapé au moment du scan</td>
-          <td class="col-hunter">⚠️ Indexé — peut avoir plusieurs mois de décalage</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Vérification email</div></td>
-          <td class="col-dc">✅ Nominatif / Catch-all / Introuvable</td>
-          <td class="col-hunter">✅ Oui (crédits séparés)</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Numéro de téléphone</div></td>
-          <td class="col-dc">✅ Extrait du site web si disponible</td>
-          <td class="col-hunter">❌ Aucun plan ne l'inclut</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Score IA des leads</div><div class="feature-desc">Pertinence et priorité</div></td>
-          <td class="col-dc">✅ Score /10 + besoins identifiés</td>
-          <td class="col-hunter">❌ Non disponible</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Icebreakers personnalisés</div><div class="feature-desc">Amorce de contact IA</div></td>
-          <td class="col-dc">✅ Générés automatiquement par IA</td>
-          <td class="col-hunter">❌ Non disponible</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Outreach email intégré</div></td>
-          <td class="col-dc">✅ Module natif complet</td>
-          <td class="col-hunter">⚠️ Séquences basiques incluses</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Marchés francophones</div><div class="feature-desc">BE, FR, LU, CH</div></td>
-          <td class="col-dc">✅ Optimisé nativement</td>
-          <td class="col-hunter">⚠️ Couverture partielle PME</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Détection de langue</div></td>
-          <td class="col-dc">✅ Auto depuis le site prospect</td>
-          <td class="col-hunter">❌ Non disponible</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Petites entreprises</div><div class="feature-desc">PME sans forte présence web</div></td>
-          <td class="col-dc">✅ Google Maps couvre les PME locales</td>
-          <td class="col-hunter">⚠️ Couverture limitée (signalé sur G2)</td>
-        </tr>
-        <tr>
-          <td><div class="feature-name">Anti-doublon global</div></td>
-          <td class="col-dc">✅ Entre tous vos fichiers CRM</td>
-          <td class="col-hunter">⚠️ Manuel</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section>
-  <div class="container">
-    <div class="label">Tarifs</div>
-    <h2>Hunter.io est moins cher — mais que payez-vous vraiment ?</h2>
-
-    <div class="pricing-grid">
-      <div class="pricing-card featured">
-        <div class="pricing-card-header">
-          <div class="tool">DataCloser</div>
-          <div class="plan">Plan Starter</div>
-        </div>
-        <div>
-          <span class="price-amount">49€</span>
-          <span class="price-period">/mois</span>
-        </div>
-        <div class="price-note">500 crédits • Sans engagement annuel obligatoire</div>
-        <ul class="pricing-features">
-          <li><span class="check">✅</span> Scraping web en temps réel</li>
-          <li><span class="check">✅</span> Scoring IA + analyse des besoins</li>
-          <li><span class="check">✅</span> Icebreakers personnalisés inclus</li>
-          <li><span class="check">✅</span> Module Outreach natif</li>
-          <li><span class="check">✅</span> Numéros de téléphone extraits</li>
-          <li><span class="check">✅</span> 50 crédits offerts à l'inscription</li>
-        </ul>
-      </div>
-      <div class="pricing-card">
-        <div class="pricing-card-header">
-          <div class="tool">Hunter.io</div>
-          <div class="plan">Plan Starter</div>
-        </div>
-        <div>
-          <span class="price-amount" style="color: var(--muted)">34$</span>
-          <span class="price-period">/mois</span>
-        </div>
-        <div class="price-note">Facturation annuelle • $49/mois sans engagement</div>
-        <ul class="pricing-features">
-          <li><span class="check">✅</span> 2 000 crédits email/mois</li>
-          <li><span class="check">✅</span> Vérification email incluse</li>
-          <li><span class="warn">⚠️</span> Séquences email basiques</li>
-          <li><span class="cross">❌</span> Pas de scoring IA</li>
-          <li><span class="cross">❌</span> Pas d'icebreakers</li>
-          <li><span class="cross">❌</span> Aucun numéro de téléphone</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="info-box">
-      <div class="info-title">ℹ️ Le vrai coût de Hunter.io</div>
-      <p>
-        Hunter.io semble moins cher à 34$/mois — mais ce montant ne couvre que la recherche et la vérification d'emails. Pour obtenir du scoring, des icebreakers ou un vrai module Outreach, vous devez ajouter des outils tiers (Clay, Lemlist, etc.) qui portent la facture réelle à 100-200$/mois. DataCloser inclut tout dans un seul abonnement.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- LIMITES HUNTER -->
-<section>
-  <div class="container">
-    <div class="label">Limites à connaître</div>
-    <h2>Ce que Hunter.io ne fait pas bien</h2>
-
-    <div class="usecase-grid">
-      <div class="usecase-card">
-        <h3>Données potentiellement obsolètes</h3>
-        <p>Hunter indexe les sites web de façon périodique. Si une personne a quitté l'entreprise depuis 3 mois, son email peut toujours apparaître dans les résultats. Des utilisateurs G2 signalent des taux de données obsolètes significatifs sur certaines cibles.</p>
-      </div>
-      <div class="usecase-card">
-        <h3>Couverture limitée des PME</h3>
-        <p>Hunter dépend de la présence web des entreprises. Les PME belges ou françaises avec un site minimaliste seront sous-représentées ou absentes. DataCloser utilise Google Maps pour couvrir même les entreprises avec peu de présence digitale.</p>
-      </div>
-      <div class="usecase-card">
-        <h3>Aucun téléphone sur aucun plan</h3>
-        <p>Hunter.io ne fournit pas de numéros de téléphone, même sur les plans à 299$/mois. Si vous avez besoin de coordonnées téléphoniques, vous devrez payer un outil supplémentaire comme Kaspr ou Lusha.</p>
-      </div>
-      <div class="usecase-card">
-        <h3>Vous partez d'une liste de domaines</h3>
-        <p>Hunter fonctionne bien si vous avez déjà une liste d'entreprises et voulez trouver leurs contacts. Il ne vous aide pas à découvrir quelles entreprises cibler dans un secteur ou une région donnée — c'est le travail de DataCloser.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- USE CASES -->
-<section>
-  <div class="container">
-    <div class="label">Quand choisir quoi</div>
-    <h2>Le bon outil selon votre situation</h2>
-    <div class="usecase-grid">
-      <div class="usecase-card">
-        <h3>Vous avez une liste de domaines et voulez les emails</h3>
-        <p>Vous connaissez déjà les entreprises à cibler et vous avez juste besoin de trouver les adresses email associées à leurs domaines.</p>
-        <span class="tool-badge badge-hunter">→ Hunter.io peut convenir</span>
-      </div>
-      <div class="usecase-card">
-        <h3>Vous cherchez des PME dans un secteur / une ville</h3>
-        <p>Vous partez de zéro et voulez trouver 50 cabinets comptables à Lyon ou 100 agences digitales en Belgique sans liste de départ.</p>
-        <span class="tool-badge badge-dc">→ DataCloser</span>
-      </div>
-      <div class="usecase-card">
-        <h3>Vous voulez prioriser vos leads automatiquement</h3>
-        <p>Vous ne voulez pas lire 200 fiches — vous voulez que l'IA vous dise quels leads contacter en premier et pourquoi.</p>
-        <span class="tool-badge badge-dc">→ DataCloser</span>
-      </div>
-      <div class="usecase-card">
-        <h3>Vous ciblez des marchés francophones</h3>
-        <p>Belgique, France, Luxembourg, Suisse — vous avez besoin d'un outil qui maîtrise ces marchés et génère des icebreakers en français ou en néerlandais.</p>
-        <span class="tool-badge badge-dc">→ DataCloser</span>
-      </div>
-      <div class="usecase-card">
-        <h3>Vous voulez prospecter ET envoyer les emails depuis un seul outil</h3>
-        <p>Trouver les leads, les scorer, personnaliser les messages et envoyer les campagnes sans jongler entre plusieurs abonnements.</p>
-        <span class="tool-badge badge-dc">→ DataCloser</span>
-      </div>
-      <div class="usecase-card">
-        <h3>Vous avez un budget très serré</h3>
-        <p>Vous avez besoin uniquement de vérifier des emails sur une liste existante, sans scoring ni outreach. Hunter.io à 34$/mois annuel reste l'option la plus économique pour ce cas précis.</p>
-        <span class="tool-badge badge-hunter">→ Hunter.io peut convenir</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="container">
-    <div class="label">Questions fréquentes</div>
-    <h2>DataCloser vs Hunter.io — FAQ</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3>DataCloser est-il une alternative directe à Hunter.io ?</h3>
-        <p>Partiellement. Hunter.io est principalement un outil de recherche et vérification d'emails à partir d'une liste de domaines connue. DataCloser va plus loin : il identifie les entreprises à cibler depuis zéro (via Google Search et Maps), extrait les contacts, les score par IA et vous permet d'envoyer vos campagnes email directement. Si vous cherchez uniquement à enrichir une liste existante, Hunter peut suffire. Si vous voulez construire votre pipeline from scratch, DataCloser est l'outil adapté.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Hunter.io couvre-t-il bien le marché belge et français ?</h3>
-        <p>Hunter fonctionne mieux sur les grandes entreprises avec une présence web établie. Les PME belges et françaises avec un site simple ou peu de contenu indexé seront souvent absentes de sa base de données. DataCloser utilise Google Maps en complément de Google Search, ce qui permet de trouver des entreprises locales même avec une faible présence digitale.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Hunter.io propose-t-il un plan gratuit ?</h3>
-        <p>Oui, Hunter.io offre 50 crédits gratuits par mois. DataCloser offre 50 crédits à l'inscription sans engagement, ce qui permet de réaliser un scan complet et de voir les résultats avant de souscrire.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Peut-on utiliser Hunter.io et DataCloser ensemble ?</h3>
-        <p>Oui. Certaines équipes utilisent DataCloser pour découvrir et scorer les leads, puis Hunter.io pour enrichir des domaines spécifiques qu'ils n'ont pas trouvés via le scraping. Les deux outils sont complémentaires dans ce workflow, mais DataCloser couvre la majorité des cas d'usage à lui seul.</p>
-      </div>
-      <div class="faq-item">
-        <h3>DataCloser génère-t-il des icebreakers en néerlandais ?</h3>
-        <p>Oui. DataCloser détecte automatiquement la langue du site web du prospect (français, néerlandais, anglais, etc.) et génère l'icebreaker dans la langue correspondante. Particulièrement utile pour la prospection en Belgique ou aux Pays-Bas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="container">
-  <div class="cta-section">
-    <div class="label">Prêt à tester ?</div>
-    <h2>De la découverte au premier email<br/>en moins de 15 minutes</h2>
-    <p>50 crédits offerts à l'inscription. Aucune carte bancaire requise. Aucune extension à installer.</p>
-    <a href="https://app.datacloser.com" class="btn-primary">Créer un compte gratuit</a>
+  <div class="cmp-card">
+    <div class="cmp-name">Hunter.io</div>
+    <div class="cmp-price">À partir de 34$/mois</div>
+    <ul class="cmp-list">
+      <li>Email finder par nom de domaine robuste</li><li>Vérification email en masse</li><li>API disponible</li><li>Base de données indexée large</li>
+      <li class="no">Base de données statique (données potentiellement obsolètes)</li><li class="no">Aucun scoring IA ni icebreaker</li><li class="no">Pas d'Outreach intégré</li><li class="no">Couverture PME francophones limitée</li>
+    </ul>
   </div>
 </div>
-
-<footer>
-  <p>© 2026 DataCloser — <a href="https://datacloser.com">datacloser.com</a> · <a href="https://datacloser.com/mentions-legales">Mentions légales</a> · <a href="https://datacloser.com/politique-de-confidentialite">Confidentialité</a></p>
-  <p style="margin-top: 8px;">DataCloser n'est pas affilié à Hunter.io. Les informations tarifaires Hunter.io sont issues de sources publiques et peuvent évoluer.</p>
-</footer>
-
-</body>
-</html>
+<h2>Quel outil choisir ?</h2>
+<div class="grid2">
+  <div class="card"><h3>✅ Choisissez DataCloser si...</h3><p>Vous voulez trouver des prospects B2B en partant d'un secteur ou d'une ville — et pas d'une liste de domaines existante. Vous voulez le pipeline complet en un seul outil.</p><span class="tag tag-g">49€/mois · Tout-en-un francophone</span></div>
+  <div class="card"><h3>✅ Choisissez Hunter.io si...</h3><p>Vous avez déjà une liste d'entreprises et voulez uniquement trouver les emails associés à leurs domaines. Vous cherchez une API email robuste.</p></div>
+</div>
+<div class="info-box"><p>💡 <strong>Verdict :</strong> DataCloser est recommandé si vous partez de zéro et prospectez les marchés BE/FR/LU/CH · <strong>Hunter.io :</strong> Hunter.io reste pertinent pour l'enrichissement de masse depuis une liste de domaines connue</p></div>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+  <details><summary>Hunter.io est-il conforme RGPD ?</summary><p>Hunter.io collecte des emails publics depuis le web — a priori RGPD-compatible. DataCloser fait de même en ajoutant l'enrichissement via Dropcontact (certifié RGPD) pour les emails non trouvés directement.</p></details><details><summary>Hunter.io fournit-il des icebreakers ?</summary><p>Non. Hunter.io fournit uniquement les emails. DataCloser génère automatiquement un icebreaker personnalisé depuis le site web de chaque prospect.</p></details><details><summary>Peut-on utiliser Hunter.io avec DataCloser ?</summary><p>Oui, ils sont complémentaires si vous avez une liste de domaines existante. Mais pour trouver de nouveaux prospects depuis zéro, DataCloser couvre les deux étapes en un seul scan.</p></details>
+</div>
+<div class="cta-box">
+  <h2>Essayez DataCloser gratuitement</h2>
+  <p>50 crédits offerts à l'inscription. Scannez votre premier marché cible en 10 minutes — sans carte bancaire.</p>
+  <a href="https://app.datacloser.com" class="btn">Commencer maintenant →</a>
+</div>
+</div></div>
+<footer><p>© 2026 DataCloser · <a href="/vs/">Tous les comparatifs</a> · <a href="/faq">FAQ</a></p></footer>
+</body></html>
