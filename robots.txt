@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://datacloser.com/sitemap.xml
+
+# Block admin and app paths
+Disallow: /api/
+Disallow: /.well-known/
