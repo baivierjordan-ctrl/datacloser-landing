@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DataCloser — Génération de leads B2B par IA | Belgique, France, Luxembourg, Suisse</title>
-<meta name="description" content="Le moteur d'acquisition B2B qui scanne le web en temps réel : décideurs identifiés, emails nominatifs vérifiés, icebreakers personnalisés. Essai gratuit, crédits offerts.">
+<meta name="description" content="DataCloser : moteur B2B qui scanne Google en temps réel, score les leads selon votre ICP, enrichit les emails nominatifs et envoie des séquences cold email jusqu'à J+14. Essai gratuit.">
 <meta name="keywords" content="génération de leads B2B, prospection automatique, leads qualifiés Belgique, email nominatif décideur, outil prospection francophone, scraping leads PME">
 <meta property="og:title" content="DataCloser — La data qui s'échappe, on la close.">
 <meta property="og:description" content="Moteur de génération de leads B2B par IA pour le marché francophone. Décideurs, emails vérifiés et icebreakers livrés prêts à closer.">
@@ -283,7 +283,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
   "mainEntity": [
     {"@type":"Question","name":"D'où viennent les données ?","acceptedAnswer":{"@type":"Answer","text":"DataCloser interroge Google Search et Google Maps en temps réel au moment de votre recherche, puis analyse le site web de chaque entreprise trouvée. Aucune base revendue, aucune donnée périmée : chaque lead porte sa date de fraîcheur."}},
     {"@type":"Question","name":"Est-ce conforme au RGPD ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les données collectées sont publiques et professionnelles (B2B). L'enrichissement des emails s'appuie sur un fournisseur français certifié RGPD, et chaque export mentionne la provenance et la date de collecte."}},
-    {"@type":"Question","name":"Comment fonctionne l'Outreach IA ?","acceptedAnswer":{"@type":"Answer","text":"Connectez votre boîte mail via SMTP dans les paramètres Outreach. Sélectionnez un fichier de leads, rédigez votre template, et lancez. L'IA construit un email personnalisé pour chaque lead en intégrant son icebreaker et envoie depuis votre propre adresse avec un délai aléatoire anti-spam."}},
+    {"@type":"Question","name":"Comment fonctionne l'Outreach IA ?","acceptedAnswer":{"@type":"Answer","text":"Connectez votre boîte mail via SMTP dans les paramètres Outreach. Sélectionnez un fichier de leads, rédigez votre séquence (jusqu'à 4 emails : J+0, J+4, J+9, J+14), et lancez. L'IA construit un email personnalisé pour chaque lead et envoie depuis votre propre adresse avec délai aléatoire anti-spam. Les relances sont gratuites."}},
     {"@type":"Question","name":"Combien de leads vais-je obtenir avec mes crédits ?","acceptedAnswer":{"@type":"Answer","text":"Un crédit correspond à une requête d'analyse du moteur. Chaque requête récolte en moyenne 10 à 15 leads selon le secteur et la zone — analysés, scorés sur 10, et enrichis automatiquement pour ceux qui atteignent 6/10."}},
     {"@type":"Question","name":"Quels pays sont couverts ?","acceptedAnswer":{"@type":"Answer","text":"La Belgique, la France, le Luxembourg et la Suisse en couverture native, ville par ville. Un mode de saisie manuelle permet aussi de cibler n'importe quel autre pays."}},
     {"@type":"Question","name":"Puis-je connecter DataCloser à mon CRM ?","acceptedAnswer":{"@type":"Answer","text":"Oui. L'onglet Exports & CRM permet de pousser vos leads vers n'importe quel CRM ou outil d'automatisation via webhook (Make, Zapier, n8n…), en plus de l'export CSV classique."}},
@@ -303,7 +303,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     {"@type":"HowToStep","position":2,"name":"Lancer le scan Google","text":"DataCloser interroge Google Search et Google Maps en temps réel pour trouver les entreprises correspondantes."},
     {"@type":"HowToStep","position":3,"name":"Scoring IA /10","text":"Chaque entreprise est analysée et scorée sur 10 par l'IA : besoins détectés, décideur identifié, icebreaker rédigé."},
     {"@type":"HowToStep","position":4,"name":"Récupérer l'email nominatif vérifié","text":"L'email du dirigeant est enrichi via Dropcontact (certifié RGPD) et vérifié avant export."},
-    {"@type":"HowToStep","position":5,"name":"Lancer l'Outreach","text":"Envoyez votre campagne cold email depuis votre propre boîte SMTP avec relance J+4 automatique."}
+    {"@type":"HowToStep","position":5,"name":"Lancer l'Outreach","text":"Envoyez votre campagne cold email depuis votre propre boîte SMTP avec séquence automatique jusqu'à J+14 (J+4, J+9, J+14 configurables)."}
   ]
 }
 </script>
@@ -360,9 +360,14 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 <section id="pipeline">
   <div class="wrap">
     <div class="sec-eyebrow">Le moteur</div>
-    <h2>Comment générer des leads B2B en 4 étapes avec DataCloser</h2>
+    <h2>Comment générer des leads B2B en 5 étapes avec DataCloser</h2>
     <p class="sec-sub">Chaque crédit lance une analyse. La Cascade Premium filtre automatiquement : seuls les prospects qui atteignent 6/10 déclenchent l'enrichissement complet.</p>
     <div class="pipe">
+      <div class="step">
+        <div class="tag">ICP</div>
+        <h3>🏢 Profil ICP</h3>
+        <p>Décrivez votre entreprise et vos clients idéaux. L'IA génère automatiquement les mots-clés et villes optimaux pour votre marché cible.</p>
+      </div>
       <div class="step">
         <div class="tag">SCAN</div>
         <h3>🔍 Scan en temps réel</h3>
@@ -371,7 +376,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
       <div class="step">
         <div class="tag">SCORE</div>
         <h3>🧠 Cerveau IA</h3>
-        <p>Chaque entreprise est analysée et notée sur 10 : ses 3 premiers besoins en services détectés, signaux de recrutement actifs, technologies utilisées.</p>
+        <p>Chaque lead est scoré /10 selon votre ICP spécifiquement — besoins détectés, signaux recrutement, technologies. Score de match ICP en %.</p>
       </div>
       <div class="step">
         <div class="tag">ENRICH</div>
@@ -462,9 +467,9 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
         <p>L'IA détecte la langue du lead depuis son site web et rédige l'icebreaker et l'email dans sa langue — français, anglais, néerlandais, allemand…</p>
       </div>
       <div class="outreach-card">
-        <div class="label teal">Relance incluse</div>
-        <h4>Relance J+4 offerte 🎁</h4>
-        <p>Un email de relance automatique 4 jours après le premier contact, rédigé par l'IA. <strong>Sans crédit supplémentaire.</strong></p>
+        <div class="label teal">Séquences incluses</div>
+        <h4>Séquences jusqu'à J+14 🎁</h4>
+        <p>Configurez jusqu'à 4 emails automatiques : J+0 (initial), J+4 (relance), J+9 (valeur ajoutée), J+14 (breakup). <strong>Sans crédit supplémentaire.</strong></p>
       </div>
       <div class="outreach-card">
         <div class="label blue">Anti-spam</div>
@@ -518,6 +523,47 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
       <div class="m-card">
         <h3>🛡️ Filtrage strict</h3>
         <p>Le Cerveau IA rejette automatiquement annuaires, faux positifs et entreprises hors cible. Vous ne payez pas pour du bruit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ NOUVELLES FONCTIONNALITÉS ════════ -->
+<section style="padding:80px 0;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-eyebrow">Plateforme complète</div>
+    <h2>La seule solution de prospection B2B native pour les PME francophones</h2>
+    <p class="sec-sub">Bien plus qu'un générateur de leads — un vrai centre de commandement commercial.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px">
+      <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
+        <div style="font-size:24px;margin-bottom:12px">🏢</div>
+        <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Profil ICP intelligent</h4>
+        <p style="font-size:.85rem;color:var(--muted)">Décrivez votre entreprise une fois. L'IA adapte le scoring et les icebreakers à votre activité spécifique — pas une approche générique.</p>
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
+        <div style="font-size:24px;margin-bottom:12px">🤖</div>
+        <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Recherche intelligente ICP</h4>
+        <p style="font-size:.85rem;color:var(--muted)">L'IA génère automatiquement vos mots-clés et villes cibles depuis votre profil. Plus besoin de chercher — DataCloser sait qui vous cherchez.</p>
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
+        <div style="font-size:24px;margin-bottom:12px">📊</div>
+        <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Analytics & Dashboard</h4>
+        <p style="font-size:.85rem;color:var(--muted)">Suivez vos leads générés, emails envoyés, taux nominatifs et crédits consommés. Graphe d'évolution par chasse inclus.</p>
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
+        <div style="font-size:24px;margin-bottom:12px">🔗</div>
+        <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Webhook CRM natif</h4>
+        <p style="font-size:.85rem;color:var(--muted)">Connectez Make, Zapier, n8n, HubSpot ou Pipedrive en 30 secondes. Chaque nouveau lead est poussé automatiquement dans votre CRM.</p>
+      </div>
+      <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
+        <div style="font-size:24px;margin-bottom:12px">🔁</div>
+        <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Replay de chasse</h4>
+        <p style="font-size:.85rem;color:var(--muted)">Relancez n'importe quelle chasse passée en 1 clic avec les mêmes paramètres. Vos meilleures recherches sont toujours disponibles.</p>
+      </div>
+      <div style="background:var(--panel);border:1px solid rgba(0,229,176,.3);border-radius:12px;padding:24px">
+        <div style="font-size:24px;margin-bottom:12px">🔗</div>
+        <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--teal)">Link Building Engine</h4>
+        <p style="font-size:.85rem;color:var(--muted)">Trouvez des sites partenaires, générez des emails de prospection IA et des articles invités de 1 500 mots. Boostez votre SEO en parallèle.</p>
       </div>
     </div>
   </div>
@@ -828,6 +874,7 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
 </div>
 </body>
 </html>
+
 
 
 
