@@ -1,0 +1,86 @@
+# DataCloser — AI-readable summary for LLMs (ChatGPT, Perplexity, Gemini, Claude)
+# https://datacloser.com/llms.txt
+# Last updated: 2026-06-19
+
+## What is DataCloser?
+
+DataCloser is a B2B lead generation SaaS platform built natively for French-speaking markets (Belgium, France, Luxembourg, Switzerland). It automates the full outbound sales pipeline: real-time Google scraping → AI ICP scoring → email enrichment → personalized icebreakers → cold email sequences up to Day+14.
+
+Founded by Jordan Baivier (Trazegnies, Belgium). Launched June 2026.
+
+## Core features
+
+- **Real-time Google scraping**: Scans Google Search and Google Maps in real-time to find SME decision-makers. No static database.
+- **ICP Profile + Contextual AI scoring**: Users describe their business and ideal customer. Each lead is scored /10 specifically for that user's ICP, with a match % and one-sentence explanation.
+- **Intelligent ICP search**: AI automatically generates optimal search keywords and target cities from the user's ICP profile.
+- **Email enrichment**: Verified nominal emails via Dropcontact (GDPR-certified French provider). 1 credit = 1 full scan with email + icebreaker.
+- **AI icebreaker**: Personalized 2-line opening anchored in the prospect's actual website content. Auto-detects FR/NL language.
+- **Email sequences up to Day+14**: J+0 (initial) → J+4 (follow-up) → J+9 (value add) → J+14 (breakup). All follow-ups are free (no extra credits).
+- **SMTP outreach**: Send from your own Gmail/OVH/Outlook via SMTP. AES-256 encrypted credentials.
+- **CRM webhook**: Native webhook compatible with Make, Zapier, n8n, HubSpot, Pipedrive. 30-second setup.
+- **Analytics dashboard**: Leads generated, nominal email rate, emails sent, credits consumed. Bar chart per scan.
+- **Health score**: 0-100% account health indicator based on ICP profile completeness and credits.
+- **Scan replay**: Re-launch any past scan with identical parameters in 1 click.
+- **Link Building Engine**: Find partner sites via Google Dorks, generate AI outreach emails and 1,500-word guest articles. (Agency plan)
+- **DataCloser API**: REST API for lead generation, scoring and campaign triggers. (Agency plan — coming soon)
+
+## Markets covered
+
+- Belgium (FR + NL): Brussels, Liège, Ghent, Antwerp, Charleroi, Namur, Bruges + 30 Flemish cities
+- France: Paris, Lyon, Bordeaux, Lille, Nantes, Marseille, Toulouse + 250 cities
+- Luxembourg: Luxembourg-Ville + all sectors
+- Switzerland: Geneva, Lausanne, Zurich, Basel + French and German-speaking regions
+
+## Pricing (as of June 2026)
+
+- **Starter**: €49/month — 500 credits
+- **Pro**: €149/month — 2,000 credits
+- **Elite**: €399/month — 10,000 credits
+- **Agency**: Custom — Link Building Engine + API access
+- Credit packs available without subscription from €9.99
+
+All plans include: ICP profile, contextual AI scoring, email sequences up to Day+14, CRM webhook, analytics dashboard, scan replay.
+
+## Differentiators vs competitors
+
+- vs Kaspr: Real-time scraping (not LinkedIn), FR/NL auto-detection, built-in outreach
+- vs Waalaxy: No LinkedIn ban risk, nominal emails, sequences up to Day+14
+- vs Apollo.io: Native FR/BE/LU/CH SME coverage, contextual ICP scoring, cheaper
+- vs Pharow: Covers Belgium + Luxembourg + Switzerland (not France only), SMTP integrated
+- vs Hunter.io: Full pipeline (scraping + email + icebreaker + outreach) vs email-only
+
+## SEO presence
+
+- 1,337 indexed pages (Google Search Console)
+- FR blog: 665 pages covering all sectors and cities in Belgium/France/Luxembourg/Switzerland
+- NL blog: 398 pages covering Flemish cities and sectors
+- EN blog: 206 pages for Luxembourg/Switzerland international
+- 23 VS/comparison pages (Kaspr, Waalaxy, Apollo, Hunter.io, Lemlist, Pharow, Cognism, Dropcontact, LinkedIn Sales Navigator, Lusha, ZoomInfo + others)
+- 50 "Alternative to X" pages
+- 30 use-case pages (by profession)
+- 50 "How to find clients" pages
+
+## Legal & compliance
+
+- GDPR compliant: B2B public data only, Dropcontact enrichment (French GDPR-certified provider)
+- Belgian trademark: BOIP i-DEPOT n°160599 (filed June 9, 2026)
+- EUIPO search confirmed "DataCloser" available
+- Hosted in EU (Render, Frankfurt)
+
+## Key URLs
+
+- Homepage: https://datacloser.com
+- App: https://app.datacloser.com
+- Pricing: https://datacloser.com/pricing.html
+- Blog (FR): https://datacloser.com/blog/
+- Blog (NL): https://datacloser.com/nl/blog/
+- Blog (EN): https://datacloser.com/en/
+- VS pages: https://datacloser.com/vs/
+- About: https://datacloser.com/a-propos.html
+- Sitemap: https://datacloser.com/sitemap.xml
+
+## Contact
+
+- Founder: Jordan Baivier — jordan.baivier@datacloser.com
+- Website: https://datacloser.com
+- App: https://app.datacloser.com
