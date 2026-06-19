@@ -286,7 +286,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     {"@type":"Question","name":"Comment fonctionne l'Outreach IA ?","acceptedAnswer":{"@type":"Answer","text":"Connectez votre boîte mail via SMTP dans les paramètres Outreach. Sélectionnez un fichier de leads, rédigez votre séquence (jusqu'à 4 emails : J+0, J+4, J+9, J+14), et lancez. L'IA construit un email personnalisé pour chaque lead et envoie depuis votre propre adresse avec délai aléatoire anti-spam. Les relances sont gratuites."}},
     {"@type":"Question","name":"Combien de leads vais-je obtenir avec mes crédits ?","acceptedAnswer":{"@type":"Answer","text":"Un crédit correspond à une requête d'analyse du moteur. Chaque requête récolte en moyenne 10 à 15 leads selon le secteur et la zone — analysés, scorés sur 10, et enrichis automatiquement pour ceux qui atteignent 6/10."}},
     {"@type":"Question","name":"Quels pays sont couverts ?","acceptedAnswer":{"@type":"Answer","text":"La Belgique, la France, le Luxembourg et la Suisse en couverture native, ville par ville. Un mode de saisie manuelle permet aussi de cibler n'importe quel autre pays."}},
-    {"@type":"Question","name":"Puis-je connecter DataCloser à mon CRM ?","acceptedAnswer":{"@type":"Answer","text":"Oui. L'onglet Exports & CRM permet de pousser vos leads vers n'importe quel CRM ou outil d'automatisation via webhook (Make, Zapier, n8n…), en plus de l'export CSV classique."}},
+    {"@type":"Question","name":"Puis-je connecter DataCloser à mon CRM ?","acceptedAnswer":{"@type":"Answer","text":"Oui. L'onglet Exports & CRM permet de pousser vos leads vers n'importe quel CRM ou outil d'automatisation via webhook (Make, Zapier, n8n…), en plus de l'export CSV classique. Une API REST DataCloser est également disponible pour les clients Agency."}},
     {"@type":"Question","name":"Y a-t-il un engagement ?","acceptedAnswer":{"@type":"Answer","text":"Aucun. Les abonnements sont mensuels et résiliables à tout moment, et des packs de crédits ponctuels sans abonnement sont disponibles dès 9,99 €."}}
   ]
 }
@@ -560,10 +560,17 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
         <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Replay de chasse</h4>
         <p style="font-size:.85rem;color:var(--muted)">Relancez n'importe quelle chasse passée en 1 clic avec les mêmes paramètres. Vos meilleures recherches sont toujours disponibles.</p>
       </div>
-      <div style="background:var(--panel);border:1px solid rgba(0,229,176,.3);border-radius:12px;padding:24px">
+      <div style="background:var(--panel);border:1px solid rgba(0,229,176,.3);border-radius:12px;padding:24px;position:relative">
+        <div style="position:absolute;top:-11px;left:20px;background:#0055ff;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em">AGENCY</div>
         <div style="font-size:24px;margin-bottom:12px">🔗</div>
         <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--teal)">Link Building Engine</h4>
-        <p style="font-size:.85rem;color:var(--muted)">Trouvez des sites partenaires, générez des emails de prospection IA et des articles invités de 1 500 mots. Boostez votre SEO en parallèle.</p>
+        <p style="font-size:.85rem;color:var(--muted)">Trouvez des sites partenaires, générez des emails de prospection IA et des articles invités de 1 500 mots. Boostez votre SEO en parallèle. <em style="color:var(--teal)">Plan Agency.</em></p>
+      </div>
+      <div style="background:var(--panel);border:1px solid rgba(0,85,255,.3);border-radius:12px;padding:24px;position:relative">
+        <div style="position:absolute;top:-11px;left:20px;background:#0055ff;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em">AGENCY</div>
+        <div style="font-size:24px;margin-bottom:12px">⚡</div>
+        <h4 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px;color:#4d8bff">API DataCloser</h4>
+        <p style="font-size:.85rem;color:var(--muted)">Intégrez DataCloser directement dans vos outils via API REST. Générez des leads, scorez des prospects et déclenchez des campagnes depuis votre propre stack. <em style="color:#4d8bff">Plan Agency — bientôt disponible.</em></p>
       </div>
     </div>
   </div>
@@ -874,6 +881,7 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
 </div>
 </body>
 </html>
+
 
 
 
