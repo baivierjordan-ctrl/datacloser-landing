@@ -943,7 +943,17 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
 #dc-send{background:#00e5b0;border:none;border-radius:8px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s}
 #dc-send:hover{transform:scale(1.05)}
 #dc-send svg{width:16px;height:16px;fill:#0a0d12}
-@media(max-width:480px){#dc-chat-panel{width:calc(100vw - 24px);right:0;left:12px;bottom:0;border-radius:16px 16px 0 0;height:480px}#dc-chat-bubble{right:12px;bottom:70px}}
+@media(max-width:768px){
+  #dc-chat-bubble{right:12px;bottom:65px}
+  #dc-chat-btn{padding:11px 16px;font-size:13px;gap:6px}
+  #dc-chat-panel{width:calc(100vw - 24px);right:0;left:12px;bottom:0;border-radius:16px 16px 0 0;height:75vh;max-height:520px}
+}
+@media(max-width:480px){
+  #dc-chat-btn .btn-label{display:none}
+  #dc-chat-btn{padding:12px 14px;border-radius:50%}
+  #dc-chat-btn .pulse{display:none}
+  #dc-chat-bubble{right:12px;bottom:65px}
+}
 </style>
 
 <div id="dc-chat-bubble">
@@ -969,7 +979,7 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
   </div>
   <button id="dc-chat-btn">
     <span class="pulse"></span>
-    Simuler mes leads IA
+    <span class="btn-label">Simuler mes leads IA</span>
   </button>
 </div>
 
