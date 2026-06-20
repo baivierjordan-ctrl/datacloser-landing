@@ -992,6 +992,13 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
   const CLOSE = document.getElementById('dc-close-btn');
   const QBTNS = document.getElementById('dc-quick-btns');
 
+  // Session persistante visiteur
+  let SESSION_ID = localStorage.getItem('dc_session_id');
+  if(!SESSION_ID){
+    SESSION_ID = 'dc_' + Math.random().toString(36).substr(2,9) + '_' + Date.now();
+    localStorage.setItem('dc_session_id', SESSION_ID);
+  }
+
   let history = [];
   let opened  = false;
   let step    = 0;
@@ -1032,7 +1039,7 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
       const res = await fetch('https://datacloser-chat-proxy.onrender.com/api/chat',{
         method:'POST',
         headers:{ 'Content-Type':'application/json' },
-        body: JSON.stringify({ messages: history })
+        body: JSON.stringify({ messages: history, session_id: SESSION_ID })
       });
       const data = await res.json();
       const reply = data.reply || "Une erreur s'est produite, veuillez réessayer.";
