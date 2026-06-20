@@ -901,6 +901,190 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
   <div class="s-text">50 cr&eacute;dits gratuits &mdash; Sans CB</div>
   <a href="https://app.datacloser.com" class="s-btn">Essayer gratuitement</a>
 </div>
+
+<!-- ════════ POPUP IA DATACLOSER ════════ -->
+<style>
+#dc-chat-bubble{position:fixed;bottom:80px;right:24px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+#dc-chat-btn{background:#00e5b0;color:#0a0d12;border:none;border-radius:50px;padding:14px 22px;font-family:'Space Grotesk',-apple-system,sans-serif;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 24px rgba(0,229,176,.35);display:flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s}
+#dc-chat-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,229,176,.45)}
+#dc-chat-btn .pulse{width:8px;height:8px;border-radius:50%;background:#0a0d12;animation:dcpulse 1.5s infinite}
+@keyframes dcpulse{0%,100%{opacity:1}50%{opacity:.3}}
+#dc-chat-panel{display:none;width:360px;height:500px;background:#0d1117;border:1px solid #1e2733;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.6);flex-direction:column;overflow:hidden;animation:dcslide .25s ease}
+@keyframes dcslide{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+#dc-chat-panel.open{display:flex}
+.dc-header{background:#111820;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e2733;flex-shrink:0}
+.dc-header-left{display:flex;align-items:center;gap:10px}
+.dc-avatar{width:34px;height:34px;border-radius:50%;background:#00e5b0;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.dc-header-info strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:13px;color:#e8edf3}
+.dc-header-info span{font-size:11px;color:#00e5b0}
+.dc-close{background:none;border:none;color:#8b949e;font-size:20px;cursor:pointer;padding:4px;line-height:1;transition:color .2s}
+.dc-close:hover{color:#e8edf3}
+.dc-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.dc-messages::-webkit-scrollbar{width:4px}
+.dc-messages::-webkit-scrollbar-track{background:transparent}
+.dc-messages::-webkit-scrollbar-thumb{background:#1e2733;border-radius:4px}
+.dc-msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.55;animation:dcmsg .2s ease}
+@keyframes dcmsg{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.dc-msg.bot{background:#161c24;color:#e8edf3;border-bottom-left-radius:4px;align-self:flex-start}
+.dc-msg.user{background:#00e5b0;color:#0a0d12;font-weight:600;border-bottom-right-radius:4px;align-self:flex-end}
+.dc-msg.bot a{color:#00e5b0;text-decoration:underline}
+.dc-typing{display:flex;gap:4px;padding:10px 14px;background:#161c24;border-radius:12px;border-bottom-left-radius:4px;align-self:flex-start;width:52px}
+.dc-typing span{width:6px;height:6px;border-radius:50%;background:#8b949e;animation:dcdot 1.2s infinite}
+.dc-typing span:nth-child(2){animation-delay:.2s}
+.dc-typing span:nth-child(3){animation-delay:.4s}
+@keyframes dcdot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.dc-quick-btns{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px}
+.dc-qbtn{background:transparent;border:1px solid #1e2733;color:#9aabbc;border-radius:20px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;white-space:nowrap}
+.dc-qbtn:hover{border-color:#00e5b0;color:#00e5b0}
+.dc-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid #1e2733;flex-shrink:0}
+#dc-input{flex:1;background:#161c24;border:1px solid #1e2733;border-radius:8px;padding:9px 12px;color:#e8edf3;font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;resize:none}
+#dc-input:focus{border-color:#00e5b0}
+#dc-input::placeholder{color:#4a5568}
+#dc-send{background:#00e5b0;border:none;border-radius:8px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s}
+#dc-send:hover{transform:scale(1.05)}
+#dc-send svg{width:16px;height:16px;fill:#0a0d12}
+@media(max-width:480px){#dc-chat-panel{width:calc(100vw - 24px);right:0;left:12px;bottom:0;border-radius:16px 16px 0 0;height:480px}#dc-chat-bubble{right:12px;bottom:70px}}
+</style>
+
+<div id="dc-chat-bubble">
+  <div id="dc-chat-panel">
+    <div class="dc-header">
+      <div class="dc-header-left">
+        <div class="dc-avatar">🤖</div>
+        <div class="dc-header-info">
+          <strong>Cerveau DataCloser</strong>
+          <span>● En ligne</span>
+        </div>
+      </div>
+      <button class="dc-close" id="dc-close-btn">×</button>
+    </div>
+    <div class="dc-messages" id="dc-messages"></div>
+    <div class="dc-quick-btns" id="dc-quick-btns"></div>
+    <div class="dc-input-row">
+      <textarea id="dc-input" rows="1" placeholder="Votre réponse…"></textarea>
+      <button id="dc-send">
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+  <button id="dc-chat-btn">
+    <span class="pulse"></span>
+    Simuler mes leads IA
+  </button>
+</div>
+
+<script>
+(function(){
+  const MSGS = document.getElementById('dc-messages');
+  const INPUT = document.getElementById('dc-input');
+  const PANEL = document.getElementById('dc-chat-panel');
+  const BTN   = document.getElementById('dc-chat-btn');
+  const CLOSE = document.getElementById('dc-close-btn');
+  const QBTNS = document.getElementById('dc-quick-btns');
+
+  let history = [];
+  let opened  = false;
+  let step    = 0;
+
+  function addMsg(text, role){
+    const d = document.createElement('div');
+    d.className = 'dc-msg ' + role;
+    d.innerHTML = text.replace(/\n/g,'<br>').replace(/https?:\/\/[^\s<]+/g, u=>`<a href="${u}" target="_blank">${u}</a>`);
+    MSGS.appendChild(d);
+    MSGS.scrollTop = MSGS.scrollHeight;
+  }
+
+  function showTyping(){
+    const t = document.createElement('div');
+    t.className = 'dc-typing';
+    t.id = 'dc-typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    MSGS.appendChild(t);
+    MSGS.scrollTop = MSGS.scrollHeight;
+    return t;
+  }
+
+  function setQuickBtns(options){
+    QBTNS.innerHTML = '';
+    options.forEach(opt => {
+      const b = document.createElement('button');
+      b.className = 'dc-qbtn';
+      b.textContent = opt;
+      b.onclick = () => { QBTNS.innerHTML=''; send(opt); };
+      QBTNS.appendChild(b);
+    });
+  }
+
+  async function callAI(userMsg){
+    history.push({ role:'user', content: userMsg });
+    const typing = showTyping();
+    try {
+      const res = await fetch('https://datacloser-chat-proxy.onrender.com/api/chat',{
+        method:'POST',
+        headers:{ 'Content-Type':'application/json' },
+        body: JSON.stringify({ messages: history })
+      });
+      const data = await res.json();
+      const reply = data.reply || "Une erreur s'est produite, veuillez réessayer.";
+      typing.remove();
+      history.push({ role:'assistant', content: reply });
+      addMsg(reply, 'bot');
+      step++;
+
+      // Boutons contextuels selon l'étape
+      if(step === 1){
+        setQuickBtns(['Services B2B','Industrie / Manufacturing','Immobilier','Recrutement / RH','Tech / SaaS','Autre']);
+      } else if(step === 2){
+        setQuickBtns(['Belgique','France','Luxembourg','Suisse','Pays-Bas','Plusieurs pays']);
+      } else if(step === 3){
+        setQuickBtns(['< 50 leads/mois','50-200 leads/mois','200+ leads/mois']);
+      }
+    } catch(e){
+      typing.remove();
+      addMsg("Connexion momentanément indisponible. <a href='https://app.datacloser.com'>Créez votre compte</a> pour tester directement.", 'bot');
+    }
+  }
+
+  function send(text){
+    const msg = (text || INPUT.value).trim();
+    if(!msg) return;
+    INPUT.value = '';
+    INPUT.style.height = 'auto';
+    addMsg(msg, 'user');
+    QBTNS.innerHTML = '';
+    callAI(msg);
+  }
+
+  function openChat(){
+    PANEL.classList.add('open');
+    BTN.style.display = 'none';
+    if(!opened){
+      opened = true;
+      const typing = showTyping();
+      setTimeout(()=>{
+        typing.remove();
+        addMsg("Bonjour 👋 Je suis le Cerveau DataCloser. En 3 questions, je vous montre exactement quels leads notre moteur trouverait pour vous.\n\nQuel est votre secteur cible ?", 'bot');
+        setQuickBtns(['Services B2B','Industrie / Manufacturing','Immobilier','Recrutement / RH','Tech / SaaS','Autre']);
+      }, 1200);
+    }
+  }
+
+  BTN.addEventListener('click', openChat);
+  CLOSE.addEventListener('click', ()=>{ PANEL.classList.remove('open'); BTN.style.display='flex'; });
+
+  INPUT.addEventListener('keydown', e=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); send(); }});
+  INPUT.addEventListener('input', ()=>{ INPUT.style.height='auto'; INPUT.style.height=Math.min(INPUT.scrollHeight,80)+'px'; });
+  document.getElementById('dc-send').addEventListener('click', ()=>send());
+
+  // Auto-ouverture après 18 secondes (visiteur engagé)
+  setTimeout(()=>{ if(!opened) openChat(); }, 18000);
+
+
+
+})();
+</script>
+<!-- ════════ FIN POPUP IA ════════ -->
+
 </body>
 </html>
 
