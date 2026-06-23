@@ -216,6 +216,11 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
         "https://www.linkedin.com/company/datacloser",
         "https://www.youtube.com/@DataCloser"
       ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "PME, agences web, agences marketing, comptables, courtiers et indépendants B2B francophones"
+      },
+      "keywords": "prospection B2B, génération de leads, cold email, scraping Google Maps, lead generation Belgique, alternative Waalaxy, alternative Apollo, emails nominatifs vérifiés",
       "offers": [
         {
           "@type": "Offer",
@@ -284,10 +289,44 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Génération de leads B2B et prospection automatisée",
+  "provider": {
+    "@type": "Organization",
+    "name": "DataCloser",
+    "url": "https://datacloser.com"
+  },
+  "description": "Logiciel de prospection B2B qui scanne Google Search et Maps en temps réel pour générer des leads qualifiés avec emails nominatifs vérifiés, scoring IA et séquences cold email, dans les marchés francophones.",
+  "areaServed": [
+    {"@type": "City", "name": "Bruxelles", "containedInPlace": {"@type": "Country", "name": "Belgique"}},
+    {"@type": "City", "name": "Liège", "containedInPlace": {"@type": "Country", "name": "Belgique"}},
+    {"@type": "City", "name": "Charleroi", "containedInPlace": {"@type": "Country", "name": "Belgique"}},
+    {"@type": "City", "name": "Gand", "containedInPlace": {"@type": "Country", "name": "Belgique"}},
+    {"@type": "City", "name": "Anvers", "containedInPlace": {"@type": "Country", "name": "Belgique"}},
+    {"@type": "City", "name": "Namur", "containedInPlace": {"@type": "Country", "name": "Belgique"}},
+    {"@type": "City", "name": "Luxembourg", "containedInPlace": {"@type": "Country", "name": "Luxembourg"}},
+    {"@type": "City", "name": "Paris", "containedInPlace": {"@type": "Country", "name": "France"}},
+    {"@type": "City", "name": "Lyon", "containedInPlace": {"@type": "Country", "name": "France"}},
+    {"@type": "City", "name": "Genève", "containedInPlace": {"@type": "Country", "name": "Suisse"}}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Plans DataCloser",
+    "itemListElement": [
+      {"@type": "Offer", "name": "Starter", "price": "49", "priceCurrency": "EUR"},
+      {"@type": "Offer", "name": "Pro", "price": "149", "priceCurrency": "EUR"},
+      {"@type": "Offer", "name": "Elite", "price": "399", "priceCurrency": "EUR"}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"D'où viennent les données ?","acceptedAnswer":{"@type":"Answer","text":"DataCloser interroge Google Search et Google Maps en temps réel au moment de votre recherche, puis analyse le site web de chaque entreprise trouvée. Aucune base revendue, aucune donnée périmée : chaque lead porte sa date de fraîcheur."}},
-    {"@type":"Question","name":"Est-ce conforme au RGPD ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les données collectées sont publiques et professionnelles (B2B). L'enrichissement des emails s'appuie sur un fournisseur français certifié RGPD, et chaque export mentionne la provenance et la date de collecte."}},
+    {"@type":"Question","name":"Est-ce conforme au RGPD ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les données collectées sont publiques et professionnelles (B2B). L'enrichissement des emails s'appuie sur une cascade premium multi-fournisseurs conforme RGPD, et chaque email de prospection mentionne la source des données ainsi qu'un lien de désinscription (RGPD Article 14)."}},
     {"@type":"Question","name":"Comment fonctionne l'Outreach IA ?","acceptedAnswer":{"@type":"Answer","text":"Connectez votre boîte mail via SMTP dans les paramètres Outreach. Sélectionnez un fichier de leads, rédigez votre séquence (jusqu'à 4 emails : J+0, J+4, J+9, J+14), et lancez. L'IA construit un email personnalisé pour chaque lead et envoie depuis votre propre adresse avec délai aléatoire anti-spam. Les relances sont gratuites."}},
     {"@type":"Question","name":"Comment fonctionnent les crédits ?","acceptedAnswer":{"@type":"Answer","text":"Vous ne payez que pour les leads exploitables. 1 crédit est débité uniquement lorsqu'un lead vous est livré avec un email exploitable (nominatif vérifié ou catch-all probable). Les leads sans email valide ne sont jamais facturés. L'envoi de l'email de prospection débite 1 crédit supplémentaire."}},
     {"@type":"Question","name":"Quels pays sont couverts ?","acceptedAnswer":{"@type":"Answer","text":"La Belgique, la France, le Luxembourg et la Suisse en couverture native, ville par ville. Un mode de saisie manuelle permet aussi de cibler n'importe quel autre pays."}},
