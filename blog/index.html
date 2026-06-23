@@ -44,7 +44,8 @@ h1.ht em{font-style:normal;color:var(--ac)}
 .stn .n{font-size:28px;font-weight:700;letter-spacing:-.5px}
 .stn .l{font-size:13px;color:var(--mu);margin-top:2px}
 .filters{display:flex;gap:8px;padding:28px 0;flex-wrap:wrap}
-.f{font-size:13px;font-weight:500;color:var(--mu);padding:7px 16px;border-radius:20px;border:1px solid var(--bd)}
+.f{font-size:13px;font-weight:500;color:var(--mu);padding:7px 16px;border-radius:20px;border:1px solid var(--bd);text-decoration:none;cursor:pointer;transition:color .2s,border-color .2s,background .2s;display:inline-block}
+.f:hover{color:var(--ac);border-color:rgba(0,229,176,.35);background:rgba(0,229,176,.05)}
 .f.act{color:var(--ac);border-color:rgba(0,229,176,.35);background:rgba(0,229,176,.05)}
 .feat{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--bd);border-radius:18px;overflow:hidden;margin-bottom:52px;transition:border-color .3s;color:var(--tx)}
 .feat:hover{border-color:rgba(0,229,176,.3)}
@@ -117,8 +118,8 @@ footer{border-top:1px solid var(--bd);padding:28px 24px;font-size:13px;color:var
 </div>
 </div>
 <div class="filters">
-<div class="f act">Tout</div><div class="f">Guides</div><div class="f">Villes France</div>
-<div class="f">Villes Belgique</div><div class="f">Secteurs</div><div class="f">Comparatifs</div>
+<a href="/blog/" class="f act">Tout</a><a href="/blog/guides.html" class="f">Guides</a><a href="/blog/villes-france.html" class="f">Villes France</a>
+<a href="/blog/villes-belgique.html" class="f">Villes Belgique</a><a href="/blog/secteurs.html" class="f">Secteurs</a><a href="/blog/comparatifs.html" class="f">Comparatifs</a>
 </div>
 
 <a href="/blog/erreurs-prospection-b2b-2026.html" class="feat">
