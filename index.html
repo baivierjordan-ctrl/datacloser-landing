@@ -607,6 +607,275 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 </section>
 
 <!-- ════════ MARCHÉ ════════ -->
+<!-- ============================================================
+     DÉMO LIVE — à coller dans index.html de datacloser-landing
+     Dépend de l'endpoint POST /api/demo-scan
+     ============================================================ -->
+
+<section class="dl-demo" id="demo">
+  <div class="dl-wrap">
+    <p class="dl-kicker">Démonstration</p>
+    <h2>Ne nous croyez pas sur parole.<br><em>Regardez.</em></h2>
+    <p class="dl-sous">Choisissez un secteur et une ville. Le moteur va chercher de vraies entreprises,
+      vérifie leur email et rédige une accroche personnalisée — sous vos yeux, sans inscription.</p>
+
+    <form class="dl-form" id="dl-form" novalidate>
+      <div class="dl-champs">
+        <label class="dl-champ">
+          <span>Secteur</span>
+          <select id="dl-secteur" required>
+            <option value="agence immobilière">Agence immobilière</option>
+            <option value="agence web">Agence web</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="garage">Garage</option>
+            <option value="comptable">Comptable</option>
+            <option value="architecte">Architecte</option>
+            <option value="avocat">Avocat</option>
+          </select>
+        </label>
+        <label class="dl-champ">
+          <span>Ville</span>
+          <input id="dl-ville" type="text" placeholder="Namur" maxlength="40" required autocomplete="off">
+        </label>
+        <button type="submit" class="dl-btn" id="dl-btn">Lancer la chasse</button>
+      </div>
+      <p class="dl-mini">Démonstration limitée à trois résultats. Aucune donnée personnelle n'est conservée.</p>
+    </form>
+
+    <!-- États -->
+    <div class="dl-etat" id="dl-chargement" hidden>
+      <div class="dl-journal" id="dl-journal"></div>
+    </div>
+
+    <div class="dl-erreur" id="dl-erreur" hidden>
+      <p id="dl-erreur-txt"></p>
+    </div>
+
+    <div class="dl-resultats" id="dl-resultats" hidden>
+      <div class="dl-entete">
+        <span class="dl-compte" id="dl-compte"></span>
+        <span class="dl-source" id="dl-source"></span>
+      </div>
+      <div class="dl-liste" id="dl-liste"></div>
+
+      <div class="dl-conversion">
+        <p><strong>C'est un aperçu.</strong> Le message complet, l'email en clair, le téléphone
+           et l'export CSV sont réservés aux comptes — la création est gratuite.</p>
+        <a class="dl-cta" href="https://app.datacloser.com?utm_source=demo_live&utm_medium=landing">
+          Créer un compte et voir les résultats complets
+        </a>
+        <p class="dl-mini">Aucune carte bancaire. Les crédits n'expirent pas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dl-demo{background:#0a0d12;color:#e6edf3;padding:96px 24px;font-family:'Inter',system-ui,sans-serif}
+  .dl-wrap{max-width:920px;margin:0 auto}
+  .dl-kicker{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#00e5b0;font-weight:700;margin-bottom:14px}
+  .dl-demo h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700;line-height:1.14;margin-bottom:14px}
+  .dl-demo h2 em{font-style:normal;color:#00e5b0}
+  .dl-sous{color:#8b98a5;max-width:60ch;font-size:.95rem;margin-bottom:34px}
+
+  .dl-form{background:#0d1117;border:1px solid #1c2530;border-radius:14px;padding:24px}
+  .dl-champs{display:grid;grid-template-columns:1.1fr 1.1fr auto;gap:14px;align-items:end}
+  .dl-champ{display:flex;flex-direction:column;gap:7px}
+  .dl-champ span{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#8b98a5;font-weight:600}
+  .dl-champ select,.dl-champ input{background:#0a0d12;border:1px solid #1c2530;border-radius:9px;color:#e6edf3;
+    padding:13px 14px;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s}
+  .dl-champ select:focus,.dl-champ input:focus{border-color:#00e5b0}
+  .dl-btn{background:#00e5b0;color:#04070a;border:none;border-radius:9px;padding:14px 26px;font-weight:700;
+    font-size:.95rem;cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .3s,opacity .2s}
+  .dl-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 14px 32px -14px rgba(0,229,176,.6)}
+  .dl-btn:disabled{opacity:.5;cursor:wait;transform:none}
+  .dl-mini{font-size:.75rem;color:#5f6b78;margin-top:14px}
+
+  .dl-etat{margin-top:26px;background:#0d1117;border:1px solid #1c2530;border-radius:14px;padding:26px;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.82rem}
+  .dl-journal p{color:#8b98a5;margin:0 0 9px;opacity:0;animation:dlAppar .35s forwards}
+  .dl-journal p b{color:#00e5b0;font-weight:400}
+  .dl-journal p.actif::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:#00e5b0;margin-left:9px;animation:dlPulse 1s infinite}
+  @keyframes dlAppar{to{opacity:1}}
+  @keyframes dlPulse{50%{opacity:.25}}
+
+  .dl-erreur{margin-top:26px;background:rgba(255,92,92,.07);border:1px solid rgba(255,92,92,.3);
+    border-radius:12px;padding:20px 22px;color:#ffb3b3;font-size:.9rem}
+
+  .dl-resultats{margin-top:26px}
+  .dl-entete{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;font-size:.78rem}
+  .dl-compte{color:#e6edf3;font-weight:600}
+  .dl-source{color:#5f6b78}
+
+  .dl-liste{display:flex;flex-direction:column;gap:12px}
+  .dl-carte{background:#0d1117;border:1px solid #1c2530;border-radius:12px;padding:20px 22px;
+    opacity:0;transform:translateY(14px);animation:dlMonte .55s cubic-bezier(.22,1,.36,1) forwards}
+  @keyframes dlMonte{to{opacity:1;transform:none}}
+  .dl-carte .haut{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:10px}
+  .dl-carte .nom{font-weight:700;font-size:1rem}
+  .dl-carte .site{font-size:.78rem;color:#5f6b78}
+  .dl-score{display:flex;align-items:center;gap:9px;white-space:nowrap}
+  .dl-score .piste{width:74px;height:5px;background:#1c2530;border-radius:4px;overflow:hidden}
+  .dl-score .barre{height:100%;background:linear-gradient(90deg,#0055ff,#00e5b0);width:0;transition:width .9s cubic-bezier(.22,1,.36,1)}
+  .dl-score .val{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#00e5b0;font-weight:700}
+  .dl-ligne{display:flex;gap:10px;align-items:baseline;font-size:.85rem;margin-top:6px}
+  .dl-ligne .lab{color:#5f6b78;min-width:74px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+  .dl-email{font-family:'JetBrains Mono',monospace;color:#e6edf3}
+  .dl-badge{font-size:.66rem;background:rgba(0,229,176,.12);color:#00e5b0;border:1px solid rgba(0,229,176,.3);
+    border-radius:100px;padding:3px 9px;font-weight:700;letter-spacing:.05em}
+  .dl-accroche{color:#b3bfcb;font-style:italic;line-height:1.6}
+  .dl-accroche::after{content:" […]";color:#5f6b78;font-style:normal}
+
+  .dl-conversion{margin-top:26px;text-align:center;background:linear-gradient(135deg,rgba(0,229,176,.08),rgba(0,85,255,.06));
+    border:1px solid rgba(0,229,176,.25);border-radius:14px;padding:30px 24px}
+  .dl-conversion p{color:#b3bfcb;font-size:.9rem;max-width:56ch;margin:0 auto 18px}
+  .dl-conversion strong{color:#e6edf3}
+  .dl-cta{display:inline-block;background:#00e5b0;color:#04070a;font-weight:700;padding:15px 30px;
+    border-radius:10px;text-decoration:none;transition:transform .2s,box-shadow .3s}
+  .dl-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -14px rgba(0,229,176,.6)}
+  .dl-conversion .dl-mini{margin-top:12px}
+
+  @media (max-width:760px){
+    .dl-champs{grid-template-columns:1fr}
+    .dl-btn{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .dl-carte,.dl-journal p{opacity:1;transform:none}
+  }
+</style>
+
+<script>
+(function(){
+  var form = document.getElementById('dl-form');
+  if(!form) return;
+
+  var btn = document.getElementById('dl-btn');
+  var chargement = document.getElementById('dl-chargement');
+  var journal = document.getElementById('dl-journal');
+  var erreur = document.getElementById('dl-erreur');
+  var erreurTxt = document.getElementById('dl-erreur-txt');
+  var resultats = document.getElementById('dl-resultats');
+  var liste = document.getElementById('dl-liste');
+  var enCours = false;
+
+  function cacher(){ [chargement, erreur, resultats].forEach(function(e){ e.hidden = true; }); }
+
+  function echapper(s){
+    var d = document.createElement('div'); d.textContent = s == null ? '' : String(s);
+    return d.innerHTML;
+  }
+
+  /* Journal : donne à voir le travail, sans mentir sur ce qui se passe */
+  var etapes = [
+    'Interrogation de Google Search et Maps…',
+    'Extraction des sites et des coordonnées…',
+    'Vérification de la validité des emails…',
+    'Analyse des sites et attribution des scores…',
+    'Rédaction des accroches personnalisées…'
+  ];
+  var timers = [];
+  function jouerJournal(){
+    journal.innerHTML = '';
+    timers.forEach(clearTimeout); timers = [];
+    etapes.forEach(function(txt, i){
+      timers.push(setTimeout(function(){
+        var p = document.createElement('p');
+        p.innerHTML = '<b>›</b> ' + echapper(txt);
+        p.className = 'actif';
+        var prec = journal.querySelector('p.actif');
+        if(prec) prec.className = '';
+        journal.appendChild(p);
+      }, i * 900));
+    });
+  }
+
+  function afficher(data){
+    cacher();
+    resultats.hidden = false;
+    document.getElementById('dl-compte').textContent =
+      data.leads.length + ' entreprise' + (data.leads.length > 1 ? 's' : '') + ' trouvée' + (data.leads.length > 1 ? 's' : '');
+    document.getElementById('dl-source').textContent =
+      data.source === 'cache' ? 'résultats récents' : 'chasse effectuée à l\u2019instant';
+
+    liste.innerHTML = '';
+    data.leads.forEach(function(l, i){
+      var c = document.createElement('div');
+      c.className = 'dl-carte';
+      c.style.animationDelay = (i * 0.12) + 's';
+      c.innerHTML =
+        '<div class="haut">' +
+          '<div><div class="nom">' + echapper(l.entreprise) + '</div>' +
+          '<div class="site">' + echapper(l.site || '—') + '</div></div>' +
+          '<div class="dl-score"><div class="piste"><div class="barre"></div></div>' +
+          '<span class="val">' + (l.score|0) + '</span></div>' +
+        '</div>' +
+        '<div class="dl-ligne"><span class="lab">Email</span>' +
+          '<span class="dl-email">' + echapper(l.email) + '</span>' +
+          (l.email_verifie ? '<span class="dl-badge">vérifié</span>' : '') +
+        '</div>' +
+        (l.accroche ? '<div class="dl-ligne"><span class="lab">Accroche</span>' +
+          '<span class="dl-accroche">' + echapper(l.accroche) + '</span></div>' : '');
+      liste.appendChild(c);
+      setTimeout(function(){
+        var b = c.querySelector('.barre');
+        if(b) b.style.width = Math.max(4, Math.min(100, l.score|0)) + '%';
+      }, 260 + i * 120);
+    });
+  }
+
+  function montrerErreur(msg){
+    cacher();
+    erreur.hidden = false;
+    erreurTxt.textContent = msg;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(enCours) return;
+
+    var secteur = document.getElementById('dl-secteur').value;
+    var ville = document.getElementById('dl-ville').value.trim();
+    if(ville.length < 2){ montrerErreur('Indiquez une ville.'); return; }
+
+    enCours = true;
+    btn.disabled = true;
+    btn.textContent = 'Chasse en cours…';
+    cacher();
+    chargement.hidden = false;
+    jouerJournal();
+
+    var debut = Date.now();
+
+    fetch('https://datacloser-chat-proxy.onrender.com/api/demo-scan', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({secteur: secteur, ville: ville})
+    })
+    .then(function(r){ return r.json().then(function(j){ return {code: r.status, data: j}; }); })
+    .then(function(res){
+      /* On laisse le journal se dérouler un minimum : la vitesse brute inquiète plus qu'elle ne rassure */
+      var reste = Math.max(0, 2600 - (Date.now() - debut));
+      setTimeout(function(){
+        if(res.code === 200 && res.data.ok){ afficher(res.data); }
+        else if(res.code === 429){ montrerErreur('Vous avez atteint la limite de démonstrations pour aujourd\u2019hui. Créez un compte gratuit pour continuer.'); }
+        else if(res.code === 503){ montrerErreur('La démonstration est très demandée en ce moment. Réessayez dans quelques minutes.'); }
+        else if(res.code === 404){ montrerErreur('Aucune entreprise trouvée pour ce secteur dans cette ville. Essayez une ville voisine.'); }
+        else { montrerErreur(res.data && res.data.erreur ? res.data.erreur : 'Une erreur est survenue.'); }
+        btn.disabled = false; btn.textContent = 'Lancer la chasse'; enCours = false;
+      }, reste);
+    })
+    .catch(function(){
+      timers.forEach(clearTimeout);
+      montrerErreur('Impossible de joindre le moteur. Réessayez dans un instant.');
+      btn.disabled = false; btn.textContent = 'Lancer la chasse'; enCours = false;
+    });
+  });
+})();
+</script>
+
+
 <section style="padding-top:88px">
   <div class="wrap">
     <div class="sec-eyebrow">Pourquoi DataCloser</div>
