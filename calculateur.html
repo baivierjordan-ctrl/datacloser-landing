@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur : combien vous coûte un lead B2B ? | DataCloser</title>
+<meta name="description" content="Calculez le coût réel d'un lead qualifié : commercial salarié, agence, ou DataCloser. Comparaison chiffrée en direct, hypothèses de calcul transparentes.">
+<link rel="canonical" href="https://datacloser.com/calculateur.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://datacloser.com/calculateur.html">
+<meta property="og:title" content="Combien vous coûte vraiment un lead qualifié ?">
+<meta property="og:description" content="Réglez les curseurs sur votre situation. Le coût réel de votre prospection apparaît — et il surprend.">
+<meta property="og:image" content="https://datacloser.com/og-calculateur.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- hreflang à ajouter UNIQUEMENT quand /nl/calculator.html et /en/calculator.html existeront.
+     Un hreflang vers une page absente dévalue toute la grappe linguistique. -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculateur de coût par lead",
+  "url": "https://datacloser.com/calculateur.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Tous",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "publisher": {"@type": "Organization", "name": "DataCloser", "url": "https://datacloser.com"}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fond:#0a0d12; --carte:#0d1117; --bord:#1c2530;
+    --accent:#00e5b0; --bleu:#0055ff;
+    --texte:#e6edf3; --gris:#8b98a5; --rouge:#ff5c5c; --orange:#ffa93d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--fond);color:var(--texte);line-height:1.6;padding:32px 20px 60px}
+  .wrap{max-width:940px;margin:0 auto}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .mono{font-family:'JetBrains Mono',monospace}
+
+  .dc-nav{max-width:1100px;margin:0 auto 44px;display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:14px 0;border-bottom:1px solid var(--bord)}
+  .dc-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;color:var(--texte);text-decoration:none}
+  .dc-logo span{color:var(--accent)}
+  .dc-liens{display:flex;gap:24px;font-size:.86rem}
+  .dc-liens a{color:var(--gris);text-decoration:none;transition:color .2s}
+  .dc-liens a:hover,.dc-liens a.actif{color:var(--texte)}
+  .dc-cta{background:var(--accent);color:#04070a;font-weight:700;font-size:.83rem;padding:10px 18px;
+    border-radius:8px;text-decoration:none;white-space:nowrap}
+  @media (max-width:720px){ .dc-liens{display:none} }
+
+  header{text-align:center;margin-bottom:44px}
+  .kicker{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
+  h1{font-size:clamp(1.8rem,4.2vw,2.8rem);font-weight:700;line-height:1.12}
+  h1 em{font-style:normal;color:var(--accent)}
+  header p{color:var(--gris);margin-top:14px;max-width:52ch;margin-inline:auto;font-size:.95rem}
+
+  .grille{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+  @media (max-width:840px){.grille{grid-template-columns:1fr}}
+
+  .panneau{background:var(--carte);border:1px solid var(--bord);border-radius:14px;padding:28px}
+  .panneau h2{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+  .panneau .sous{color:var(--gris);font-size:.83rem;margin-bottom:24px}
+
+  .champ{margin-bottom:22px}
+  .champ .haut{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+  .champ label{font-size:.85rem;font-weight:600}
+  .champ .val{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--accent);font-weight:700}
+  .champ .aide{font-size:.72rem;color:var(--gris);margin-top:6px}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;
+    background:linear-gradient(90deg,var(--accent) var(--p,50%),#1c2530 var(--p,50%));outline:none;cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+    background:var(--accent);border:3px solid var(--fond);box-shadow:0 0 0 1px var(--accent);cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;border:3px solid var(--fond);border-radius:50%;
+    background:var(--accent);box-shadow:0 0 0 1px var(--accent);cursor:pointer}
+
+  .resultat{text-align:center;padding:26px 20px;border:1px dashed var(--bord);border-radius:12px;margin-bottom:24px}
+  .resultat .lab{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);margin-bottom:10px}
+  .resultat .gros{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;line-height:1}
+  .resultat .gros.rouge{color:var(--rouge)}
+  .resultat .unite{font-size:.85rem;color:var(--gris);margin-top:8px}
+
+  .barres{display:flex;flex-direction:column;gap:18px}
+  .barre .haut{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;font-size:.85rem}
+  .barre .nom{font-weight:600}
+  .barre .prix{font-family:'JetBrains Mono',monospace;font-weight:700}
+  .barre .piste{height:26px;background:#111820;border-radius:6px;overflow:hidden;position:relative}
+  .barre .remplissage{height:100%;border-radius:6px;transition:width .7s cubic-bezier(.22,1,.36,1);
+    display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:.72rem;font-weight:700;color:#04070a}
+  .barre.sdr .remplissage{background:linear-gradient(90deg,#7a2a2a,var(--rouge))}
+  .barre.agence .remplissage{background:linear-gradient(90deg,#7a5320,var(--orange))}
+  .barre.dc .remplissage{background:linear-gradient(90deg,var(--bleu),var(--accent))}
+  .barre .note{font-size:.72rem;color:var(--gris);margin-top:5px}
+
+  .verdict{margin-top:28px;background:linear-gradient(135deg,rgba(0,229,176,.09),rgba(0,85,255,.07));
+    border:1px solid rgba(0,229,176,.28);border-radius:12px;padding:24px}
+  .verdict h3{font-size:1.1rem;color:var(--accent);margin-bottom:10px}
+  .verdict p{font-size:.9rem;color:var(--texte)}
+  .verdict .chiffre{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent)}
+  .verdict .detail{font-size:.78rem;color:var(--gris);margin-top:12px;line-height:1.7}
+
+  .cta{display:block;text-align:center;margin-top:26px;background:var(--accent);color:#04070a;
+    font-weight:700;padding:16px;border-radius:10px;text-decoration:none;transition:transform .2s,box-shadow .3s}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -14px rgba(0,229,176,.6)}
+
+  .conversion{margin-top:40px;text-align:center;background:var(--carte);border:1px solid var(--bord);
+    border-radius:14px;padding:38px 28px}
+  .conversion h2{font-size:1.4rem;margin-bottom:10px}
+  .conversion p{color:var(--gris);font-size:.9rem;max-width:52ch;margin:0 auto 22px}
+  .cta.secondaire{display:inline-block;margin-top:0;padding:15px 34px}
+  .conversion .mini{font-size:.75rem;margin-top:14px;margin-bottom:0}
+
+  .hypotheses{margin-top:34px;font-size:.74rem;color:var(--gris);line-height:1.8;
+    border-top:1px solid var(--bord);padding-top:20px}
+  .hypotheses b{color:var(--texte);font-weight:600}
+</style>
+</head>
+<body>
+
+<nav class="dc-nav">
+  <a href="/" class="dc-logo">Data<span>Closer</span></a>
+  <div class="dc-liens">
+    <a href="/#fonctionnalites">Fonctionnalités</a>
+    <a href="/#tarifs">Tarifs</a>
+    <a href="/blog/">Blog</a>
+    <a href="/calculateur.html" class="actif">Calculateur</a>
+  </div>
+  <a href="https://app.datacloser.com" class="dc-cta">Essai gratuit</a>
+</nav>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">Calculateur</p>
+    <h1>Combien vous coûte <em>vraiment</em> un lead qualifié ?</h1>
+    <p>Réglez les curseurs sur votre situation réelle. Le calcul se fait sous vos yeux — et vous verrez pourquoi la question n'est pas « combien ça coûte », mais « combien ça coûte déjà ».</p>
+  </header>
+
+  <div class="grille">
+
+    <!-- ===== ENTRÉES ===== -->
+    <div class="panneau">
+      <h2>Votre situation aujourd'hui</h2>
+      <p class="sous">Ce que vous dépensez actuellement pour trouver des clients.</p>
+
+      <div class="champ">
+        <div class="haut"><label for="salaire">Coût mensuel d'un commercial</label><span class="val" id="v-salaire">3 500 €</span></div>
+        <input type="range" id="salaire" min="1500" max="8000" step="100" value="3500">
+        <p class="aide">Salaire brut chargé, voiture, téléphone, outils.</p>
+      </div>
+
+      <div class="champ">
+        <div class="haut"><label for="part">Part de son temps passée à prospecter</label><span class="val" id="v-part">40 %</span></div>
+        <input type="range" id="part" min="10" max="100" step="5" value="40">
+        <p class="aide">Le reste : rendez-vous, suivi, administratif.</p>
+      </div>
+
+      <div class="champ">
+        <div class="haut"><label for="leads">Leads qualifiés trouvés par mois</label><span class="val" id="v-leads">25</span></div>
+        <input type="range" id="leads" min="5" max="200" step="5" value="25">
+        <p class="aide">Entreprises réellement contactables, email vérifié.</p>
+      </div>
+
+      <div class="champ">
+        <div class="haut"><label for="agence">Prix d'un lead acheté en agence</label><span class="val" id="v-agence">45 €</span></div>
+        <input type="range" id="agence" min="10" max="150" step="5" value="45">
+        <p class="aide">Tarif courant des fournisseurs de leads B2B.</p>
+      </div>
+
+      <div class="champ">
+        <div class="haut"><label for="panier">Valeur d'un client signé</label><span class="val" id="v-panier">2 500 €</span></div>
+        <input type="range" id="panier" min="200" max="20000" step="100" value="2500">
+        <p class="aide">Chiffre d'affaires moyen sur la durée de vie du client.</p>
+      </div>
+
+      <div class="champ">
+        <div class="haut"><label for="taux">Taux de transformation</label><span class="val" id="v-taux">3 %</span></div>
+        <input type="range" id="taux" min="1" max="20" step="1" value="3">
+        <p class="aide">Sur 100 leads contactés, combien signent.</p>
+      </div>
+    </div>
+
+    <!-- ===== RÉSULTATS ===== -->
+    <div class="panneau">
+      <h2>Le verdict</h2>
+      <p class="sous">Coût réel d'un lead qualifié, selon la méthode.</p>
+
+      <div class="resultat">
+        <p class="lab">Aujourd'hui, un lead vous coûte</p>
+        <p class="gros rouge" id="cout-sdr">56 €</p>
+        <p class="unite">soit <span id="cout-annuel">16 800 €</span> par an de prospection</p>
+      </div>
+
+      <div class="barres">
+        <div class="barre sdr">
+          <div class="haut"><span class="nom">Commercial salarié</span><span class="prix" id="b-sdr">56 €</span></div>
+          <div class="piste"><div class="remplissage" id="r-sdr" style="width:100%"></div></div>
+          <p class="note" id="n-sdr">Temps de prospection ÷ leads trouvés</p>
+        </div>
+        <div class="barre agence">
+          <div class="haut"><span class="nom">Leads achetés en agence</span><span class="prix" id="b-agence">45 €</span></div>
+          <div class="piste"><div class="remplissage" id="r-agence" style="width:80%"></div></div>
+          <p class="note">Souvent revendus à vos concurrents.</p>
+        </div>
+        <div class="barre dc">
+          <div class="haut"><span class="nom">DataCloser</span><span class="prix" id="b-dc">0,30 €</span></div>
+          <div class="piste"><div class="remplissage" id="r-dc" style="width:2%">DataCloser</div></div>
+          <p class="note" id="n-dc">1 crédit = 1 entreprise scannée, email vérifié.</p>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <h3>Ce que vous économisez</h3>
+        <p>Pour obtenir vos <span class="chiffre" id="v-volume">25</span> leads mensuels, DataCloser vous coûterait <span class="chiffre" id="v-cout-dc">7,50 €</span> au lieu de <span class="chiffre" id="v-cout-actuel">1 400 €</span>.</p>
+        <p class="detail" id="detail-roi"></p>
+      </div>
+
+      <a class="cta" href="https://app.datacloser.com?utm_source=calculateur&utm_medium=landing&utm_campaign=cout_par_lead">Tester gratuitement — 50 crédits offerts</a>
+    </div>
+  </div>
+
+  <section class="conversion">
+    <h2>Le calcul est fait. Reste à le vérifier.</h2>
+    <p>Lancez une chasse sur votre secteur et votre région. Vous verrez les entreprises, les emails vérifiés
+       et les messages d'approche générés — avant de payer quoi que ce soit.</p>
+    <a class="cta secondaire" href="https://app.datacloser.com?utm_source=calculateur&utm_medium=landing&utm_campaign=cout_par_lead_bas">Créer un compte gratuit</a>
+    <p class="mini">Aucune carte bancaire. Les crédits n'expirent pas.</p>
+  </section>
+
+  <p class="hypotheses">
+    <b>Comment on calcule.</b> Coût d'un lead salarié = (coût mensuel × part de temps consacrée à la prospection) ÷ leads qualifiés trouvés.
+    Le lead DataCloser est calculé au plan Pro : 149 € pour 2 000 crédits, soit 0,0745 € le crédit, et 4 crédits en moyenne par lead réellement qualifié (scan, vérification email, scoring, message d'approche) — soit environ 0,30 €.
+    Les crédits n'expirent pas.
+    <b>Ce calculateur ne triche pas :</b> il ne compte pas le temps que vous passerez à traiter les leads, identique dans les trois cas. Il compare uniquement le coût d'acquisition.
+  </p>
+
+</div>
+
+<script>
+(function(){
+  var PRIX_CREDIT = 149 / 2000;      // plan Pro
+  var CREDITS_PAR_LEAD = 4;
+  var COUT_DC = PRIX_CREDIT * CREDITS_PAR_LEAD;
+
+  var champs = ['salaire','part','leads','agence','panier','taux'];
+  var el = {};
+  champs.forEach(function(c){ el[c] = document.getElementById(c); });
+
+  function eur(n, dec){
+    return n.toLocaleString('fr-BE', {minimumFractionDigits: dec||0, maximumFractionDigits: dec||0}) + ' €';
+  }
+
+  function piste(input){
+    var p = (input.value - input.min) / (input.max - input.min) * 100;
+    input.style.setProperty('--p', p + '%');
+  }
+
+  function calculer(){
+    var salaire = +el.salaire.value, part = +el.part.value / 100, leads = +el.leads.value;
+    var agence = +el.agence.value, panier = +el.panier.value, taux = +el.taux.value / 100;
+
+    var budgetProspection = salaire * part;
+    var coutSdr = budgetProspection / leads;
+    var coutAnnuel = budgetProspection * 12;
+
+    // Affichage des valeurs des curseurs
+    document.getElementById('v-salaire').textContent = eur(salaire);
+    document.getElementById('v-part').textContent = (part*100) + ' %';
+    document.getElementById('v-leads').textContent = leads;
+    document.getElementById('v-agence').textContent = eur(agence);
+    document.getElementById('v-panier').textContent = eur(panier);
+    document.getElementById('v-taux').textContent = (taux*100) + ' %';
+    champs.forEach(function(c){ piste(el[c]); });
+
+    // Résultat principal
+    document.getElementById('cout-sdr').textContent = eur(coutSdr, coutSdr < 10 ? 2 : 0);
+    document.getElementById('cout-annuel').textContent = eur(coutAnnuel);
+
+    // Barres : échelle sur le plus cher des trois
+    var max = Math.max(coutSdr, agence, COUT_DC);
+    function largeur(v){ return Math.max(1.5, v / max * 100); }
+    document.getElementById('b-sdr').textContent = eur(coutSdr, coutSdr < 10 ? 2 : 0);
+    document.getElementById('b-agence').textContent = eur(agence);
+    document.getElementById('b-dc').textContent = COUT_DC.toFixed(2).replace('.', ',') + ' €';
+    document.getElementById('r-sdr').style.width = largeur(coutSdr) + '%';
+    document.getElementById('r-agence').style.width = largeur(agence) + '%';
+    document.getElementById('r-dc').style.width = largeur(COUT_DC) + '%';
+    document.getElementById('n-sdr').textContent =
+      eur(budgetProspection) + ' de prospection ÷ ' + leads + ' leads';
+
+    // Le bon angle : ce que coûteraient SES leads actuels, pas un volume fantasmé.
+    var coutDCMemeVolume = leads * COUT_DC;
+    var economieMois = budgetProspection - coutDCMemeVolume;
+    var economieAn = economieMois * 12;
+
+    document.getElementById('v-volume').textContent = leads;
+    document.getElementById('v-cout-dc').textContent = eur(coutDCMemeVolume, coutDCMemeVolume < 100 ? 2 : 0);
+    document.getElementById('v-cout-actuel').textContent = eur(budgetProspection);
+
+    var clientsMois = leads * taux;
+    var caMois = clientsMois * panier;
+    var detail = document.getElementById('detail-roi');
+    var g = function(t){ return '<b style="color:var(--texte)">' + t + '</b>'; };
+
+    if(economieMois > 0){
+      var lignes = [
+        'Soit ' + g(eur(economieAn) + ' par an') + ' libérés — non pas pour trouver plus de leads, ' +
+        'mais pour que votre commercial passe son temps à ' + g('les appeler') + ' plutôt qu\'à les chercher.'
+      ];
+      if(clientsMois >= 0.5){
+        lignes.push('À votre taux de transformation, ces ' + leads + ' leads représentent déjà ' +
+          g(clientsMois.toFixed(1) + ' client' + (clientsMois >= 2 ? 's' : '') + ' par mois') +
+          ', soit ' + g(eur(caMois)) + ' de chiffre d\'affaires. ' +
+          'Le même travail, sans le coût de recherche.');
+      }
+      if(coutSdr > agence){
+        lignes.push('Vos leads internes vous coûtent aujourd\'hui ' + g(eur(coutSdr, coutSdr < 10 ? 2 : 0)) +
+          ' pièce — plus cher que ceux d\'une agence, qui les revend pourtant à vos concurrents.');
+      }
+      detail.innerHTML = lignes.join(' ');
+    } else {
+      detail.innerHTML = 'Votre prospection interne est déjà remarquablement efficace. ' +
+        'Le gain se situe alors ailleurs : dans le temps rendu à vos commerciaux, pas dans le coût.';
+    }
+  }
+
+  champs.forEach(function(c){ el[c].addEventListener('input', calculer); });
+  calculer();
+})();
+</script>
+</body>
+</html>
