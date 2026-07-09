@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculateur : combien vous coûte un lead B2B ? | DataCloser</title>
-<meta name="description" content="Calculez le coût réel d'un lead qualifié : commercial salarié, agence, ou DataCloser. Comparaison chiffrée en direct, hypothèses de calcul transparentes.">
-<link rel="canonical" href="https://datacloser.com/calculateur.html">
+<title>Calculator: how much does a B2B lead cost you? | DataCloser</title>
+<meta name="description" content="Calculate the real cost of a qualified lead: in-house sales rep, agency, or DataCloser. Live comparison, transparent calculation assumptions.">
+<link rel="canonical" href="https://datacloser.com/en/calculator.html">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://datacloser.com/calculateur.html">
-<meta property="og:title" content="Combien vous coûte vraiment un lead qualifié ?">
-<meta property="og:description" content="Réglez les curseurs sur votre situation. Le coût réel de votre prospection apparaît — et il surprend.">
+<meta property="og:url" content="https://datacloser.com/en/calculator.html">
+<meta property="og:title" content="How much does a qualified lead really cost you?">
+<meta property="og:description" content="Set the sliders to your situation. The real cost of your prospecting appears — and it surprises.">
 <meta property="og:image" content="https://datacloser.com/og-calculateur.png">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -22,10 +22,10 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Calculateur de coût par lead",
-  "url": "https://datacloser.com/calculateur.html",
+  "name": "Cost-per-lead calculator",
+  "url": "https://datacloser.com/en/calculator.html",
   "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Tous",
+  "operatingSystem": "All",
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
   "publisher": {"@type": "Organization", "name": "DataCloser", "url": "https://datacloser.com"}
 }
@@ -125,120 +125,120 @@
 <body>
 
 <nav class="dc-nav">
-  <a href="/" class="dc-logo">Data<span>Closer</span></a>
+  <a href="/en/" class="dc-logo">Data<span>Closer</span></a>
   <div class="dc-liens">
-    <a href="/#fonctionnalites">Fonctionnalités</a>
-    <a href="/#tarifs">Tarifs</a>
-    <a href="/blog/">Blog</a>
-    <a href="/calculateur.html" class="actif">Calculateur</a>
+    <a href="/en/#pipeline">Features</a>
+    <a href="/en/#tarifs">Pricing</a>
+    <a href="/en/guides.html">Guides</a>
+    <a href="/en/calculator.html" class="actif">Calculator</a>
   </div>
-  <a href="https://app.datacloser.com" class="dc-cta">Essai gratuit</a>
+  <a href="https://app.datacloser.com" class="dc-cta">Try it free</a>
 </nav>
 
 <div class="wrap">
 
   <header>
-    <p class="kicker">Calculateur</p>
-    <h1>Combien vous coûte <em>vraiment</em> un lead qualifié ?</h1>
-    <p>Réglez les curseurs sur votre situation réelle. Le calcul se fait sous vos yeux — et vous verrez pourquoi la question n'est pas « combien ça coûte », mais « combien ça coûte déjà ».</p>
+    <p class="kicker">Calculator</p>
+    <h1>How much does a qualified lead <em>really</em> cost you?</h1>
+    <p>Set the sliders to your real situation. The math happens before your eyes — and you'll see why the question isn't "what does it cost", but "what is it already costing".</p>
   </header>
 
   <div class="grille">
 
     <!-- ===== ENTRÉES ===== -->
     <div class="panneau">
-      <h2>Votre situation aujourd'hui</h2>
-      <p class="sous">Ce que vous dépensez actuellement pour trouver des clients.</p>
+      <h2>Your situation today</h2>
+      <p class="sous">What you currently spend to find clients.</p>
 
       <div class="champ">
-        <div class="haut"><label for="salaire">Coût mensuel d'un commercial</label><span class="val" id="v-salaire">3 500 €</span></div>
+        <div class="haut"><label for="salaire">Monthly cost of a sales rep</label><span class="val" id="v-salaire">3 500 €</span></div>
         <input type="range" id="salaire" min="1500" max="8000" step="100" value="3500">
-        <p class="aide">Salaire brut chargé, voiture, téléphone, outils.</p>
+        <p class="aide">Fully loaded salary, car, phone, tools.</p>
       </div>
 
       <div class="champ">
-        <div class="haut"><label for="part">Part de son temps passée à prospecter</label><span class="val" id="v-part">40 %</span></div>
+        <div class="haut"><label for="part">Share of their time spent prospecting</label><span class="val" id="v-part">40 %</span></div>
         <input type="range" id="part" min="10" max="100" step="5" value="40">
-        <p class="aide">Le reste : rendez-vous, suivi, administratif.</p>
+        <p class="aide">The rest: meetings, follow-up, admin.</p>
       </div>
 
       <div class="champ">
-        <div class="haut"><label for="leads">Leads qualifiés trouvés par mois</label><span class="val" id="v-leads">25</span></div>
+        <div class="haut"><label for="leads">Qualified leads found per month</label><span class="val" id="v-leads">25</span></div>
         <input type="range" id="leads" min="5" max="200" step="5" value="25">
-        <p class="aide">Entreprises réellement contactables, email vérifié.</p>
+        <p class="aide">Genuinely contactable companies, verified email.</p>
       </div>
 
       <div class="champ">
-        <div class="haut"><label for="agence">Prix d'un lead acheté en agence</label><span class="val" id="v-agence">45 €</span></div>
+        <div class="haut"><label for="agence">Price of a lead bought from an agency</label><span class="val" id="v-agence">45 €</span></div>
         <input type="range" id="agence" min="10" max="150" step="5" value="45">
-        <p class="aide">Tarif courant des fournisseurs de leads B2B.</p>
+        <p class="aide">Going rate among B2B lead providers.</p>
       </div>
 
       <div class="champ">
-        <div class="haut"><label for="panier">Valeur d'un client signé</label><span class="val" id="v-panier">2 500 €</span></div>
+        <div class="haut"><label for="panier">Value of a signed client</label><span class="val" id="v-panier">2 500 €</span></div>
         <input type="range" id="panier" min="200" max="20000" step="100" value="2500">
-        <p class="aide">Chiffre d'affaires moyen sur la durée de vie du client.</p>
+        <p class="aide">Average revenue over the client's lifetime.</p>
       </div>
 
       <div class="champ">
-        <div class="haut"><label for="taux">Taux de transformation</label><span class="val" id="v-taux">3 %</span></div>
+        <div class="haut"><label for="taux">Conversion rate</label><span class="val" id="v-taux">3 %</span></div>
         <input type="range" id="taux" min="1" max="20" step="1" value="3">
-        <p class="aide">Sur 100 leads contactés, combien signent.</p>
+        <p class="aide">Out of 100 leads contacted, how many sign.</p>
       </div>
     </div>
 
     <!-- ===== RÉSULTATS ===== -->
     <div class="panneau">
-      <h2>Le verdict</h2>
-      <p class="sous">Coût réel d'un lead qualifié, selon la méthode.</p>
+      <h2>The verdict</h2>
+      <p class="sous">Real cost of a qualified lead, by method.</p>
 
       <div class="resultat">
-        <p class="lab">Aujourd'hui, un lead vous coûte</p>
+        <p class="lab">Today, a lead costs you</p>
         <p class="gros rouge" id="cout-sdr">56 €</p>
-        <p class="unite">soit <span id="cout-annuel">16 800 €</span> par an de prospection</p>
+        <p class="unite">that's <span id="cout-annuel">16 800 €</span> per year on prospecting</p>
       </div>
 
       <div class="barres">
         <div class="barre sdr">
-          <div class="haut"><span class="nom">Commercial salarié</span><span class="prix" id="b-sdr">56 €</span></div>
+          <div class="haut"><span class="nom">In-house sales rep</span><span class="prix" id="b-sdr">56 €</span></div>
           <div class="piste"><div class="remplissage" id="r-sdr" style="width:100%"></div></div>
-          <p class="note" id="n-sdr">Temps de prospection ÷ leads trouvés</p>
+          <p class="note" id="n-sdr">Prospecting time ÷ leads found</p>
         </div>
         <div class="barre agence">
-          <div class="haut"><span class="nom">Leads achetés en agence</span><span class="prix" id="b-agence">45 €</span></div>
+          <div class="haut"><span class="nom">Leads bought from an agency</span><span class="prix" id="b-agence">45 €</span></div>
           <div class="piste"><div class="remplissage" id="r-agence" style="width:80%"></div></div>
-          <p class="note">Souvent revendus à vos concurrents.</p>
+          <p class="note">Often resold to your competitors.</p>
         </div>
         <div class="barre dc">
           <div class="haut"><span class="nom">DataCloser</span><span class="prix" id="b-dc">0,30 €</span></div>
           <div class="piste"><div class="remplissage" id="r-dc" style="width:2%">DataCloser</div></div>
-          <p class="note" id="n-dc">1 crédit = 1 entreprise scannée, email vérifié.</p>
+          <p class="note" id="n-dc">1 credit = 1 company scanned, verified email.</p>
         </div>
       </div>
 
       <div class="verdict">
-        <h3>Ce que vous économisez</h3>
-        <p>Pour obtenir vos <span class="chiffre" id="v-volume">25</span> leads mensuels, DataCloser vous coûterait <span class="chiffre" id="v-cout-dc">7,50 €</span> au lieu de <span class="chiffre" id="v-cout-actuel">1 400 €</span>.</p>
+        <h3>What you save</h3>
+        <p>To get your <span class="chiffre" id="v-volume">25</span> monthly leads, DataCloser would cost you <span class="chiffre" id="v-cout-dc">7,50 €</span> instead of <span class="chiffre" id="v-cout-actuel">1 400 €</span>.</p>
         <p class="detail" id="detail-roi"></p>
       </div>
 
-      <a class="cta" href="https://app.datacloser.com?utm_source=calculateur&utm_medium=landing&utm_campaign=cout_par_lead">Tester gratuitement — 50 crédits offerts</a>
+      <a class="cta" href="https://app.datacloser.com/?lang=en&utm_source=calculateur&utm_medium=landing&utm_campaign=cout_par_lead_en">Try it free — 50 free credits</a>
     </div>
   </div>
 
   <section class="conversion">
-    <h2>Le calcul est fait. Reste à le vérifier.</h2>
-    <p>Lancez une chasse sur votre secteur et votre région. Vous verrez les entreprises, les emails vérifiés
-       et les messages d'approche générés — avant de payer quoi que ce soit.</p>
-    <a class="cta secondaire" href="https://app.datacloser.com?utm_source=calculateur&utm_medium=landing&utm_campaign=cout_par_lead_bas">Créer un compte gratuit</a>
-    <p class="mini">Aucune carte bancaire. Les crédits n'expirent pas.</p>
+    <h2>The math is done. Now verify it.</h2>
+    <p>Launch a hunt on your sector and region. You'll see the companies, the verified emails
+       and the generated openers — before paying anything.</p>
+    <a class="cta secondaire" href="https://app.datacloser.com/?lang=en&utm_source=calculateur&utm_medium=landing&utm_campaign=cout_par_lead_bas_en">Create a free account</a>
+    <p class="mini">No credit card. Credits never expire.</p>
   </section>
 
   <p class="hypotheses">
-    <b>Comment on calcule.</b> Coût d'un lead salarié = (coût mensuel × part de temps consacrée à la prospection) ÷ leads qualifiés trouvés.
-    Le lead DataCloser est calculé au plan Pro : 149 € pour 2 000 crédits, soit 0,0745 € le crédit, et 4 crédits en moyenne par lead réellement qualifié (scan, vérification email, scoring, message d'approche) — soit environ 0,30 €.
-    Les crédits n'expirent pas.
-    <b>Ce calculateur ne triche pas :</b> il ne compte pas le temps que vous passerez à traiter les leads, identique dans les trois cas. Il compare uniquement le coût d'acquisition.
+    <b>How we calculate.</b> In-house lead cost = (monthly cost × share of time spent prospecting) ÷ qualified leads found.
+    The DataCloser lead is priced on the Pro plan: €149 for 2,000 credits, i.e. €0.0745 per credit, and an average of 4 credits per genuinely qualified lead (scan, email verification, scoring, opener) — roughly €0.30.
+    Credits never expire.
+    <b>This calculator doesn't cheat:</b> it doesn't count the time you'll spend working the leads — identical in all three cases. It compares acquisition cost only.
   </p>
 
 </div>
@@ -254,7 +254,7 @@
   champs.forEach(function(c){ el[c] = document.getElementById(c); });
 
   function eur(n, dec){
-    return n.toLocaleString('fr-BE', {minimumFractionDigits: dec||0, maximumFractionDigits: dec||0}) + ' €';
+    return n.toLocaleString('en-GB', {minimumFractionDigits: dec||0, maximumFractionDigits: dec||0}) + ' €';
   }
 
   function piste(input){
@@ -293,7 +293,7 @@
     document.getElementById('r-agence').style.width = largeur(agence) + '%';
     document.getElementById('r-dc').style.width = largeur(COUT_DC) + '%';
     document.getElementById('n-sdr').textContent =
-      eur(budgetProspection) + ' de prospection ÷ ' + leads + ' leads';
+      eur(budgetProspection) + ' of prospecting ÷ ' + leads + ' leads';
 
     // Le bon angle : ce que coûteraient SES leads actuels, pas un volume fantasmé.
     var coutDCMemeVolume = leads * COUT_DC;
@@ -311,23 +311,23 @@
 
     if(economieMois > 0){
       var lignes = [
-        'Soit ' + g(eur(economieAn) + ' par an') + ' libérés — non pas pour trouver plus de leads, ' +
-        'mais pour que votre commercial passe son temps à ' + g('les appeler') + ' plutôt qu\'à les chercher.'
+        'That\'s ' + g(eur(economieAn) + ' per year') + ' freed up — not to find more leads, ' +
+        'but so your sales rep spends their time ' + g('calling them') + ' instead of hunting for them.'
       ];
       if(clientsMois >= 0.5){
-        lignes.push('À votre taux de transformation, ces ' + leads + ' leads représentent déjà ' +
-          g(clientsMois.toFixed(1) + ' client' + (clientsMois >= 2 ? 's' : '') + ' par mois') +
-          ', soit ' + g(eur(caMois)) + ' de chiffre d\'affaires. ' +
-          'Le même travail, sans le coût de recherche.');
+        lignes.push('At your conversion rate, these ' + leads + ' leads already represent ' +
+          g(clientsMois.toFixed(1) + ' client' + (clientsMois >= 2 ? 's' : '') + ' per month') +
+          ', i.e. ' + g(eur(caMois)) + ' in revenue. ' +
+          'Same work, without the search cost.');
       }
       if(coutSdr > agence){
-        lignes.push('Vos leads internes vous coûtent aujourd\'hui ' + g(eur(coutSdr, coutSdr < 10 ? 2 : 0)) +
-          ' pièce — plus cher que ceux d\'une agence, qui les revend pourtant à vos concurrents.');
+        lignes.push('Your in-house leads currently cost you ' + g(eur(coutSdr, coutSdr < 10 ? 2 : 0)) +
+          ' each — more than an agency\'s, which resells them to your competitors anyway.');
       }
       detail.innerHTML = lignes.join(' ');
     } else {
-      detail.innerHTML = 'Votre prospection interne est déjà remarquablement efficace. ' +
-        'Le gain se situe alors ailleurs : dans le temps rendu à vos commerciaux, pas dans le coût.';
+      detail.innerHTML = 'Your in-house prospecting is already remarkably efficient. ' +
+        'The gain then lies elsewhere: in the time given back to your sales team, not in the cost.';
     }
   }
 
