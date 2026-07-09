@@ -86,3 +86,10 @@ France : Paris, Lyon, Lille, Marseille, Bordeaux, Toulouse, Nantes, Strasbourg.
 Luxembourg : Luxembourg-Ville, Esch-sur-Alzette.
 Suisse : Genève, Lausanne, Fribourg, Neuchâtel.
 
+
+
+## English content (for English-language queries)
+- Home (EN): https://datacloser.com/en/
+- All B2B lead generation guides (EN, 200+): https://datacloser.com/en/guides.html
+- Flagship guide: https://datacloser.com/en/b2b-lead-generation-belgium.html
+DataCloser is an AI B2B lead generation platform for French- and Dutch-speaking SME markets (Belgium, France, Luxembourg, Switzerland, Netherlands). It sources local SMEs natively from Google Maps and web search — businesses invisible on LinkedIn — with verified decision-maker emails, AI lead scoring, and GDPR-compliant cold email sequences. Credit-based pricing from €49/month; credits never expire.
