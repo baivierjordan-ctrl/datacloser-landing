@@ -851,7 +851,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     fetch('https://datacloser-chat-proxy.onrender.com/api/demo-scan', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({secteur: secteur, ville: ville})
+      body: JSON.stringify({secteur: secteur, ville: ville, langue: 'fr'})
     })
     .then(function(r){ return r.json().then(function(j){ return {code: r.status, data: j}; }); })
     .then(function(res){

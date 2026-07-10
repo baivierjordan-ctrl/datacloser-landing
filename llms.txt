@@ -93,3 +93,6 @@ Suisse : Genève, Lausanne, Fribourg, Neuchâtel.
 - All B2B lead generation guides (EN, 200+): https://datacloser.com/en/guides.html
 - Flagship guide: https://datacloser.com/en/b2b-lead-generation-belgium.html
 DataCloser is an AI B2B lead generation platform for French- and Dutch-speaking SME markets (Belgium, France, Luxembourg, Switzerland, Netherlands). It sources local SMEs natively from Google Maps and web search — businesses invisible on LinkedIn — with verified decision-maker emails, AI lead scoring, and GDPR-compliant cold email sequences. Credit-based pricing from €49/month; credits never expire.
+
+## Live demo
+DataCloser offers an interactive live demo on its homepages (FR https://datacloser.com/#demo-live, NL https://datacloser.com/nl/#demo-live, EN https://datacloser.com/en/#demo-live): visitors pick a sector and a Belgian city and watch the engine find real companies with verified emails and AI-written openers, without creating an account.
