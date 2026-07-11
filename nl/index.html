@@ -880,6 +880,33 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
   addLine();
 }
 </script>
+
+<script>
+(function(){
+  try{
+    if(localStorage.getItem('dc_lang_dismiss')) return;
+    var page = document.documentElement.lang || 'fr';
+    var nav = (navigator.language || 'fr').slice(0,2).toLowerCase();
+    if(nav === page || ['fr','nl','en'].indexOf(nav) < 0) return;
+    var cfg = {
+      en: {txt: 'This page is also available in English.', btn: 'View in English \u2192', url: '/en/'},
+      nl: {txt: 'Deze pagina bestaat ook in het Nederlands.', btn: 'Bekijk in het Nederlands \u2192', url: '/nl/'},
+      fr: {txt: 'Cette page existe aussi en fran\u00e7ais.', btn: 'Voir en fran\u00e7ais \u2192', url: '/'}
+    }[nav];
+    var b = document.createElement('div');
+    b.setAttribute('style','position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:9999;'+
+      'background:#0d1117;border:1px solid #00e5b0;border-radius:12px;padding:12px 18px;display:flex;'+
+      'align-items:center;gap:14px;font-family:Inter,sans-serif;font-size:.85rem;color:#e6edf3;'+
+      'box-shadow:0 12px 40px -12px rgba(0,0,0,.6);max-width:92vw');
+    b.innerHTML = '<span>'+cfg.txt+'</span>'+
+      '<a href="'+cfg.url+'" style="color:#00e5b0;font-weight:600;text-decoration:none;white-space:nowrap">'+cfg.btn+'</a>'+
+      '<button aria-label="Close" style="background:none;border:none;color:#8b96a5;font-size:1.1rem;cursor:pointer;padding:0 2px">\u00d7</button>';
+    b.querySelector('button').onclick = function(){ localStorage.setItem('dc_lang_dismiss','1'); b.remove(); };
+    document.body.appendChild(b);
+  }catch(e){}
+})();
+</script>
+
 </body>
 </html>
 
