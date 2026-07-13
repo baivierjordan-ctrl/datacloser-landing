@@ -26,8 +26,8 @@
 <link rel="alternate" hreflang="x-default" href="https://datacloser.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"/></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap"/></noscript>
 <style>
 :root{
   --ink:#0d1117;
@@ -48,6 +48,8 @@ html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--teal);color:var(--ink)}
+.scribble{font-family:'Caveat',cursive;font-size:1.25rem;color:var(--teal);transform:rotate(-3deg);white-space:nowrap}
+@media(max-width:1020px){.scribble{display:none}}
 
 nav{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav-inner{max-width:1140px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
@@ -419,12 +421,18 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     </div>
     <p class="hero-note"><b>Crédits offerts à l'inscription</b> — sans carte bancaire.</p>
   </div>
-  <div class="terminal" aria-label="Démonstration du radar d'extraction en temps réel">
+  <div style="position:relative">
+    <div class="scribble" style="position:absolute;top:-44px;right:18px;z-index:2">
+      <span>Le moteur tourne vraiment, regardez</span>
+      <svg width="46" height="34" viewBox="0 0 46 34" fill="none" style="display:inline;vertical-align:middle;margin-left:4px"><path d="M4 4c14 2 30 8 36 24" stroke="#00e5b0" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M33 24l7 5-1-9" stroke="#00e5b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+    <div class="terminal" aria-label="Démonstration du radar d'extraction en temps réel">
     <div class="term-bar">
       <span class="dot"></span><span class="dot"></span><span class="dot"></span>
       <span class="term-title">radar — extraction en temps réel</span>
     </div>
     <div class="term-body" id="term"></div>
+  </div>
   </div>
 </header>
 
@@ -448,6 +456,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     <span style="border:1px solid var(--line);border-radius:100px;padding:7px 16px;font-size:.82rem;color:var(--text);background:var(--panel)">Digital Wallonia</span>
     <span style="border:1px solid var(--line);border-radius:100px;padding:7px 16px;font-size:.82rem;color:var(--text);background:var(--panel)">Les Pépites Tech</span>
     <span style="border:1px solid rgba(0,229,176,.35);border-radius:100px;padding:7px 16px;font-size:.82rem;color:var(--teal);background:var(--panel)">Marque déposée BOIP</span>
+    <span class="scribble" style="font-size:1.1rem;margin-left:4px">← oui, on y est vraiment</span>
   </div>
 </div>
 
@@ -723,40 +732,136 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 </script>
 
 <section id="pipeline">
+  <style>
+    #pipeline .flow{display:flex;flex-direction:column;gap:64px;margin-top:56px}
+    #pipeline .row{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+    #pipeline .row:nth-child(even) .mock{order:-1}
+    #pipeline .num{font-family:var(--display);font-weight:700;font-size:.85rem;color:var(--ink);background:var(--teal);width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+    #pipeline .row h3{font-family:var(--display);font-size:1.4rem;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+    #pipeline .row .desc{color:var(--muted);font-size:.98rem;margin-bottom:18px}
+    #pipeline .row ul{list-style:none}
+    #pipeline .row li{display:flex;gap:10px;padding:6px 0;font-size:.92rem;color:var(--text)}
+    #pipeline .row li::before{content:"✓";color:var(--teal);font-weight:700;flex:none}
+    #pipeline .mock{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 24px 60px -30px rgba(0,0,0,.6)}
+    #pipeline .mock .mb{display:flex;gap:6px;margin-bottom:16px}
+    #pipeline .mock .mb i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+    #pipeline .chipset{display:flex;flex-wrap:wrap;gap:9px}
+    #pipeline .chip{border:1px solid var(--line);background:var(--panel);border-radius:100px;padding:7px 14px;font-size:.8rem;color:var(--muted)}
+    #pipeline .chip.on{border-color:rgba(0,229,176,.45);color:var(--teal)}
+    #pipeline .feed{display:flex;flex-direction:column;gap:9px;font-family:var(--mono);font-size:.76rem}
+    #pipeline .feed div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 13px;color:var(--muted)}
+    #pipeline .feed b{color:var(--text);font-weight:500}
+    #pipeline .feed .ok{color:var(--teal)}
+    #pipeline .leadcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+    #pipeline .leadcard .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    #pipeline .leadcard .name{font-family:var(--display);font-weight:600}
+    #pipeline .leadcard .score{background:rgba(0,229,176,.14);color:var(--teal);font-weight:700;font-size:.82rem;padding:4px 11px;border-radius:100px}
+    #pipeline .leadcard .line{display:flex;gap:8px;align-items:center;font-size:.84rem;color:var(--muted);padding:4px 0}
+    #pipeline .pill{background:rgba(0,229,176,.1);color:var(--teal);font-size:.7rem;font-weight:600;padding:2px 9px;border-radius:100px}
+    #pipeline .tl{display:flex;align-items:center;gap:0;margin-top:6px}
+    #pipeline .tl .pt{flex:1;text-align:center}
+    #pipeline .tl .dot2{width:13px;height:13px;border-radius:50%;background:var(--teal);margin:0 auto 8px;box-shadow:0 0 0 4px rgba(0,229,176,.15)}
+    #pipeline .tl .pt+.pt .dot2{background:var(--line);box-shadow:none}
+    #pipeline .tl .lbl{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+    #pipeline .tl .lbl b{display:block;color:var(--text);font-size:.8rem;margin-bottom:2px}
+    @media(max-width:860px){#pipeline .row{grid-template-columns:1fr;gap:26px}#pipeline .row:nth-child(even) .mock{order:0}}
+  </style>
   <div class="wrap">
     <div class="sec-eyebrow">Le moteur</div>
-    <h2>Comment générer des leads B2B en 5 étapes avec DataCloser</h2>
-    <p class="sec-sub">Le moteur analyse de nombreuses entreprises par requête, mais vous n'êtes facturé que sur les leads exploitables livrés. La Cascade Premium filtre automatiquement : seuls les prospects qui atteignent 6/10 déclenchent l'enrichissement complet.</p>
-    <div class="pipe">
-      <div class="step">
-        <div class="tag">ICP</div>
-        <h3>🏢 Profil ICP</h3>
-        <p>Décrivez votre entreprise et vos clients idéaux. L'IA génère automatiquement les mots-clés et villes optimaux pour votre marché cible.</p>
+    <h2>Comment ça marche, en 4 étapes</h2>
+    <p class="sec-sub">Vous décrivez votre client idéal une fois. DataCloser fait le reste.</p>
+    <div class="flow">
+
+      <div class="row">
+        <div>
+          <div class="num">1</div>
+          <h3>Décrivez votre client idéal</h3>
+          <p class="desc">En quelques phrases, comme vous le diriez à un collègue. Pas de requête à construire, pas de filtres à apprendre.</p>
+          <ul>
+            <li>L'IA déduit les secteurs, mots-clés et villes à cibler</li>
+            <li>Modes métier préréglés : agences, professions libérales, immobilier…</li>
+            <li>Modifiable à tout moment, réutilisable en 1 clic</li>
+          </ul>
+        </div>
+        <div class="mock" aria-hidden="true">
+          <div class="mb"><i></i><i></i><i></i></div>
+          <p style="font-size:.86rem;color:var(--text);margin-bottom:14px">« Je vends des services comptables aux PME de la région de Namur. »</p>
+          <div class="chipset">
+            <span class="chip on">PME 5–50 employés</span><span class="chip on">Namur + 30 km</span><span class="chip on">Construction</span><span class="chip on">Horeca</span><span class="chip">Transport</span><span class="chip">Commerce B2B</span>
+          </div>
+        </div>
       </div>
-      <div class="step">
-        <div class="tag">SCAN</div>
-        <h3>🔍 Scan en temps réel</h3>
-        <p>Le moteur parcourt Google Search et Google Maps sur votre cible et votre zone — pas une base figée datant de six mois.</p>
+
+      <div class="row">
+        <div>
+          <div class="num">2</div>
+          <h3>Le moteur scanne votre zone en direct</h3>
+          <p class="desc">Google Search et Google Maps sont interrogés au moment où vous lancez la chasse — jamais une base figée datant de six mois.</p>
+          <ul>
+            <li>Les entreprises locales que LinkedIn ne référence pas</li>
+            <li>Annuaires et faux positifs rejetés automatiquement</li>
+            <li>Date de fraîcheur sur chaque lead</li>
+          </ul>
+        </div>
+        <div class="mock" aria-hidden="true">
+          <div class="mb"><i></i><i></i><i></i></div>
+          <div class="feed">
+            <div><b>Menuiserie Collart</b> · Gembloux — analyse du site…</div>
+            <div><b>Fiduciaire Namuroise</b> · Namur — <span class="ok">candidat retenu ✓</span></div>
+            <div><b>Toitures Lambert</b> · Andenne — <span class="ok">candidat retenu ✓</span></div>
+            <div style="color:var(--muted)">annuaire-entreprises.be — <span style="color:#ff7a7a">écarté (annuaire)</span></div>
+          </div>
+        </div>
       </div>
-      <div class="step">
-        <div class="tag">SCORE</div>
-        <h3>🧠 Cerveau IA</h3>
-        <p>Chaque lead est scoré /10 selon votre ICP spécifiquement — besoins détectés, signaux recrutement, technologies. Score de match ICP en %.</p>
+
+      <div class="row">
+        <div>
+          <div class="num">3</div>
+          <h3>Chaque lead arrive scoré et enrichi</h3>
+          <p class="desc">Vous ne recevez que l'exploitable : décideur identifié, email nominatif vérifié, et le contexte qui justifie votre prise de contact.</p>
+          <ul>
+            <li>Score /10 calculé sur votre profil, pas un score générique</li>
+            <li>Besoins détectés, signaux de recrutement, technologies</li>
+            <li>Vous ne payez que les leads livrés à 6/10 ou plus</li>
+          </ul>
+        </div>
+        <div class="mock" aria-hidden="true">
+          <div class="mb"><i></i><i></i><i></i></div>
+          <div class="leadcard">
+            <div class="top"><span class="name">Fiduciaire Namuroise</span><span class="score">8/10</span></div>
+            <div class="line">👤 Claire Dumont — Gérante</div>
+            <div class="line">✉️ c.dumont@… <span class="pill">✓ Nominatif vérifié</span></div>
+            <div class="line">📈 Signal : recrute un gestionnaire de dossiers</div>
+          </div>
+        </div>
       </div>
-      <div class="step">
-        <div class="tag">ENRICH</div>
-        <h3>📧 Enrichissement</h3>
-        <p>Décideur identifié, email nominatif vérifié, profil LinkedIn associé, qualification de délivrabilité. Conforme RGPD.</p>
+
+      <div class="row">
+        <div>
+          <div class="num">4</div>
+          <h3>L'email part, les relances suivent</h3>
+          <p class="desc">Un message d'accroche unique par prospect, envoyé depuis votre propre adresse, dans sa langue. Le silence déclenche la relance, pas vous.</p>
+          <ul>
+            <li>Relances automatiques J+4, J+9 et J+14 jusqu'à la réponse</li>
+            <li>Sources des données et désinscription dans chaque email</li>
+            <li>Horaires d'envoi et délais aléatoires anti-spam</li>
+          </ul>
+        </div>
+        <div class="mock" aria-hidden="true">
+          <div class="mb"><i></i><i></i><i></i></div>
+          <div class="tl">
+            <div class="pt"><div class="dot2"></div><div class="lbl"><b>J+0</b>Icebreaker</div></div>
+            <div class="pt"><div class="dot2"></div><div class="lbl"><b>J+4</b>Relance 1</div></div>
+            <div class="pt"><div class="dot2"></div><div class="lbl"><b>J+9</b>Relance 2</div></div>
+            <div class="pt"><div class="dot2"></div><div class="lbl"><b>J+14</b>Dernier mot</div></div>
+          </div>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:16px;text-align:center">La séquence s'arrête dès que le prospect répond ou se désinscrit.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="tag">CLOSE</div>
-        <h3>💬 Icebreaker</h3>
-        <p>Un message d'accroche unique, ancré dans le contexte réel du prospect. Il ne reste qu'à appuyer sur Envoyer.</p>
-      </div>
+
     </div>
   </div>
 </section>
-
 <!-- ════════ LIVRABLE ════════ -->
 <section id="livrable" style="padding-top:0">
   <div class="wrap">
@@ -961,12 +1066,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
       <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
         <div style="font-size:24px;margin-bottom:12px">🏢</div>
         <h3 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Profil ICP intelligent</h3>
-        <p style="font-size:.85rem;color:var(--muted)">Décrivez votre entreprise une fois. L'IA adapte le scoring et les icebreakers à votre activité spécifique — pas une approche générique.</p>
-      </div>
-      <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
-        <div style="font-size:24px;margin-bottom:12px">🤖</div>
-        <h3 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Recherche intelligente ICP</h3>
-        <p style="font-size:.85rem;color:var(--muted)">L'IA génère automatiquement vos mots-clés et villes cibles depuis votre profil. Plus besoin de chercher — DataCloser sait qui vous cherchez.</p>
+        <p style="font-size:.85rem;color:var(--muted)">Décrivez votre entreprise une fois. L'IA en déduit vos mots-clés, villes cibles, scoring et icebreakers — calibrés pour vous.</p>
       </div>
       <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
         <div style="font-size:24px;margin-bottom:12px">🎯</div>
@@ -982,11 +1082,6 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
         <div style="font-size:24px;margin-bottom:12px">🔗</div>
         <h3 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Webhook CRM natif</h3>
         <p style="font-size:.85rem;color:var(--muted)">Connectez Make, Zapier, n8n, HubSpot ou Pipedrive en 30 secondes. Chaque nouveau lead est poussé automatiquement dans votre CRM.</p>
-      </div>
-      <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px">
-        <div style="font-size:24px;margin-bottom:12px">🔁</div>
-        <h3 style="font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px">Replay de chasse</h3>
-        <p style="font-size:.85rem;color:var(--muted)">Relancez n'importe quelle chasse passée en 1 clic avec les mêmes paramètres. Vos meilleures recherches sont toujours disponibles.</p>
       </div>
       <div style="background:var(--panel);border:1px solid rgba(0,229,176,.3);border-radius:12px;padding:24px;position:relative">
         <div style="position:absolute;top:-11px;left:20px;background:#0055ff;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em">AGENCY</div>
