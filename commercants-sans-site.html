@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trouver les commerçants sans site web à démarcher — DataCloser</title>
+<meta name="description" content="La liste des commerces de votre zone qui n'ont pas de site web, avec téléphone et adresse. Chaque absence est vérifiée deux fois : Google Maps se trompe une fois sur trois.">
+<link rel="canonical" href="https://datacloser.com/commercants-sans-site.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://datacloser.com/commercants-sans-site.html">
+<meta property="og:title" content="Trouver les commerçants sans site web à démarcher">
+<meta property="og:description" content="La liste des commerces de votre zone sans site web, téléphone compris. Chaque absence vérifiée deux fois.">
+<meta property="og:image" content="https://datacloser.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0a0d12; --surface:#0d1117; --line:#1e2530;
+  --teal:#00e5b0; --blue:#0055ff;
+  --text:#e6edf3; --soft:#c9d4e0; --dim:#8b9ab0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--text);
+  font-family:Inter,system-ui,sans-serif;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ── Navigation, reprise de la page d'accueil ── */
+nav{
+  position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--line);
+  background:rgba(10,13,18,.85);backdrop-filter:blur(12px);
+}
+.nav-inner{
+  max-width:1080px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em}
+.logo span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:22px;font-size:14px;color:var(--dim);flex-wrap:wrap}
+.nav-links a:hover{color:var(--text)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  border-radius:10px;padding:11px 20px;
+  font-weight:600;font-size:15px;transition:.2s;
+}
+.btn-primary{background:var(--teal);color:#06231d}
+.btn-primary:hover{background:#00cfa0}
+.btn-ghost{border:1px solid var(--line);color:var(--soft)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--text)}
+
+/* ── En-tête ── */
+header{padding:88px 0 72px;position:relative;overflow:hidden}
+header::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(46rem 30rem at 12% -12%,rgba(0,229,176,.09),transparent 66%),
+    radial-gradient(34rem 24rem at 92% 4%,rgba(0,85,255,.06),transparent 70%);
+}
+header .wrap{position:relative}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  text-transform:uppercase;letter-spacing:.2em;color:var(--teal);
+  margin-bottom:18px;
+}
+h1{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(34px,5.4vw,58px);line-height:1.06;letter-spacing:-.028em;
+  max-width:16ch;
+}
+h1 em{font-style:normal;color:var(--teal)}
+.lede{margin-top:22px;font-size:clamp(17px,2vw,20px);color:var(--soft);max-width:60ch}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.sous-cta{margin-top:14px;font-size:13px;color:var(--dim)}
+
+/* ── Sections ── */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--teal);margin-bottom:14px;
+}
+h2{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(26px,3.4vw,36px);line-height:1.16;letter-spacing:-.02em;max-width:22ch;
+}
+.sec-sub{margin-top:14px;color:var(--soft);max-width:62ch}
+
+/* ── Le problème, en chiffre ── */
+.constat{
+  margin-top:34px;border:1px solid var(--line);border-radius:16px;
+  background:var(--surface);padding:32px;
+  display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
+}
+.constat .chiffre{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(48px,7vw,76px);line-height:1;color:var(--teal);
+}
+.constat p{color:var(--soft)}
+.constat strong{color:var(--text);font-weight:600}
+
+/* ── Étapes ── */
+.etapes{margin-top:38px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.etape{
+  border:1px solid var(--line);border-radius:14px;
+  background:var(--surface);padding:24px;
+}
+.etape .num{
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);
+  letter-spacing:.14em;margin-bottom:12px;
+}
+.etape h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:500;margin-bottom:8px}
+.etape p{font-size:14px;color:var(--dim);line-height:1.65}
+
+/* ── Ce que contient la liste ── */
+.colonnes{margin-top:32px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.colonnes table{width:100%;border-collapse:collapse;font-size:14px}
+.colonnes th{
+  text-align:left;padding:14px 18px;background:var(--surface);
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--dim);font-weight:400;
+}
+.colonnes td{padding:13px 18px;border-top:1px solid var(--line);color:var(--soft)}
+.colonnes td:first-child{color:var(--text);font-weight:500;white-space:nowrap}
+.marque{color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:12px}
+
+/* ── Franchise ── */
+.franchise{
+  margin-top:34px;border:1px solid rgba(0,229,176,.28);border-radius:14px;
+  background:rgba(0,229,176,.045);padding:26px;
+}
+.franchise h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:500;margin-bottom:12px}
+.franchise ul{list-style:none;display:grid;gap:10px}
+.franchise li{padding-left:20px;position:relative;color:var(--soft);font-size:15px}
+.franchise li::before{content:"—";position:absolute;left:0;color:var(--teal)}
+
+/* ── Pour qui ── */
+.metiers{margin-top:30px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.metier{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:20px}
+.metier h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:500;margin-bottom:6px}
+.metier p{font-size:14px;color:var(--dim)}
+
+/* ── Clôture ── */
+.cloture{text-align:center;padding:80px 0}
+.cloture h2{margin:0 auto;max-width:20ch}
+.cloture .sec-sub{margin:16px auto 0}
+.cloture .cta{justify-content:center}
+
+/* ── Pied de page ── */
+footer{border-top:1px solid var(--line);padding:44px 0;color:var(--dim);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.foot-liens{display:flex;gap:20px;flex-wrap:wrap}
+.foot-liens a:hover{color:var(--text)}
+
+@media (max-width:720px){
+  .nav-links a:not(.btn){display:none}
+  .constat{grid-template-columns:1fr;gap:16px;text-align:left}
+  header{padding:60px 0 52px}
+  section{padding:56px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Data<span>Closer</span></a>
+    <div class="nav-links">
+      <a href="/#pipeline">Comment ça marche</a>
+      <a href="/#tarifs">Tarifs</a>
+      <a href="/blog/">Blog</a>
+      <a class="btn btn-primary" href="https://app.datacloser.com">Accéder à la plateforme</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Prospection locale</p>
+    <h1>Les commerçants de votre région qui <em>n'ont pas de site</em>.</h1>
+    <p class="lede">
+      Vous vendez des sites web, du référencement ou de la visibilité locale.
+      Vos meilleurs prospects sont ceux qui n'ont rien. Encore faut-il savoir
+      lesquels — et Google Maps se trompe une fois sur trois.
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://app.datacloser.com">Lancer une recherche</a>
+      <a class="btn btn-ghost" href="#methode">Comment on vérifie</a>
+    </div>
+    <p class="sous-cta">50 crédits offerts à l'inscription — sans carte bancaire.</p>
+  </div>
+</header>
+
+<section id="methode">
+  <div class="wrap">
+    <p class="sec-eyebrow">Le problème</p>
+    <h2>Une fiche Maps sans site ne veut pas dire sans site.</h2>
+    <p class="sec-sub">
+      Beaucoup de commerçants ont un site que Google Maps n'affiche pas :
+      fiche jamais mise à jour, site créé après, lien oublié. D'autres n'ont
+      qu'une page Facebook ou une fiche Planity — ce qui n'est pas un site,
+      mais ce qui rend l'argument commercial plus difficile.
+    </p>
+
+    <div class="constat">
+      <div class="chiffre">1&nbsp;/&nbsp;3</div>
+      <p>
+        <strong>C'est la proportion de « sans site » qui se révèlent faux</strong>
+        quand on vérifie un par un. Mesuré sur nos propres listes, avant de
+        construire la vérification automatique. Un tiers d'appels perdus, et
+        autant de crédibilité entamée dès la première phrase.
+      </p>
+    </div>
+
+    <div class="etapes">
+      <div class="etape">
+        <div class="num">01</div>
+        <h3>Recherche sur Google Maps</h3>
+        <p>
+          Vous indiquez un métier et une zone. Le moteur relève les commerces
+          et repère ceux dont la fiche n'affiche aucun site.
+        </p>
+      </div>
+      <div class="etape">
+        <div class="num">02</div>
+        <h3>Contre-vérification web</h3>
+        <p>
+          Pour chacun, une recherche indépendante cherche un vrai site. Le nom
+          du commerce doit apparaître dans le nom de domaine — pas seulement
+          dans un titre, sinon tous les annuaires passeraient.
+        </p>
+      </div>
+      <div class="etape">
+        <div class="num">03</div>
+        <h3>Confirmé, ou reclassé</h3>
+        <p>
+          Sans site trouvé, le commerce est marqué « confirmé absent ». Si un
+          site existe malgré tout, il est reclassé plutôt que supprimé — il
+          reste un prospect, pour un autre argument.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-eyebrow">Ce que vous obtenez</p>
+    <h2>Un fichier prêt à décrocher le téléphone.</h2>
+    <p class="sec-sub">
+      Un commerce sans site n'a pas d'adresse email à collecter — c'est la
+      logique même. Ces prospects se démarchent par téléphone, ou en poussant
+      la porte.
+    </p>
+
+    <div class="colonnes">
+      <table>
+        <thead>
+          <tr><th>Colonne</th><th>Ce qu'elle contient</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nom</td>
+            <td>Le commerce, tel qu'il apparaît sur sa fiche.</td>
+          </tr>
+          <tr>
+            <td>Téléphone</td>
+            <td>Le numéro affiché publiquement. C'est votre porte d'entrée.</td>
+          </tr>
+          <tr>
+            <td>Adresse</td>
+            <td>Pour organiser une tournée par quartier plutôt qu'au hasard.</td>
+          </tr>
+          <tr>
+            <td><span class="marque">Site vérifié</span></td>
+            <td>
+              « Confirmé absent » après double vérification, ou l'adresse du
+              site trouvé s'il en existe un.
+            </td>
+          </tr>
+          <tr>
+            <td>Score d'opportunité</td>
+            <td>
+              Croise l'absence de site avec la note Google et le nombre d'avis :
+              un commerce actif sans site est un meilleur prospect qu'une
+              coquille vide.
+            </td>
+          </tr>
+          <tr>
+            <td>Accroche</td>
+            <td>
+              Une phrase tirée de sa fiche — sa spécialité, un avis marquant —
+              pour ne pas commencer par « bonjour, je vends des sites ».
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="franchise">
+      <h3>Ce que cette liste n'est pas</h3>
+      <ul>
+        <li>Pas d'adresses email : un commerce sans site n'en publie pas.</li>
+        <li>
+          La recherche fonctionne sur Google Maps, pas en recherche web —
+          l'information vient de la fiche.
+        </li>
+        <li>
+          Une fiche peut être obsolète. La double vérification réduit
+          fortement les erreurs, elle ne les supprime pas.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-eyebrow">Pour qui</p>
+    <h2>Ceux qui vendent de la présence en ligne.</h2>
+
+    <div class="metiers">
+      <div class="metier">
+        <h3>Agences web et freelances</h3>
+        <p>
+          Un commerce sans site est un prospect qui n'a pas encore de
+          prestataire à remplacer. La vente est plus simple.
+        </p>
+      </div>
+      <div class="metier">
+        <h3>Référencement local</h3>
+        <p>
+          Une fiche Maps active sans site derrière : le besoin se démontre
+          en trente secondes.
+        </p>
+      </div>
+      <div class="metier">
+        <h3>Photographes, graphistes</h3>
+        <p>
+          Ceux qui n'ont rien en ligne n'ont pas non plus de photos, ni
+          d'identité visuelle.
+        </p>
+      </div>
+      <div class="metier">
+        <h3>Commerciaux terrain</h3>
+        <p>
+          Une liste avec adresses, triée par quartier, pour une tournée qui
+          ne se fait pas au hasard.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cloture">
+  <div class="wrap">
+    <h2>Commencez par une ville et un métier.</h2>
+    <p class="sec-sub">
+      Une dizaine de commerces suffisent à juger la qualité de la liste avant
+      d'aller plus loin.
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://app.datacloser.com">Créer un compte</a>
+      <a class="btn btn-ghost" href="/#tarifs">Voir les tarifs</a>
+    </div>
+    <p class="sous-cta">50 crédits offerts — de quoi vérifier avant de payer.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="logo">Data<span style="color:var(--teal)">Closer</span></div>
+      <p style="margin-top:8px">© 2026 DataCloser — Jordan Baivier, Belgique.</p>
+      <p style="margin-top:4px">Concept protégé — i-DEPOT BOIP n°160599.</p>
+    </div>
+    <div class="foot-liens">
+      <a href="/">Accueil</a>
+      <a href="/#tarifs">Tarifs</a>
+      <a href="/blog/">Blog</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
