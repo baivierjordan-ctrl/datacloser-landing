@@ -12,9 +12,6 @@
 <meta property="og:image" content="https://datacloser.com/og-datacloser.png">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://datacloser.com/en/">
-<link rel="alternate" hreflang="fr" href="https://datacloser.com/">
-<link rel="alternate" hreflang="nl" href="https://datacloser.com/nl/">
-<link rel="alternate" hreflang="x-default" href="https://datacloser.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -43,8 +40,13 @@ nav{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.85);backdrop-filt
 .nav-inner{max-width:1140px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em}
 .logo span{color:var(--teal)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--muted);font-size:.92rem;transition:color .2s}
+.nav-links{display:flex;gap:18px;align-items:center;flex-wrap:nowrap}
+.lang-switch{display:flex;align-items:center;gap:9px;padding-left:14px;margin-left:2px;border-left:1px solid var(--line);flex-shrink:0}
+.lang-switch a{font-size:.76rem!important;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.lang-switch a:hover{color:var(--teal)}
+
+.nav-links a{color:var(--muted);font-size:.85rem;transition:color .2s;white-space:nowrap;flex-shrink:0;line-height:1}
+.nav-links .btn{white-space:nowrap;flex-shrink:0}
 .nav-links a:hover{color:var(--text)}
 .btn{display:inline-block;font-family:var(--display);font-weight:600;border-radius:8px;padding:11px 22px;font-size:.95rem;transition:transform .15s,box-shadow .15s;cursor:pointer;border:none}
 .btn-primary{background:var(--teal);color:var(--ink)}
@@ -227,7 +229,10 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
       <a href="#faq">FAQ</a>
       <a href="/en/guides.html">Guides</a>
       <a href="/en/calculator.html">Calculator</a>
-      <a href="/" title="Français">🇫🇷 FR</a> <a href="/nl/" title="Nederlands">🇳🇱 NL</a>
+      <span class="lang-switch">
+        <a href="/" lang="fr" title="Voir en français">FR</a>
+        <a href="/nl/" lang="nl" title="Bekijk in het Nederlands">NL</a>
+      </span>
       <a class="btn btn-primary" href="https://app.datacloser.com/?lang=en">Go to the platform</a>
     </div>
   </div>

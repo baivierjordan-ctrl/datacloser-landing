@@ -21,9 +21,6 @@
 <meta property="og:image:alt" content="DataCloser — Génération de leads B2B pour PME francophones"/>
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://datacloser.com">
-<link rel="alternate" hreflang="fr" href="https://datacloser.com/">
-<link rel="alternate" hreflang="nl" href="https://datacloser.com/nl/">
-<link rel="alternate" hreflang="x-default" href="https://datacloser.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
@@ -55,7 +52,11 @@ nav{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.85);backdrop-filt
 .nav-inner{max-width:1140px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;white-space:nowrap;flex-shrink:0}
 .logo span{color:var(--teal)}
-.nav-links{display:flex;gap:16px;align-items:center;flex-wrap:nowrap}
+.nav-links{display:flex;gap:18px;align-items:center;flex-wrap:nowrap}
+.lang-switch{display:flex;align-items:center;gap:9px;padding-left:14px;margin-left:2px;border-left:1px solid var(--line);flex-shrink:0}
+.lang-switch a{font-size:.76rem!important;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.lang-switch a:hover{color:var(--teal)}
+
 .nav-links a{color:var(--muted);font-size:.85rem;transition:color .2s;white-space:nowrap;flex-shrink:0;line-height:1}
 .nav-links .btn{white-space:nowrap;flex-shrink:0}
 .nav-links a:hover{color:var(--text)}
@@ -184,7 +185,6 @@ img,pre{max-width:100%}
 
 @media(max-width:1180px){
   .nav-links{gap:14px}
-  .nav-links a[href="/comparatif.html"],
   .nav-links a[href="/calculateur.html"]{display:none}
 }
 @media(max-width:1040px){
@@ -200,7 +200,7 @@ img,pre{max-width:100%}
   .strip .wrap{grid-template-columns:repeat(2,1fr)}
   .plans{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
   .market{grid-template-columns:1fr}
-  .nav-links a:not(.btn):not([href="/blog/"]):not([href="/nl/"]){display:none}
+  .nav-links a:not(.btn):not([href="/blog/"]):not([href="/nl/"]):not([href="/en/"]){display:none}
   .outreach-flow{grid-template-columns:1fr;gap:12px}
   .outreach-arrow{transform:rotate(90deg)}
   .outreach-features{grid-template-columns:1fr}
@@ -468,12 +468,14 @@ img,pre{max-width:100%}
       <a href="#pipeline">Comment ça marche</a>
       <a href="#outreach">Outreach</a>
       <a href="#tarifs">Tarifs</a>
-      <a href="/comparatif.html">Comparatif</a>
       <a href="/commercants-sans-site.html">Sans site web</a>
       <a href="#faq">FAQ</a>
       <a href="/blog/">Blog</a>
       <a href="/calculateur.html">Calculateur</a>
-      <a href="/nl/" title="Bekijk in het Nederlands" lang="nl">NL</a>
+      <span class="lang-switch">
+        <a href="/nl/" lang="nl" title="Bekijk in het Nederlands">NL</a>
+        <a href="/en/" lang="en" title="View in English">EN</a>
+      </span>
       <a class="btn btn-primary" href="https://app.datacloser.com">Accéder à la plateforme</a>
     </div>
   </div>
