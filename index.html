@@ -52,11 +52,12 @@ a{color:inherit;text-decoration:none}
 @media(max-width:1020px){.scribble{display:none}}
 
 nav{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav-inner{max-width:1140px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em}
+.nav-inner{max-width:1140px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;white-space:nowrap;flex-shrink:0}
 .logo span{color:var(--teal)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--muted);font-size:.92rem;transition:color .2s}
+.nav-links{display:flex;gap:16px;align-items:center;flex-wrap:nowrap}
+.nav-links a{color:var(--muted);font-size:.85rem;transition:color .2s;white-space:nowrap;flex-shrink:0;line-height:1}
+.nav-links .btn{white-space:nowrap;flex-shrink:0}
 .nav-links a:hover{color:var(--text)}
 .btn{display:inline-block;font-family:var(--display);font-weight:600;border-radius:8px;padding:11px 22px;font-size:.95rem;transition:transform .15s,box-shadow .15s;cursor:pointer;border:none}
 .btn-primary{background:var(--teal);color:var(--ink)}
@@ -181,6 +182,15 @@ img,pre{max-width:100%}
 .outreach-banner p{font-size:.92rem;color:var(--muted);max-width:560px}
 .outreach-banner p strong{color:var(--text)}
 
+@media(max-width:1180px){
+  .nav-links{gap:14px}
+  .nav-links a[href="/comparatif.html"],
+  .nav-links a[href="/calculateur.html"]{display:none}
+}
+@media(max-width:1040px){
+  .nav-links a[href="/commercants-sans-site.html"],
+  .nav-links a[href="#faq"]{display:none}
+}
 @media(max-width:920px){
   .foot{flex-direction:column}
   .foot-links{flex-direction:column;gap:10px}
@@ -463,7 +473,7 @@ img,pre{max-width:100%}
       <a href="#faq">FAQ</a>
       <a href="/blog/">Blog</a>
       <a href="/calculateur.html">Calculateur</a>
-      <a href="/nl/" title="Bekijk in het Nederlands">🇳🇱 NL</a>
+      <a href="/nl/" title="Bekijk in het Nederlands" lang="nl">NL</a>
       <a class="btn btn-primary" href="https://app.datacloser.com">Accéder à la plateforme</a>
     </div>
   </div>
