@@ -34,8 +34,8 @@
   --ink-2:#11161d;
   --panel:#161c24;
   --line:#232b36;
-  --teal:#00ffcc;
-  --blue:#3d7bff;
+  --teal:#00e5b0;
+  --blue:#0055ff;
   --amber:#ffaa00;
   --text:#e8edf3;
   --muted:#9aabbc;
@@ -350,13 +350,70 @@ img,pre{max-width:100%}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"D'où viennent les données ?","acceptedAnswer":{"@type":"Answer","text":"DataCloser interroge Google Search et Google Maps en temps réel au moment de votre recherche, puis analyse le site web de chaque entreprise trouvée. Aucune base revendue, aucune donnée périmée : chaque lead porte sa date de fraîcheur."}},
-    {"@type":"Question","name":"Est-ce conforme au RGPD ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les données collectées sont publiques et professionnelles (B2B). L'enrichissement des emails s'appuie sur une cascade premium multi-fournisseurs conforme RGPD, et chaque email de prospection mentionne la source des données ainsi qu'un lien de désinscription (RGPD Article 14)."}},
-    {"@type":"Question","name":"Comment fonctionne l'Outreach IA ?","acceptedAnswer":{"@type":"Answer","text":"Connectez votre boîte mail via SMTP dans les paramètres Outreach. Sélectionnez un fichier de leads, rédigez votre séquence (jusqu'à 4 emails : J+0, J+4, J+9, J+14), et lancez. L'IA construit un email personnalisé pour chaque lead et envoie depuis votre propre adresse avec délai aléatoire anti-spam. Les relances sont gratuites."}},
-    {"@type":"Question","name":"Comment fonctionnent les crédits ?","acceptedAnswer":{"@type":"Answer","text":"Vous ne payez que pour les leads exploitables. 1 crédit est débité uniquement lorsqu'un lead vous est livré avec un email exploitable (nominatif vérifié ou catch-all probable). Les leads sans email valide ne sont jamais facturés. L'envoi de l'email de prospection débite 1 crédit supplémentaire."}},
-    {"@type":"Question","name":"Quels pays sont couverts ?","acceptedAnswer":{"@type":"Answer","text":"La Belgique, la France, le Luxembourg et la Suisse en couverture native, ville par ville. Un mode de saisie manuelle permet aussi de cibler n'importe quel autre pays."}},
-    {"@type":"Question","name":"Puis-je connecter DataCloser à mon CRM ?","acceptedAnswer":{"@type":"Answer","text":"Oui. L'onglet Exports & CRM permet de pousser vos leads vers n'importe quel CRM ou outil d'automatisation via webhook (Make, Zapier, n8n…), en plus de l'export CSV classique. Une API REST DataCloser est également disponible pour les clients Agency."}},
-    {"@type":"Question","name":"Y a-t-il un engagement ?","acceptedAnswer":{"@type":"Answer","text":"Aucun. Les abonnements sont mensuels et résiliables à tout moment, et des packs de crédits ponctuels sans abonnement sont disponibles dès 9,99 €."}}
+    {
+      "@type": "Question",
+      "name": "D'où viennent les données ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DataCloser interroge Google Search et Google Maps en temps réel au moment de votre recherche, puis analyse le site web de chaque entreprise trouvée. Aucune base revendue, aucune donnée périmée : chaque lead porte sa date de fraîcheur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce conforme au RGPD ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Les données collectées sont publiques et professionnelles (B2B). L'enrichissement des emails s'appuie sur une cascade premium conforme RGPD, et chaque export mentionne la provenance et la date de collecte. Les emails envoyés via l'Outreach incluent automatiquement une mention de désinscription."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne l'Outreach IA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Connectez votre boîte mail (Gmail, Outlook, OVH…) via SMTP dans les paramètres Outreach. Sélectionnez un fichier de leads, rédigez votre template avec des variables dynamiques, et lancez. L'IA construit un email personnalisé pour chaque lead en intégrant son icebreaker, vérifie la cohérence avant envoi, et envoie depuis votre propre adresse avec un délai aléatoire anti-spam. 1 crédit = 1 email envoyé. La relance J+4 est offerte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La relance est-elle vraiment gratuite ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. La relance automatique J+4 est offerte dans tous les plans — aucun crédit supplémentaire n'est débité. Elle est rédigée par l'IA dans un style différent du premier email, avec un ton de rappel naturel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de leads vais-je obtenir avec mes crédits ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vous ne payez que pour les leads exploitables. 1 crédit est débité uniquement lorsqu'un lead vous est livré avec un email exploitable (nominatif vérifié ou catch-all probable) — accompagné de son décideur, son score /10 et son icebreaker. Les leads sans email valide, ceux écartés pour score faible, ou un scan interrompu ne sont jamais facturés. Avec 500 crédits, le plan Starter couvre une prospection intensive sur plusieurs secteurs et villes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels pays sont couverts ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Belgique, la France, le Luxembourg et la Suisse en couverture native, ville par ville. Un mode de saisie manuelle permet aussi de cibler n'importe quel autre pays."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je connecter DataCloser à mon CRM ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. L'onglet Exports & CRM permet de pousser vos leads vers n'importe quel CRM ou outil d'automatisation via webhook (Make, Zapier, n8n…), en plus de l'export CSV classique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il un engagement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aucun. Les abonnements sont mensuels et résiliables à tout moment, et des packs de crédits ponctuels sans abonnement sont disponibles dès 9,99 €."
+      }
+    }
   ]
 }
 </script>
@@ -371,7 +428,7 @@ img,pre{max-width:100%}
     {"@type":"HowToStep","position":1,"name":"Définir la cible","text":"Renseignez le secteur d'activité, la ville et le type d'entreprise ciblé dans le Scout IA."},
     {"@type":"HowToStep","position":2,"name":"Lancer le scan Google","text":"DataCloser interroge Google Search et Google Maps en temps réel pour trouver les entreprises correspondantes."},
     {"@type":"HowToStep","position":3,"name":"Scoring IA /10","text":"Chaque entreprise est analysée et scorée sur 10 par l'IA : besoins détectés, décideur identifié, icebreaker rédigé."},
-    {"@type":"HowToStep","position":4,"name":"Récupérer l'email nominatif vérifié","text":"L'email du dirigeant est enrichi via FullEnrich (certifié RGPD) et vérifié avant export."},
+    {"@type":"HowToStep","position":4,"name":"Récupérer l'email nominatif vérifié","text":"L'email du dirigeant est enrichi via une cascade premium conforme RGPD et vérifié avant export."},
     {"@type":"HowToStep","position":5,"name":"Lancer l'Outreach","text":"Envoyez votre campagne cold email depuis votre propre boîte SMTP avec séquence automatique jusqu'à J+14 (J+4, J+9, J+14 configurables)."}
   ]
 }
@@ -447,7 +504,7 @@ img,pre{max-width:100%}
     <div class="stat"><div class="n">4 pays</div><div class="l">francophones couverts</div></div>
     <div class="stat"><div class="n">19</div><div class="l">points de données par lead</div></div>
     <div class="stat"><div class="n">≥ 6/10</div><div class="l">score minimum livré</div></div>
-    <div class="stat"><div class="n">100 %</div><div class="l">emails vérifiés avant export</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">email non exploitable facturé</div></div>
   </div>
 </div>
 
@@ -1026,10 +1083,6 @@ img,pre{max-width:100%}
 </section>
 
 <!-- ════════ MARCHÉ ════════ -->
-<!-- ============================================================
-     DÉMO LIVE — à coller dans index.html de datacloser-landing
-     Dépend de l'endpoint POST /api/demo-scan
-     ============================================================ -->
 
 
 
@@ -1112,7 +1165,7 @@ img,pre{max-width:100%}
       </details>
       <details>
         <summary>Est-ce conforme au RGPD ?</summary>
-        <p>Oui. Les données collectées sont publiques et professionnelles (B2B). L'enrichissement des emails s'appuie sur un fournisseur français certifié RGPD, et chaque export mentionne la provenance et la date de collecte. Les emails envoyés via l'Outreach incluent automatiquement une mention de désinscription.</p>
+        <p>Oui. Les données collectées sont publiques et professionnelles (B2B). L'enrichissement des emails s'appuie sur une cascade premium conforme RGPD, et chaque export mentionne la provenance et la date de collecte. Les emails envoyés via l'Outreach incluent automatiquement une mention de désinscription.</p>
       </details>
       <details>
         <summary>Comment fonctionne l'Outreach IA ?</summary>
