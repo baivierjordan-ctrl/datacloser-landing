@@ -926,6 +926,22 @@ img,pre{max-width:100%}
 
   function relacher(){ btn.disabled = false; btn.textContent = LIB_BTN; enCours = false; }
 
+  /* Quota épuisé : le visiteur a compris ce que fait l'outil, il ne doit pas
+     partir sur un refus sec. On enchaîne sur ce qui reste possible. */
+  function limiteAtteinte(d){
+    cacher();
+    if(d && d.verdict){
+      verdictTxt.textContent = d.verdict;
+      verdict.hidden = false;
+    }
+    erreur.hidden = false;
+    erreurTxt.innerHTML =
+      "Vous avez lancé toutes les démonstrations disponibles aujourd\u2019hui. " +
+      "<b>Créez votre compte gratuit</b> : 50 crédits vous attendent, sans carte bancaire, " +
+      "et vous relancez autant de recherches que vous voulez. " +
+      "<a href=\"https://app.datacloser.com?utm_source=demo_limite\" style=\"color:var(--teal)\">Continuer sur DataCloser &#8594;</a>";
+  }
+
   /* Étape 2 — la recherche proprement dite */
   function lancerScan(secteur, ville, jeton, debut){
     fetch(API + '/api/demo-scan', {
@@ -938,7 +954,7 @@ img,pre{max-width:100%}
       var reste = Math.max(0, 2600 - (Date.now() - debut));
       setTimeout(function(){
         if(res.code === 200 && res.data.ok){ afficher(res.data); }
-        else if(res.code === 429){ montrerErreur('Vous avez atteint la limite de démonstrations pour aujourd\u2019hui. Créez un compte gratuit pour continuer.'); }
+        else if(res.code === 429){ limiteAtteinte(); }
         else if(res.code === 503){ montrerErreur('La démonstration est très demandée en ce moment. Réessayez dans quelques minutes.'); }
         else if(res.code === 404){ montrerErreur('Aucune entreprise trouvée sur cette cible. Essayez une ville voisine.'); ouvrirManuel(''); }
         else { montrerErreur(res.data && res.data.erreur ? res.data.erreur : 'Une erreur est survenue.'); }
@@ -988,7 +1004,7 @@ img,pre{max-width:100%}
       var d = res.data || {};
       if(res.code !== 200 || !d.ok){
         timers.forEach(clearTimeout);
-        if(res.code === 429){ montrerErreur('Vous avez atteint la limite de démonstrations pour aujourd\u2019hui. Créez un compte gratuit pour continuer.'); }
+        if(res.code === 429){ limiteAtteinte(d); }
         else if(res.code === 503){ montrerErreur('La démonstration est très demandée en ce moment. Réessayez dans quelques minutes.'); }
         else { ouvrirManuel(d.erreur || 'Ce site n\u2019a pas pu être analysé.'); }
         relacher();
