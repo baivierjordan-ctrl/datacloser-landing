@@ -943,11 +943,12 @@ img,pre{max-width:100%}
   }
 
   /* Étape 2 — la recherche proprement dite */
-  function lancerScan(secteur, ville, jeton, debut){
+  function lancerScan(secteur, ville, jeton, debut, motsCles){
     fetch(API + '/api/demo-scan', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({secteur: secteur, ville: ville, jeton: jeton || undefined, langue: 'fr'})
+      body: JSON.stringify({secteur: secteur, ville: ville, jeton: jeton || undefined,
+                            mots_cles: motsCles || [], langue: 'fr'})
     })
     .then(function(r){ return r.json().then(function(j){ return {code: r.status, data: j}; }); })
     .then(function(res){
@@ -956,7 +957,7 @@ img,pre{max-width:100%}
         if(res.code === 200 && res.data.ok){ afficher(res.data); }
         else if(res.code === 429){ limiteAtteinte(); }
         else if(res.code === 503){ montrerErreur('La démonstration est très demandée en ce moment. Réessayez dans quelques minutes.'); }
-        else if(res.code === 404){ montrerErreur('Aucune entreprise trouvée sur cette cible. Essayez une ville voisine.'); ouvrirManuel(''); }
+        else if(res.code === 404){ ouvrirManuel('Aucune entreprise trouvée sur cette cible. Essayez un autre secteur ou une ville voisine.'); }
         else { montrerErreur(res.data && res.data.erreur ? res.data.erreur : 'Une erreur est survenue.'); }
         relacher();
       }, reste);
@@ -1024,7 +1025,7 @@ img,pre{max-width:100%}
       }
       btn.textContent = 'Recherche en cours…';
       jouerJournal();
-      lancerScan(d.secteur, d.ville, d.jeton, debut);
+      lancerScan(d.secteur, d.ville, d.jeton, debut, d.mots_cles);
     })
     .catch(function(){
       timers.forEach(clearTimeout);
