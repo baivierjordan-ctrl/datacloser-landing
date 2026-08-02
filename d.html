@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Vos prospects — DataCloser</title>
+<meta name="description" content="Trois entreprises qui correspondent à votre marché, trouvées par le moteur DataCloser."/>
+<meta name="robots" content="noindex,follow"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#0a0d12"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0d12;--panel:#0d1117;--line:#1e2530;--tx:#e8edf3;--mu:#8494a8;--dim:#5a6a7d;--ac:#00e5b0}
+body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+nav{border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:40px}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:"Space Grotesk",sans-serif;font-size:19px;font-weight:700;color:var(--tx);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--ac)}
+.nav-cta{background:var(--ac);color:#04120d;text-decoration:none;padding:9px 16px;border-radius:9px;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13.5px}
+
+h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(25px,4.5vw,34px);font-weight:700;line-height:1.14;letter-spacing:-.02em;margin-bottom:12px}
+h1 em{font-style:normal;color:var(--ac)}
+.lede{color:var(--mu);font-size:15px;margin-bottom:28px}
+
+.verdict{background:linear-gradient(180deg,rgba(0,229,176,.09),rgba(0,229,176,.03));border:1px solid rgba(0,229,176,.32);border-radius:14px;padding:20px 22px;margin-bottom:24px}
+.verdict .lab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);font-weight:600;margin-bottom:9px}
+.verdict p{font-family:"Space Grotesk",sans-serif;font-size:1.06rem;font-weight:500;line-height:1.5}
+
+.leads{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
+.lead{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:17px 19px}
+.lead-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:8px}
+.lead h2{font-family:"Space Grotesk",sans-serif;font-size:15.5px;font-weight:600}
+.lead .site{font-size:12.5px;color:var(--dim);margin-top:2px}
+.score{flex-shrink:0;background:rgba(0,229,176,.13);color:var(--ac);border-radius:7px;padding:4px 10px;font-family:"JetBrains Mono",monospace;font-size:12.5px}
+.mail{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--mu);margin-bottom:10px}
+.hook{border-left:2px solid rgba(0,229,176,.35);padding-left:13px;font-size:13.5px;color:var(--mu);font-style:italic;line-height:1.65}
+
+.cta{background:var(--panel);border:1px solid rgba(0,229,176,.3);border-radius:14px;padding:24px;margin-bottom:20px}
+.cta h2{font-family:"Space Grotesk",sans-serif;font-size:18px;font-weight:600;margin-bottom:6px}
+.cta h2 b{color:var(--ac)}
+.cta p{font-size:13.5px;color:var(--mu);margin-bottom:16px}
+.champs{display:flex;gap:10px;flex-wrap:wrap}
+.champs input{flex:1 1 240px;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:13px 15px;color:var(--tx);font-family:"JetBrains Mono",monospace;font-size:13.5px}
+.champs input:focus{outline:none;border-color:var(--ac)}
+.btn{background:var(--ac);color:#04120d;border:0;border-radius:10px;padding:13px 22px;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14.5px;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:default}
+.mini{font-size:12px;color:var(--dim);margin-top:11px;line-height:1.55}
+.mini.err{color:#ff6b81}
+.mini a{color:var(--ac)}
+.autre{text-align:center;padding:6px 0 60px;color:var(--mu);font-size:13.5px}
+.autre a{color:var(--ac)}
+.etat{text-align:center;padding:80px 20px;color:var(--mu)}
+.spin{width:26px;height:26px;border:2px solid var(--line);border-top-color:var(--ac);border-radius:50%;margin:0 auto 16px;animation:t .8s linear infinite}
+@keyframes t{to{transform:rotate(360deg)}}
+[hidden]{display:none!important}
+@media(max-width:640px){.champs input,.champs .btn{flex-basis:100%;width:100%}}
+@media(prefers-reduced-motion:reduce){.spin{animation:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="/">Data<span>Closer</span></a>
+  <a class="nav-cta" href="https://app.datacloser.com?utm_source=demo_page">Essai gratuit</a>
+</div></nav>
+
+<main class="wrap">
+
+  <div class="etat" id="chargement">
+    <div class="spin"></div>
+    Ouverture de votre sélection…
+  </div>
+
+  <div class="etat" hidden="" id="introuvable">
+    <p style="font-size:16px;color:var(--tx);margin-bottom:10px">Ce lien n'est plus valide.</p>
+    <p>Les sélections sont conservées un temps limité.<br/>
+      <a href="/#demo-live" style="color:var(--ac)">Relancez une recherche depuis la page d'accueil</a>.</p>
+  </div>
+
+  <div hidden="" id="contenu">
+    <h1>Trois entreprises de votre marché,<br/><em>déjà trouvées</em>.</h1>
+    <p class="lede" id="intro"></p>
+
+    <div class="verdict">
+      <div class="lab">Ce que le moteur a compris de votre activité</div>
+      <p id="verdict"></p>
+    </div>
+
+    <div class="leads" id="leads"></div>
+
+    <div class="cta" id="capture">
+      <h2><b id="reste">D'autres entreprises</b> correspondent à votre profil.</h2>
+      <p>Recevez la liste complète par email — entreprise, score et accroche pour chacune.</p>
+      <div class="champs">
+        <input autocomplete="email" id="email" maxlength="120" placeholder="votre@email.be" type="email"/>
+        <button class="btn" id="envoyer" type="button">Recevoir ma liste</button>
+      </div>
+      <p class="mini" id="msg">Un seul email, pas de spam, désinscription en un clic.</p>
+    </div>
+
+    <div class="cta" hidden="" id="merci">
+      <h2><b>C'est parti.</b> Votre liste arrive dans quelques minutes.</h2>
+      <p>Les adresses email complètes vous attendent dans votre espace — votre profil de ciblage y est déjà configuré à partir de votre site.</p>
+      <a class="btn" href="https://app.datacloser.com?utm_source=demo_page_mail" style="display:inline-block;text-decoration:none">Créer mon compte gratuit</a>
+    </div>
+
+    <p class="autre">50 crédits offerts à l'inscription, sans carte bancaire.<br/>
+      <a href="/">Découvrir DataCloser</a></p>
+  </div>
+
+</main>
+
+<script>
+(function(){
+  var API = 'https://datacloser-chat-proxy.onrender.com';
+  var $ = function(i){ return document.getElementById(i); };
+
+  /* Le jeton vient du chemin /d/xxxx ou du paramètre ?j=xxxx */
+  function jetonDeLUrl(){
+    var m = location.pathname.match(/\/d\/([A-Za-z0-9_\-]+)/);
+    if(m) return m[1];
+    return new URLSearchParams(location.search).get('j') || '';
+  }
+  var jeton = jetonDeLUrl();
+  var affiche = Date.now();
+
+  function echapper(s){
+    var d = document.createElement('div');
+    d.textContent = s == null ? '' : String(s);
+    return d.innerHTML;
+  }
+
+  function introuvable(){
+    $('chargement').hidden = true;
+    $('introuvable').hidden = false;
+  }
+
+  if(!jeton){ introuvable(); return; }
+
+  fetch(API + '/api/demo-page?j=' + encodeURIComponent(jeton))
+    .then(function(r){ return r.json().then(function(j){ return {code:r.status, data:j}; }); })
+    .then(function(res){
+      var d = res.data || {};
+      if(res.code !== 200 || !d.ok || !d.leads || !d.leads.length){ introuvable(); return; }
+
+      $('chargement').hidden = true;
+      $('contenu').hidden = false;
+      affiche = Date.now();
+
+      $('intro').textContent = 'Recherche lancée à partir de ' + d.domaine
+        + '. Voici ce que le moteur a trouvé, sans que vous ayez rien à paramétrer.';
+      $('verdict').textContent = d.verdict || '';
+      if(d.domaine) $('email').placeholder = 'contact@' + d.domaine;
+
+      var reste = (d.total_disponible || 0) - d.leads.length;
+      $('reste').textContent = reste > 0 ? (reste + ' autres entreprises') : "D'autres entreprises";
+
+      var liste = $('leads');
+      d.leads.forEach(function(l){
+        var c = document.createElement('div');
+        c.className = 'lead';
+        c.innerHTML =
+          '<div class="lead-top"><div><h2>' + echapper(l.entreprise) + '</h2>' +
+          '<div class="site">' + echapper(l.site || '—') + '</div></div>' +
+          '<div class="score">' + (l.score|0) + '/10</div></div>' +
+          '<div class="mail">' + echapper(l.email) + '</div>' +
+          (l.accroche ? '<div class="hook">« ' + echapper(l.accroche) + ' »</div>' : '');
+        liste.appendChild(c);
+      });
+    })
+    .catch(introuvable);
+
+  function message(txt, err){
+    var m = $('msg');
+    m.textContent = txt;
+    m.className = 'mini' + (err ? ' err' : '');
+  }
+
+  $('envoyer').addEventListener('click', function(){
+    var email = ($('email').value || '').trim();
+    if(email.indexOf('@') === -1 || email.indexOf('.') === -1){
+      message('Indiquez une adresse email valide.', true);
+      $('email').focus();
+      return;
+    }
+    var btn = $('envoyer'), libelle = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Envoi…';
+
+    fetch(API + '/api/demo-lead', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: email, jeton: jeton, langue: 'fr',
+                            duree: (Date.now() - affiche) / 1000})
+    })
+    .then(function(r){ return r.json().then(function(j){ return {code:r.status, data:j}; }); })
+    .then(function(res){
+      if(res.code === 200 && res.data.ok){
+        $('capture').hidden = true;
+        $('merci').hidden = false;
+      } else {
+        message((res.data && res.data.erreur) || 'L\u2019envoi a échoué. Réessayez.', true);
+        btn.disabled = false; btn.textContent = libelle;
+      }
+    })
+    .catch(function(){
+      message('Impossible de joindre le serveur. Réessayez dans un instant.', true);
+      btn.disabled = false; btn.textContent = libelle;
+    });
+  });
+})();
+</script>
+</body>
+</html>
