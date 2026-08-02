@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DataCloser — AI B2B Leadgeneratie | België, Frankrijk, Luxemburg, Zwitserland</title>
-<meta name="description" content="DataCloser: AI B2B-leadgeneratie voor Vlaamse en Nederlandstalige KMO's. U betaalt enkel voor bruikbare leads, credits zonder vervaldatum. ICP-profiel, scoring /10, e-mailsequenties tot dag+14. Gratis proberen.">
-<meta name="keywords" content="B2B leadgeneratie, automatische prospectie, gekwalificeerde leads België, persoonlijk e-mailadres beslisser, prospectietool KMO, leads scraping">
-<meta property="og:title" content="DataCloser — Data die wegglipt? Wij closen ze.">
-<meta property="og:description" content="AI B2B-leadgeneratiemotor voor de Benelux-markt. Beslissers, geverifieerde e-mails en icebreakers, klaar om te closen.">
-<meta property="og:url" content="https://datacloser.com/nl/">
-<meta property="og:image" content="https://datacloser.com/og-datacloser.png">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://datacloser.com/nl/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DataCloser — B2B leads met geverifieerd e-mailadres | U betaalt alleen het bereikbare</title>
+<meta content="DataCloser: AI B2B-leadgeneratie voor Vlaamse en Nederlandstalige KMO's. U betaalt enkel voor bruikbare leads, credits zonder vervaldatum. ICP-profiel, scoring /10, e-mailsequenties tot dag+14. Gratis proberen." name="description"/>
+<meta content="B2B leadgeneratie, automatische prospectie, gekwalificeerde leads België, persoonlijk e-mailadres beslisser, prospectietool KMO, leads scraping" name="keywords"/>
+<meta content="DataCloser — Data die wegglipt? Wij closen ze." property="og:title"/>
+<meta content="AI B2B-leadgeneratiemotor voor de Benelux-markt. Beslissers, geverifieerde e-mails en icebreakers, klaar om te closen." property="og:description"/>
+<meta content="https://datacloser.com/nl/" property="og:url"/>
+<meta content="https://datacloser.com/og-datacloser.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<link href="https://datacloser.com/nl/" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --ink:#0d1117;
@@ -185,18 +186,50 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
   *,*::before,*::after{animation:none!important;transition:none!important}
   .term-body .ln{opacity:1}
 }
-</style>
 
-<link rel="alternate" hreflang="fr" href="https://datacloser.com/"/>
-<link rel="alternate" hreflang="nl" href="https://datacloser.com/nl/"/>
-<link rel="alternate" hreflang="en" href="https://datacloser.com/en/"/>
-<link rel="alternate" hreflang="x-default" href="https://datacloser.com/"/>
+/* ── Navigation mobile ── */
+.nav-burger{display:none;background:none;border:0;padding:8px;cursor:pointer;flex-direction:column;gap:5px;flex-shrink:0}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .22s,opacity .22s}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-burger:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:6px}
+@media(max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:rgba(13,17,23,.98);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:6px 16px 16px;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .26s ease,opacity .2s}
+  .nav-links.open{max-height:78vh;overflow-y:auto;opacity:1;pointer-events:auto}
+  .nav-links a{padding:13px 4px;font-size:.95rem;border-bottom:1px solid var(--line);white-space:normal}
+  .nav-links .lang-switch{display:flex;gap:18px;padding:13px 4px;border-bottom:1px solid var(--line)}
+  .nav-links .lang-switch a{border:0;padding:0}
+  .nav-links .btn{margin-top:14px;text-align:center;padding:13px;font-size:.95rem;border-bottom:0}
+  .nav-inner{position:relative;justify-content:space-between}
+}
+.cta-short{display:none}
+@media(max-width:640px){
+  .nav-inner{padding:12px 16px;gap:12px}
+  .nav-links{gap:10px;min-width:0}
+  .nav-links .btn{font-size:.78rem;padding:8px 13px}
+  .hero h1{font-size:clamp(28px,8.5vw,38px);line-height:1.06}
+  .hero .eyebrow{font-size:.68rem;letter-spacing:.1em;line-height:1.5}
+  .hero-ctas{flex-direction:column;gap:10px}
+  .hero-ctas .btn{width:100%;text-align:center;font-size:.95rem;padding:14px 18px}
+  .cta-long{display:none}.cta-short{display:inline}
+}
+/* ── Terminal collant ── */
+@media(min-width:921px){.hero{align-items:start}.hero-visual{position:sticky;top:88px;align-self:start}}
+@media(max-width:920px){.hero-visual{position:static}}
+@media(prefers-reduced-motion:reduce){.hero-visual{position:static}}
+</style>
+<link href="https://datacloser.com/" hreflang="fr" rel="alternate">
+<link href="https://datacloser.com/nl/" hreflang="nl" rel="alternate">
+<link href="https://datacloser.com/en/" hreflang="en" rel="alternate">
+<link href="https://datacloser.com/" hreflang="x-default" rel="alternate">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"DataCloser NL","description":"B2B leadgeneratie tool voor Belgische en Nederlandse markten","url":"https://datacloser.com/nl/","inLanguage":"nl"}</script>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="DataCloser NL — B2B Leadgeneratie voor Belgie en Nederland"/>
-<meta name="twitter:description" content="Vind en contacteer uw B2B-prospects in 10 minuten. Google scraping, AI-scoring, geverifieerde e-mails. 50 gratis credits."/>
-<meta name="twitter:image" content="https://datacloser.com/og-datacloser.png"/>
-<meta name="twitter:site" content="@DataCloser"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="DataCloser NL — B2B Leadgeneratie voor Belgie en Nederland" name="twitter:title">
+<meta content="Vind en contacteer uw B2B-prospects in 10 minuten. Google scraping, AI-scoring, geverifieerde e-mails. 50 gratis credits." name="twitter:description">
+<meta content="https://datacloser.com/og-datacloser.png" name="twitter:image">
+<meta content="@DataCloser" name="twitter:site">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Waar komen de gegevens vandaan?","acceptedAnswer":{"@type":"Answer","text":"DataCloser bevraagt Google Search en Google Maps in realtime op het moment van uw zoekopdracht en analyseert vervolgens de website van elk gevonden bedrijf. Geen doorverkochte database, geen verouderde gegevens."}},
@@ -216,265 +249,255 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2"]},"url":"https://datacloser.com/nl/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"DataCloser NL","url":"https://datacloser.com/nl/","potentialAction":{"@type":"SearchAction","target":"https://datacloser.com/nl/blog/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-</head>
+</meta></meta></meta></meta></meta></link></link></link></link></head>
 <body>
-
 <nav>
-  <div class="nav-inner">
-    <div class="logo">Data<span>Closer</span></div>
-    <div class="nav-links">
-      <a href="#pipeline">Hoe het werkt</a>
-      <a href="#outreach">Outreach</a>
-      <a href="#tarifs">Tarieven</a>
-      <a href="#faq">FAQ</a>
-      <a href="/nl/blog/">Blog</a>
-      <a href="/nl/calculator.html">Calculator</a>
+<div class="nav-inner">
+<div class="logo">Data<span>Closer</span></div>
+<button class="nav-burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+<a href="#pipeline">Hoe het werkt</a>
+<a href="#outreach">Outreach</a>
+<a href="#tarifs">Tarieven</a>
+<a href="#faq">FAQ</a>
+<a href="/nl/blog/">Blog</a>
+<a href="/nl/calculator.html">Calculator</a>
+<a href="#pour-qui">Voor wie</a>
       <span class="lang-switch">
-        <a href="/" lang="fr" title="Bekijk in het Frans">FR</a>
-        <a href="/en/" lang="en" title="View in English">EN</a>
-      </span>
-      <a class="btn btn-primary" href="https://app.datacloser.com/?lang=nl">Naar het platform</a>
-    </div>
-  </div>
+<a href="/" lang="fr" title="Bekijk in het Frans">FR</a>
+<a href="/en/" lang="en" title="View in English">EN</a>
+</span>
+<a class="btn btn-primary" href="https://app.datacloser.com/?lang=nl">Naar het platform</a>
+</div>
+</div>
 </nav>
-
 <!-- ════════ HERO ════════ -->
 <header class="hero">
-  <div>
-    <div class="eyebrow">Motor actief — België · Frankrijk · Luxemburg · Zwitserland</div>
-    <h1>Stop met prospecteren.<br>Begin met <em>closen</em>.</h1>
-    <p class="lede">DataCloser scant het web in realtime, identificeert de beslissers, verifieert hun persoonlijke e-mailadressen en schrijft voor elk een icebreaker — en verstuurt vervolgens de e-mails namens u.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=nl">Start mijn eerste zoekopdracht</a>
-      <a class="btn btn-ghost btn-lg" href="#pipeline">Bekijk de motor</a>
-    </div>
-    <p class="hero-note"><b>Gratis credits bij inschrijving</b> — geen kredietkaart nodig.</p>
-  </div>
-  <div class="terminal" aria-label="Demonstratie van de realtime extractieradar">
-    <div class="term-bar">
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="term-title">radar — realtime extractie</span>
-    </div>
-    <div class="term-body" id="term"></div>
-  </div>
-</header>
-
-<!-- ════════ STATS STRIP ════════ -->
-<div class="strip">
-  <div class="wrap">
-    <div class="stat"><div class="n">4 landen</div><div class="l">gedekt</div></div>
-    <div class="stat"><div class="n">19</div><div class="l">datapunten per lead</div></div>
-    <div class="stat"><div class="n">≥ 6/10</div><div class="l">minimale score geleverd</div></div>
-    <div class="stat"><div class="n">100 %</div><div class="l">e-mails gecontroleerd vóór export</div></div>
-  </div>
+<div>
+<div class="eyebrow">Motor actief — België · Frankrijk · Luxemburg · Zwitserland · Nederland</div>
+<h1>U betaalt alleen voor leads<br/>die u ook kunt <em>bereiken</em>.</h1>
+<p class="lede">De meeste prospectiebestanden stoppen bij <code style="font-family:'JetBrains Mono',monospace;font-size:.86em;color:var(--text);background:rgba(255,255,255,.06);padding:2px 7px;border-radius:5px">info@</code>. DataCloser vindt de naam van de beslisser — <b style="color:var(--teal);font-weight:600">317 van de 317 bij de laatste scan</b> —, verifieert zijn e-mailadres en schrijft een ijsbreker op basis van zijn website.</p>
+<p style="margin:-18px 0 30px;font-size:.92rem;color:var(--muted)">Een onvindbaar e-mailadres wordt u nooit aangerekend. <b style="color:var(--text);font-weight:600">Geen database kopen, geen tool configureren.</b></p>
+<div class="hero-ctas">
+<a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=nl"><span class="cta-long">Mijn eerste 50 leads krijgen</span><span class="cta-short">Mijn 50 leads</span></a>
+<a class="btn btn-ghost btn-lg" href="#pipeline">Bekijk de motor</a>
 </div>
+<p class="hero-note"><b>50 gratis credits bij inschrijving</b> — geen kredietkaart nodig.</p>
+<p class="hero-note" style="margin-top:8px;font-size:.82rem;opacity:.85">BOIP-merk · AVG-conform (Art. 14) · 1 087 geïndexeerde pagina's · Top 1 van de dag op Smol Find</p>
+</div>
+<div class="hero-visual"><div aria-label="Demonstratie van de realtime extractieradar" class="terminal">
+<div class="term-bar">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="term-title">radar — realtime extractie</span>
+</div>
+<div class="term-body" id="term"></div>
+</div></div>
+</header>
+<!-- ════════ STATS ════════ -->
+<div style="border-bottom:1px solid var(--line);padding:26px 24px">
+<div style="max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;text-align:center">
+<div class="stat"><div class="n">317/317</div><div class="l">beslissers bij naam, laatste scan</div></div>
+<div class="stat"><div class="n">5 landen</div><div class="l">BE · FR · LU · CH · NL</div></div>
+<div class="stat"><div class="n">1</div><div class="l">unieke ijsbreker per bedrijf</div></div>
+<div class="stat"><div class="n">0</div><div class="l">onbruikbare e-mails aangerekend</div></div>
+</div>
+</div>
+<!-- ════════ STATS STRIP ════════ -->
 
 <!-- ════════ PIPELINE ════════ -->
 <section id="pipeline">
-  <div class="wrap">
-    <div class="sec-eyebrow">De motor</div>
-    <h2>Vier stappen tussen uw zoekwoord en een bestand dat klaar is om te closen.</h2>
-    <p class="sec-sub">Elk credit start een analyse. De Premium Cascade filtert automatisch: alleen prospects die 6/10 of hoger scoren, activeren de volledige verrijking.</p>
-    <div class="pipe">
-      <div class="step">
-        <div class="tag">SCAN</div>
-        <h3>🔍 Realtime scan</h3>
-        <p>De motor doorzoekt Google Search en Google Maps op basis van uw doelgroep en regio — geen vaste database van zes maanden oud.</p>
-      </div>
-      <div class="step">
-        <div class="tag">SCORE</div>
-        <h3>🧠 AI-brein</h3>
-        <p>Elk bedrijf wordt geanalyseerd en beoordeeld op 10: de 3 belangrijkste gedetecteerde behoeften, actieve wervingssignalen, gebruikte technologieën.</p>
-      </div>
-      <div class="step">
-        <div class="tag">ENRICH</div>
-        <h3>📧 Verrijking</h3>
-        <p>Beslisser geïdentificeerd, persoonlijk e-mailadres geverifieerd, gekoppeld LinkedIn-profiel, deliverability-kwalificatie. AVG-conform.</p>
-      </div>
-      <div class="step">
-        <div class="tag">CLOSE</div>
-        <h3>💬 Icebreaker</h3>
-        <p>Een unieke openingszin, gebaseerd op de echte context van de prospect. Alleen nog op Verzenden drukken.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow">De motor</div>
+<h2>Vier stappen tussen uw zoekwoord en een bestand dat klaar is om te closen.</h2>
+<p class="sec-sub">Elk credit start een analyse. De Premium Cascade filtert automatisch: alleen prospects die 6/10 of hoger scoren, activeren de volledige verrijking.</p>
+<div class="pipe">
+<div class="step">
+<div class="tag">SCAN</div>
+<h3>🔍 Realtime scan</h3>
+<p>De motor doorzoekt Google Search en Google Maps op basis van uw doelgroep en regio — geen vaste database van zes maanden oud.</p>
+</div>
+<div class="step">
+<div class="tag">SCORE</div>
+<h3>🧠 AI-brein</h3>
+<p>Elk bedrijf wordt geanalyseerd en beoordeeld op 10: de 3 belangrijkste gedetecteerde behoeften, actieve wervingssignalen, gebruikte technologieën.</p>
+</div>
+<div class="step">
+<div class="tag">ENRICH</div>
+<h3>📧 Verrijking</h3>
+<p>Beslisser geïdentificeerd, persoonlijk e-mailadres geverifieerd, gekoppeld LinkedIn-profiel, deliverability-kwalificatie. AVG-conform.</p>
+</div>
+<div class="step">
+<div class="tag">CLOSE</div>
+<h3>💬 Icebreaker</h3>
+<p>Een unieke openingszin, gebaseerd op de echte context van de prospect. Alleen nog op Verzenden drukken.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ════════ LIVRABLE ════════ -->
 <section id="livrable" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-eyebrow">Het resultaat</div>
-    <h2>Een CSV-bestand dat uw team direct kan gebruiken.</h2>
-    <p class="sec-sub">Uittreksel van het geleverde formaat — 19 kolommen, hier het belangrijkste:</p>
-    <div class="csv">
-      <table>
-        <thead>
-          <tr><th>Bedrijf</th><th>Beslisser</th><th>E-mail</th><th>Kwalificatie</th><th>AI-score</th><th>Behoefte #1</th><th>Werving</th><th>LinkedIn</th><th>Icebreaker</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Agence Horizon</td><td>Marie Lefebvre</td><td>m.lefebvre@…</td>
-            <td><span class="badge ok">✓ Persoonlijk Pro</span></td><td><span class="badge hi">8/10</span></td>
-            <td class="t-dim">Leadgeneratie</td><td class="t-dim">2 vacatures</td><td class="t-dim">in/marie-lef…</td>
-            <td class="t-dim">« Ik zag uw redesign voor… »</td>
-          </tr>
-          <tr>
-            <td>Cabinet Delvaux</td><td>Thomas Delvaux</td><td>t.delvaux@…</td>
-            <td><span class="badge ok">✓ Persoonlijk Pro</span></td><td><span class="badge hi">7/10</span></td>
-            <td class="t-dim">CRM-software</td><td class="t-dim">Geen signaal</td><td class="t-dim">in/tdelvaux…</td>
-            <td class="t-dim">« Uw expansie in Liège… »</td>
-          </tr>
-          <tr>
-            <td>SwissDigital Sàrl</td><td>Daniel Keller</td><td>d.keller@…</td>
-            <td><span class="badge ok">✓ Geverifieerd</span></td><td><span class="badge hi">9/10</span></td>
-            <td class="t-dim">SEO-zichtbaarheid</td><td class="t-dim">Werft 1 developer</td><td class="t-dim">in/dkeller…</td>
-            <td class="t-dim">« Gefeliciteerd met uw prijs… »</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow">Het resultaat</div>
+<h2>Een CSV-bestand dat uw team direct kan gebruiken.</h2>
+<p class="sec-sub">Uittreksel van het geleverde formaat — 19 kolommen, hier het belangrijkste:</p>
+<div class="csv">
+<table>
+<thead>
+<tr><th>Bedrijf</th><th>Beslisser</th><th>E-mail</th><th>Kwalificatie</th><th>AI-score</th><th>Behoefte #1</th><th>Werving</th><th>LinkedIn</th><th>Icebreaker</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Agence Horizon</td><td>Marie Lefebvre</td><td>m.lefebvre@…</td>
+<td><span class="badge ok">✓ Persoonlijk Pro</span></td><td><span class="badge hi">8/10</span></td>
+<td class="t-dim">Leadgeneratie</td><td class="t-dim">2 vacatures</td><td class="t-dim">in/marie-lef…</td>
+<td class="t-dim">« Ik zag uw redesign voor… »</td>
+</tr>
+<tr>
+<td>Cabinet Delvaux</td><td>Thomas Delvaux</td><td>t.delvaux@…</td>
+<td><span class="badge ok">✓ Persoonlijk Pro</span></td><td><span class="badge hi">7/10</span></td>
+<td class="t-dim">CRM-software</td><td class="t-dim">Geen signaal</td><td class="t-dim">in/tdelvaux…</td>
+<td class="t-dim">« Uw expansie in Liège… »</td>
+</tr>
+<tr>
+<td>SwissDigital Sàrl</td><td>Daniel Keller</td><td>d.keller@…</td>
+<td><span class="badge ok">✓ Geverifieerd</span></td><td><span class="badge hi">9/10</span></td>
+<td class="t-dim">SEO-zichtbaarheid</td><td class="t-dim">Werft 1 developer</td><td class="t-dim">in/dkeller…</td>
+<td class="t-dim">« Gefeliciteerd met uw prijs… »</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-
 <!-- ════════ OUTREACH ════════ -->
-<section id="outreach" class="outreach-section">
-  <div class="wrap">
-    <div class="sec-eyebrow" style="color:var(--teal)">Nieuw — AI Outreach</div>
-    <h2>Van zoeken naar versturen.<br><em style="font-style:normal;color:var(--teal)">In één klik.</em></h2>
-    <p class="sec-sub">Verbind uw mailbox, selecteer een leadbestand en laat de AI een gepersonaliseerde e-mail opstellen en versturen naar elke beslisser — vanaf uw eigen adres, in hun taal, met willekeurige anti-spamvertraging.</p>
-
-    <!-- Flow -->
-    <div class="outreach-flow">
-      <div class="outreach-step">
-        <div class="icon">📂</div>
-        <h4>Leads selecteren</h4>
-        <p>Vanuit uw CSV-exports</p>
-      </div>
-      <div class="outreach-arrow">→</div>
-      <div class="outreach-step">
-        <div class="icon">🧠</div>
-        <h4>AI-opbouw</h4>
-        <p>E-mail + ingebouwde icebreaker</p>
-      </div>
-      <div class="outreach-arrow">→</div>
-      <div class="outreach-step verified">
-        <div class="badge-verify">AI-controle</div>
-        <div class="icon">✅</div>
-        <h4>Logische controle</h4>
-        <p>Coherentie + toon gevalideerd</p>
-      </div>
-      <div class="outreach-arrow">→</div>
-      <div class="outreach-step">
-        <div class="icon">📤</div>
-        <h4>Verzending vanuit uw mailbox</h4>
-        <p>Willekeurige anti-spamvertraging</p>
-      </div>
-    </div>
-
-    <!-- Feature cards -->
-    <div class="outreach-features">
-      <div class="outreach-card">
-        <div class="label teal">Auto-taal</div>
-        <h4>Taaldetectie</h4>
-        <p>De AI detecteert de taal van de lead via zijn website en schrijft de icebreaker en e-mail in die taal — Nederlands, Frans, Engels, Duits…</p>
-      </div>
-      <div class="outreach-card">
-        <div class="label teal">Opvolging inbegrepen</div>
-        <h4>Opvolgmail dag+4/+9/+14 gratis 🎁</h4>
-        <p>Een automatische opvolgmail 4 dagen na het eerste contact, geschreven door de AI. <strong>Geen extra credit nodig.</strong></p>
-      </div>
-      <div class="outreach-card">
-        <div class="label blue">Anti-spam</div>
-        <h4>Willekeurige vertraging</h4>
-        <p>Verzending vanuit uw eigen mailbox (Gmail, Outlook, OVH…). Willekeurige vertraging tussen elke verzending. Tijdvenster en dagen instelbaar.</p>
-      </div>
-      <div class="outreach-card">
-        <div class="label amber">1 credit = 1 e-mail</div>
-        <h4>Transparante prijzen</h4>
-        <p>U betaalt alleen voor verzonden e-mails. Geen verborgen kosten. De opvolgmails (dag+4/+9/+14, dag+9, dag+14) zijn gratis in alle abonnementen.</p>
-      </div>
-      <div class="outreach-card">
-        <div class="label blue">Dashboard</div>
-        <h4>Realtime opvolging</h4>
-        <p>Verzonden, mislukt, in wachtrij. Gedetailleerde logs per campagne. Pauzeren en herstarten op elk moment vanuit de interface.</p>
-      </div>
-      <div class="outreach-card">
-        <div class="label teal">AVG</div>
-        <h4>STOP-vermelding inbegrepen</h4>
-        <p>Elke e-mail bevat automatisch een afmeldvermelding conform de AVG en de Belgische antispamwetgeving.</p>
-      </div>
-    </div>
-
-    <!-- Banner comparatif -->
-    <div class="outreach-banner">
-      <div>
-        <strong style="font-family:var(--display);font-size:1.05rem;font-weight:600;">DataCloser vervangt Lemlist, Instantly en Apollo — voor de Benelux-markt.</strong>
-        <p style="margin-top:6px;">Zoeken + verrijken + versturen + opvolgen. Alles in één tool, zonder extra abonnement.</p>
-      </div>
-      <a class="btn btn-primary" href="https://app.datacloser.com/?lang=nl">Gratis uitproberen →</a>
-    </div>
-  </div>
+<section class="outreach-section" id="outreach">
+<div class="wrap">
+<div class="sec-eyebrow" style="color:var(--teal)">Nieuw — AI Outreach</div>
+<h2>Van zoeken naar versturen.<br/><em style="font-style:normal;color:var(--teal)">In één klik.</em></h2>
+<p class="sec-sub">Verbind uw mailbox, selecteer een leadbestand en laat de AI een gepersonaliseerde e-mail opstellen en versturen naar elke beslisser — vanaf uw eigen adres, in hun taal, met willekeurige anti-spamvertraging.</p>
+<!-- Flow -->
+<div class="outreach-flow">
+<div class="outreach-step">
+<div class="icon">📂</div>
+<h4>Leads selecteren</h4>
+<p>Vanuit uw CSV-exports</p>
+</div>
+<div class="outreach-arrow">→</div>
+<div class="outreach-step">
+<div class="icon">🧠</div>
+<h4>AI-opbouw</h4>
+<p>E-mail + ingebouwde icebreaker</p>
+</div>
+<div class="outreach-arrow">→</div>
+<div class="outreach-step verified">
+<div class="badge-verify">AI-controle</div>
+<div class="icon">✅</div>
+<h4>Logische controle</h4>
+<p>Coherentie + toon gevalideerd</p>
+</div>
+<div class="outreach-arrow">→</div>
+<div class="outreach-step">
+<div class="icon">📤</div>
+<h4>Verzending vanuit uw mailbox</h4>
+<p>Willekeurige anti-spamvertraging</p>
+</div>
+</div>
+<!-- Feature cards -->
+<div class="outreach-features">
+<div class="outreach-card">
+<div class="label teal">Auto-taal</div>
+<h4>Taaldetectie</h4>
+<p>De AI detecteert de taal van de lead via zijn website en schrijft de icebreaker en e-mail in die taal — Nederlands, Frans, Engels, Duits…</p>
+</div>
+<div class="outreach-card">
+<div class="label teal">Opvolging inbegrepen</div>
+<h4>Opvolgmail dag+4/+9/+14 gratis 🎁</h4>
+<p>Een automatische opvolgmail 4 dagen na het eerste contact, geschreven door de AI. <strong>Geen extra credit nodig.</strong></p>
+</div>
+<div class="outreach-card">
+<div class="label blue">Anti-spam</div>
+<h4>Willekeurige vertraging</h4>
+<p>Verzending vanuit uw eigen mailbox (Gmail, Outlook, OVH…). Willekeurige vertraging tussen elke verzending. Tijdvenster en dagen instelbaar.</p>
+</div>
+<div class="outreach-card">
+<div class="label amber">1 credit = 1 e-mail</div>
+<h4>Transparante prijzen</h4>
+<p>U betaalt alleen voor verzonden e-mails. Geen verborgen kosten. De opvolgmails (dag+4/+9/+14, dag+9, dag+14) zijn gratis in alle abonnementen.</p>
+</div>
+<div class="outreach-card">
+<div class="label blue">Dashboard</div>
+<h4>Realtime opvolging</h4>
+<p>Verzonden, mislukt, in wachtrij. Gedetailleerde logs per campagne. Pauzeren en herstarten op elk moment vanuit de interface.</p>
+</div>
+<div class="outreach-card">
+<div class="label teal">AVG</div>
+<h4>STOP-vermelding inbegrepen</h4>
+<p>Elke e-mail bevat automatisch een afmeldvermelding conform de AVG en de Belgische antispamwetgeving.</p>
+</div>
+</div>
+<!-- Banner comparatif -->
+<div class="outreach-banner">
+<div>
+<strong style="font-family:var(--display);font-size:1.05rem;font-weight:600;">DataCloser vervangt Lemlist, Instantly en Apollo — voor de Benelux-markt.</strong>
+<p style="margin-top:6px;">Zoeken + verrijken + versturen + opvolgen. Alles in één tool, zonder extra abonnement.</p>
+</div>
+<a class="btn btn-primary" href="https://app.datacloser.com/?lang=nl">Gratis uitproberen →</a>
+</div>
+</div>
 </section>
-
 <!-- ════════ MARCHÉ ════════ -->
 <section class="dl-demo" id="demo-live">
-  <div class="dl-wrap">
-    <p class="dl-kicker">Demonstratie</p>
-    <h2>Geloof ons niet op ons woord.<br><em>Kijk zelf.</em></h2>
-    <p class="dl-sous">Kies een sector en een stad. De motor zoekt echte bedrijven,
+<div class="dl-wrap">
+<p class="dl-kicker">Demonstratie</p>
+<h2>Geloof ons niet op ons woord.<br/><em>Kijk zelf.</em></h2>
+<p class="dl-sous">Kies een sector en een stad. De motor zoekt echte bedrijven,
       verifieert hun e-mailadres en schrijft een gepersonaliseerde openingszin — voor uw ogen, zonder registratie.</p>
-
-    <form class="dl-form" id="dl-form" novalidate>
-      <div class="dl-champs">
-        <label class="dl-champ">
-          <span>Sector</span>
-          <select id="dl-secteur" required>
-            <option value="agence immobilière">Vastgoedkantoor</option>
-            <option value="agence web">Webbureau</option>
-            <option value="restaurant">Restaurant</option>
-            <option value="garage">Garage</option>
-            <option value="comptable">Boekhouder</option>
-            <option value="architecte">Architect</option>
-            <option value="avocat">Advocaat</option>
-          </select>
-        </label>
-        <label class="dl-champ">
-          <span>Stad</span>
-          <input id="dl-ville" type="text" placeholder="Gent" maxlength="40" required autocomplete="off">
-        </label>
-        <button type="submit" class="dl-btn" id="dl-btn">Start de jacht</button>
-      </div>
-      <p class="dl-mini">Demonstratie beperkt tot drie resultaten. Er worden geen persoonsgegevens bewaard.</p>
-    </form>
-
-    <!-- États -->
-    <div class="dl-etat" id="dl-chargement" hidden>
-      <div class="dl-journal" id="dl-journal"></div>
-    </div>
-
-    <div class="dl-erreur" id="dl-erreur" hidden>
-      <p id="dl-erreur-txt"></p>
-    </div>
-
-    <div class="dl-resultats" id="dl-resultats" hidden>
-      <div class="dl-entete">
-        <span class="dl-compte" id="dl-compte"></span>
-        <span class="dl-source" id="dl-source"></span>
-      </div>
-      <div class="dl-liste" id="dl-liste"></div>
-
-      <div class="dl-conversion">
-        <p><strong>Dit is een voorproefje.</strong> Het volledige bericht, het e-mailadres in klare tekst, het telefoonnummer
+<form class="dl-form" id="dl-form" novalidate="">
+<div class="dl-champs">
+<label class="dl-champ">
+<span>Sector</span>
+<select id="dl-secteur" required="">
+<option value="agence immobilière">Vastgoedkantoor</option>
+<option value="agence web">Webbureau</option>
+<option value="restaurant">Restaurant</option>
+<option value="garage">Garage</option>
+<option value="comptable">Boekhouder</option>
+<option value="architecte">Architect</option>
+<option value="avocat">Advocaat</option>
+</select>
+</label>
+<label class="dl-champ">
+<span>Stad</span>
+<input autocomplete="off" id="dl-ville" maxlength="40" placeholder="Gent" required="" type="text"/>
+</label>
+<button class="dl-btn" id="dl-btn" type="submit">Start de jacht</button>
+</div>
+<p class="dl-mini">Demonstratie beperkt tot drie resultaten. Er worden geen persoonsgegevens bewaard.</p>
+</form>
+<!-- États -->
+<div class="dl-etat" hidden="" id="dl-chargement">
+<div class="dl-journal" id="dl-journal"></div>
+</div>
+<div class="dl-erreur" hidden="" id="dl-erreur">
+<p id="dl-erreur-txt"></p>
+</div>
+<div class="dl-resultats" hidden="" id="dl-resultats">
+<div class="dl-entete">
+<span class="dl-compte" id="dl-compte"></span>
+<span class="dl-source" id="dl-source"></span>
+</div>
+<div class="dl-liste" id="dl-liste"></div>
+<div class="dl-conversion">
+<p><strong>Dit is een voorproefje.</strong> Het volledige bericht, het e-mailadres in klare tekst, het telefoonnummer
            en de CSV-export zijn voorbehouden aan accounts — aanmaken is gratis.</p>
-        <a class="dl-cta" href="https://app.datacloser.com/?lang=nl&utm_source=demo_live&utm_medium=landing_nl">
+<a class="dl-cta" href="https://app.datacloser.com/?lang=nl&amp;utm_source=demo_live&amp;utm_medium=landing_nl">
           Maak een account aan en bekijk de volledige resultaten
         </a>
-        <p class="dl-mini">Geen creditcard. Credits vervallen nooit.</p>
-      </div>
-    </div>
-  </div>
+<p class="dl-mini">Geen creditcard. Credits vervallen nooit.</p>
+</div>
+</div>
+</div>
 </section>
-
 <style>
   .dl-demo{background:#0a0d12;color:#e6edf3;padding:96px 24px;font-family:'Inter',system-ui,sans-serif}
   .dl-wrap{max-width:920px;margin:0 auto}
@@ -550,7 +573,6 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     .dl-carte,.dl-journal p{opacity:1;transform:none}
   }
 </style>
-
 <script>
 (function(){
   var form = document.getElementById('dl-form');
@@ -679,176 +701,236 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
   });
 })();
 </script>
-
 <section style="padding-top:88px">
-  <div class="wrap">
-    <div class="sec-eyebrow">Waarom DataCloser</div>
-    <h2>De grote Amerikaanse databases negeren Europese KMO's. Wij niet.</h2>
-    <div class="market">
-      <div class="m-card">
-        <h3><span class="flag">🇧🇪🇱🇺</span>Benelux</h3>
-        <p>Belgische en Luxemburgse KMO's zijn ondervertegenwoordigd in de grote Engelstalige databases. DataCloser scant ze rechtstreeks aan de bron, stad per stad.</p>
-      </div>
-      <div class="m-card">
-        <h3><span class="flag">🇫🇷🇨🇭</span>Frankrijk &amp; Franstalig Zwitserland</h3>
-        <p>Native dekking van het lokale economische landschap: kantoren, agentschappen, B2B-handel, industrie — met beslisser en zakelijke context.</p>
-      </div>
-      <div class="m-card">
-        <h3>⚡ Realtime, geen archief</h3>
-        <p>Bedrijvengidsen verouderen binnen zes maanden. Elke DataCloser-zoekopdracht doorzoekt het web op het moment dat u hem start, met een versheidsdatum op elke lead.</p>
-      </div>
-      <div class="m-card">
-        <h3>🛡️ Strikte filtering</h3>
-        <p>Het AI-brein verwerpt automatisch bedrijvengidsen, vals-positieven en bedrijven buiten de doelgroep. U betaalt niet voor ruis.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow">Waarom DataCloser</div>
+<h2>De grote Amerikaanse databases negeren Europese KMO's. Wij niet.</h2>
+<div class="market">
+<div class="m-card">
+<h3><span class="flag">🇧🇪🇱🇺</span>Benelux</h3>
+<p>Belgische en Luxemburgse KMO's zijn ondervertegenwoordigd in de grote Engelstalige databases. DataCloser scant ze rechtstreeks aan de bron, stad per stad.</p>
+</div>
+<div class="m-card">
+<h3><span class="flag">🇫🇷🇨🇭</span>Frankrijk &amp; Franstalig Zwitserland</h3>
+<p>Native dekking van het lokale economische landschap: kantoren, agentschappen, B2B-handel, industrie — met beslisser en zakelijke context.</p>
+</div>
+<div class="m-card">
+<h3>⚡ Realtime, geen archief</h3>
+<p>Bedrijvengidsen verouderen binnen zes maanden. Elke DataCloser-zoekopdracht doorzoekt het web op het moment dat u hem start, met een versheidsdatum op elke lead.</p>
+</div>
+<div class="m-card">
+<h3>🛡️ Strikte filtering</h3>
+<p>Het AI-brein verwerpt automatisch bedrijvengidsen, vals-positieven en bedrijven buiten de doelgroep. U betaalt niet voor ruis.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ════════ TARIFS ════════ -->
 <section style="max-width:1100px;margin:0 auto;padding:0 24px 72px">
-  <a href="/nl/calculator.html" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(135deg,rgba(0,229,176,.08),rgba(0,85,255,.06));border:1px solid rgba(0,229,176,.3);border-radius:14px;padding:26px 30px;text-decoration:none">
-    <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#e6edf3">Hoeveel kost een gekwalificeerde lead u <span style="color:#00e5b0">werkelijk</span>?</div>
-    <div style="color:#8b98a5;font-size:.9rem;margin-top:6px">Stel 6 schuifregelaars in op uw realiteit. Het cijfer verrast — transparante berekening, geen e-mail vereist.</div></div>
-    <span style="background:#00e5b0;color:#04070a;font-weight:700;padding:12px 22px;border-radius:8px;white-space:nowrap">Open de calculator →</span>
-  </a>
+<a href="/nl/calculator.html" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(135deg,rgba(0,229,176,.08),rgba(0,85,255,.06));border:1px solid rgba(0,229,176,.3);border-radius:14px;padding:26px 30px;text-decoration:none">
+<div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#e6edf3">Hoeveel kost een gekwalificeerde lead u <span style="color:#00e5b0">werkelijk</span>?</div>
+<div style="color:#8b98a5;font-size:.9rem;margin-top:6px">Stel 6 schuifregelaars in op uw realiteit. Het cijfer verrast — transparante berekening, geen e-mail vereist.</div></div>
+<span style="background:#00e5b0;color:#04070a;font-weight:700;padding:12px 22px;border-radius:8px;white-space:nowrap">Open de calculator →</span>
+</a>
 </section>
 <section id="tarifs">
-  <div class="wrap">
-    <div class="sec-eyebrow">Tarieven</div>
-    <h2>Eén credit = één zoekopdracht van de motor. Transparant van eerste tot laatste lead.</h2>
-    <p class="sec-sub">U betaalt alleen voor bruikbare leads: 1 credit per lead geleverd met geverifieerd e-mailadres, beslisser en icebreaker. Leads zonder geldig e-mailadres zijn gratis. Outreach en de opvolgmails (dag+4/+9/+14) zijn in alle abonnementen inbegrepen.</p>
-    <div class="plans">
-      <div class="plan">
-        <div class="name">🥉 Starter</div>
-        <div class="price">49 €<small> / maand</small></div>
-        <div class="credits">500 credits / maand</div>
-        <ul>
-          <li>AI-kwalificatie &amp; Premium Cascade</li>
-          <li>Geverifieerd persoonlijk e-mailadres inbegrepen</li>
-          <li>Gepersonaliseerde icebreakers</li>
-          <li>Onbeperkte CSV-export</li>
-          <li>AI Outreach inbegrepen</li>
-          <li class="gift">Opvolgmail dag+4/+9/+14 gratis</li>
-          <li>Standaard support</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://app.datacloser.com/?lang=nl">Aan de slag</a>
-      </div>
-      <div class="plan featured">
-        <div class="name">🥈 Pro</div>
-        <div class="price">149 €<small> / maand</small></div>
-        <div class="credits">2.000 credits / maand</div>
-        <ul>
-          <li>Alles uit Starter</li>
-          <li>4x volume voor salesteams</li>
-          <li>CRM-koppeling via webhook</li>
-          <li>AI Outreach inbegrepen</li>
-          <li class="gift">Opvolgmail dag+4/+9/+14 gratis</li>
-          <li>Prioritaire support</li>
-        </ul>
-        <a class="btn btn-primary" href="https://app.datacloser.com/?lang=nl">Kies Pro</a>
-      </div>
-      <div class="plan">
-        <div class="name">🥇 Elite</div>
-        <div class="price">399 €<small> / maand</small></div>
-        <div class="credits">10.000 credits / maand</div>
-        <ul>
-          <li>Alles uit Pro</li>
-          <li>Volume voor agentschappen &amp; grote accounts</li>
-          <li>Persoonlijke begeleiding</li>
-          <li>AI Outreach inbegrepen</li>
-          <li class="gift">Opvolgmail dag+4/+9/+14 gratis</li>
-          <li>Beste prijs per lead op de markt</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://app.datacloser.com/?lang=nl">Kies Elite</a>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow">Tarieven</div>
+<h2>Eén credit = één zoekopdracht van de motor. Transparant van eerste tot laatste lead.</h2>
+<p class="sec-sub">U betaalt alleen voor bruikbare leads: 1 credit per lead geleverd met geverifieerd e-mailadres, beslisser en icebreaker. Leads zonder geldig e-mailadres zijn gratis. Outreach en de opvolgmails (dag+4/+9/+14) zijn in alle abonnementen inbegrepen.</p>
+<div class="plans">
+<div class="plan">
+<div class="name">🥉 Starter</div>
+<div class="price">49 €<small> / maand</small></div>
+<div class="credits">500 credits / maand</div>
+<ul>
+<li>AI-kwalificatie &amp; Premium Cascade</li>
+<li>Geverifieerd persoonlijk e-mailadres inbegrepen</li>
+<li>Gepersonaliseerde icebreakers</li>
+<li>Onbeperkte CSV-export</li>
+<li>AI Outreach inbegrepen</li>
+<li class="gift">Opvolgmail dag+4/+9/+14 gratis</li>
+<li>Standaard support</li>
+</ul>
+<a class="btn btn-ghost" href="https://app.datacloser.com/?lang=nl">Aan de slag</a>
+</div>
+<div class="plan featured">
+<div class="name">🥈 Pro</div>
+<div class="price">149 €<small> / maand</small></div>
+<div class="credits">2.000 credits / maand</div>
+<ul>
+<li>Alles uit Starter</li>
+<li>4x volume voor salesteams</li>
+<li>CRM-koppeling via webhook</li>
+<li>AI Outreach inbegrepen</li>
+<li class="gift">Opvolgmail dag+4/+9/+14 gratis</li>
+<li>Prioritaire support</li>
+</ul>
+<a class="btn btn-primary" href="https://app.datacloser.com/?lang=nl">Kies Pro</a>
+</div>
+<div class="plan">
+<div class="name">🥇 Elite</div>
+<div class="price">399 €<small> / maand</small></div>
+<div class="credits">10.000 credits / maand</div>
+<ul>
+<li>Alles uit Pro</li>
+<li>Volume voor agentschappen &amp; grote accounts</li>
+<li>Persoonlijke begeleiding</li>
+<li>AI Outreach inbegrepen</li>
+<li class="gift">Opvolgmail dag+4/+9/+14 gratis</li>
+<li>Beste prijs per lead op de markt</li>
+</ul>
+<a class="btn btn-ghost" href="https://app.datacloser.com/?lang=nl">Kies Elite</a>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ════════ FAQ ════════ -->
-<section id="faq" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-eyebrow">FAQ</div>
-    <h2 style="margin-inline:auto;text-align:center">Veelgestelde vragen</h2>
-    <div class="faq">
-      <details>
-        <summary>Waar komen de gegevens vandaan?</summary>
-        <p>DataCloser doorzoekt Google Search en Google Maps in realtime op het moment van uw zoekopdracht, en analyseert vervolgens de website van elk gevonden bedrijf. Geen doorverkochte databases, geen verouderde gegevens: elke lead heeft een versheidsdatum.</p>
-      </details>
-      <details>
-        <summary>Is dit AVG-conform?</summary>
-        <p>Ja. De verzamelde gegevens zijn publiek en professioneel (B2B). De e-mailverrijking gebeurt via een AVG-gecertificeerde leverancier, en elke export vermeldt de herkomst en verzameldatum. E-mails verzonden via Outreach bevatten automatisch een afmeldvermelding.</p>
-      </details>
-      <details>
-        <summary>Hoe werkt AI Outreach?</summary>
-        <p>Verbind uw mailbox (Gmail, Outlook, OVH…) via SMTP in de Outreach-instellingen. Selecteer een leadbestand, schrijf uw template met dynamische variabelen en start. De AI stelt voor elke lead een gepersonaliseerde e-mail op met diens icebreaker, controleert de coherentie vóór verzending, en verstuurt vanaf uw eigen adres met een willekeurige anti-spamvertraging. 1 credit = 1 verzonden e-mail. De opvolgmails (dag+4/+9/+14, dag+9, dag+14) zijn gratis.</p>
-      </details>
-      <details>
-        <summary>Is de opvolgmail echt gratis?</summary>
-        <p>Ja. De automatische opvolgmail op dag+4/+9/+14 is gratis in alle abonnementen — er wordt geen extra credit afgeschreven. Ze wordt door de AI geschreven in een andere stijl dan de eerste e-mail, met een natuurlijke herinneringstoon.</p>
-      </details>
-      <details>
-        <summary>Hoeveel leads krijg ik met mijn credits?</summary>
-        <p>U betaalt alleen voor bruikbare leads. 1 credit wordt enkel afgeschreven wanneer een lead aan u wordt geleverd met een bruikbaar e-mailadres (nominatief geverifieerd of waarschijnlijk catch-all) — samen met de beslisser, de score /10 en de icebreaker. Leads zonder geldig e-mailadres, leads die wegens een lage score worden geweerd, of een onderbroken scan worden nooit aangerekend. Met 500 credits dekt het Starter-abonnement een intensieve prospectie over meerdere sectoren en steden.</p>
-      </details>
-      <details>
-        <summary>Welke landen worden gedekt?</summary>
-        <p>België, Frankrijk, Luxemburg en Zwitserland met native dekking, stad per stad. Via handmatige invoer kunt u ook elk ander land targeten.</p>
-      </details>
-      <details>
-        <summary>Kan ik DataCloser koppelen aan mijn CRM?</summary>
-        <p>Ja. Via het tabblad Exports &amp; CRM kunt u uw leads naar elke CRM of automatiseringstool sturen via webhook (Make, Zapier, n8n…), naast de klassieke CSV-export.</p>
-      </details>
-      <details>
-        <summary>Is er een minimumtermijn?</summary>
-        <p>Geen. De abonnementen zijn maandelijks en op elk moment opzegbaar, en eenmalige creditpakketten zonder abonnement zijn al vanaf €9,99 beschikbaar.</p>
-      </details>
+
+
+<!-- ════════ POUR QUI ════════ -->
+<section id="pour-qui" style="border-bottom:1px solid var(--line);padding:64px 24px;scroll-margin-top:80px">
+  <div style="max-width:1000px;margin:0 auto">
+    <h2 style="text-align:center;margin-bottom:8px">Wie gebruikt DataCloser</h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:34px;font-size:.95rem">Drie manieren om dezelfde motor te gebruiken.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <a href="/nl/b2b-prospectie-bureaus.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(0,229,176,.4)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div style="font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px">Bureaus</div>
+        <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text)">Web en communicatie</h3>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.65;margin:0">Vind uw eigen klanten, en lever gekwalificeerde lijsten aan wie u begeleidt. E&eacute;n abonnement voor beide.</p>
+        <span style="display:inline-block;margin-top:14px;color:var(--teal);font-size:.85rem;font-weight:500">Meer weten &#8594;</span>
+      </a>
+      <a href="/nl/b2b-prospectie-zelfstandigen.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(0,229,176,.4)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div style="font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px">Zelfstandigen</div>
+        <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text)">Consultants en freelancers</h3>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.65;margin:0">Doorbreek de cyclus van het schommelende orderboek. Twintig contacten per week, zonder uw avonden op te offeren.</p>
+        <span style="display:inline-block;margin-top:14px;color:var(--teal);font-size:.85rem;font-weight:500">Meer weten &#8594;</span>
+      </a>
+      <a href="/nl/b2b-prospectie-kmo.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(0,229,176,.4)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div style="font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px">KMO&#39;s</div>
+        <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text)">Verkoopteams</h3>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.65;margin:0">Geef uw verkopers de uren terug die ze besteden aan zoeken in plaats van verkopen.</p>
+        <span style="display:inline-block;margin-top:14px;color:var(--teal);font-size:.85rem;font-weight:500">Meer weten &#8594;</span>
+      </a>
     </div>
   </div>
 </section>
 
+<!-- ════════ MET / ZONDER ════════ -->
+<section style="border-bottom:1px solid var(--line);padding:64px 24px">
+  <div style="max-width:900px;margin:0 auto">
+    <h2 style="text-align:center;margin-bottom:10px">100 potentiële klanten vinden: met of zonder DataCloser</h2>
+    <p style="text-align:center;color:var(--muted);max-width:560px;margin:0 auto 34px;font-size:.95rem">Hetzelfde doel, dezelfde 100 bedrijven. Dit kost elke stap u werkelijk.</p>
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px">
+      <thead><tr>
+        <th style="text-align:left;padding:13px 14px;background:var(--panel);border-bottom:2px solid var(--line);font-weight:600;color:var(--text);width:30%">Stap</th>
+        <th style="text-align:left;padding:13px 14px;background:var(--panel);border-bottom:2px solid var(--line);font-weight:600;color:var(--muted)">Handmatig, of met meerdere tools</th>
+        <th style="text-align:left;padding:13px 14px;background:rgba(0,229,176,.07);border-bottom:2px solid var(--teal);font-weight:600;color:var(--teal)">Met DataCloser</th>
+      </tr></thead>
+      <tbody><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Bedrijven vinden</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Google Maps, gidsen, LinkedIn. Regel voor regel kopiëren. Reken op 3 tot 4 uur.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Eén sector, één stad. De motor zoekt terwijl u iets anders doet.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">De beslisser vinden</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">De naam van de zaakvoerder op elke site zoeken, of naar <em>info@</em> schrijven en hopen.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Naam van de beslisser automatisch gedetecteerd wanneer die publiek is.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">E-mails verifiëren</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Het formaat raden, testen, bounces incasseren. Of een aparte verrijkingstool betalen.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Geverifieerd persoonlijk e-mailadres. Een onbruikbaar adres wordt nooit aangerekend.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Weten wie u eerst belt</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Op gevoel, of in de volgorde van het bestand.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Score op 10, berekend op 19 criteria. U begint bovenaan.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">De berichten schrijven</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Eén sjabloon voor iedereen, of 100 berichten één voor één personaliseren.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Eén unieke ijsbreker per bedrijf, geschreven op basis van hun eigen website.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Versturen en opvolgen</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Een extra e-mailtool om in te stellen. Opvolgingen handmatig beheren.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Sequenties dag+0, +4, +9, +14. Inbegrepen in het abonnement.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Uitschrijvingen en AVG</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Handmatig opvolgen. Eén fout en het is een klacht.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Bron van de gegevens en uitschrijflink in elke e-mail. Opt-outs automatisch geblokkeerd.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Buiten Frankrijk</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">De meeste databases stoppen aan de Franse grens.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">België, Frankrijk, Luxemburg, Zwitserland, Nederland. IJsbreker in de taal van de prospect.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Maandelijkse kost</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Twee tot drie gestapelde abonnementen, plus uw uren.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)"><b style="color:var(--teal)">49&nbsp;&euro;</b> voor de volledige keten.</td></tr></tbody>
+    </table></div>
+    <div style="text-align:center;margin-top:32px">
+      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=nl">Mijn eerste 50 leads krijgen</a>
+      <p class="hero-note" style="margin-top:12px"><b>50 gratis credits</b> &middot; Geen kredietkaart</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ OORSPRONG ════════ -->
+<section style="border-bottom:1px solid var(--line);padding:52px 24px">
+  <div style="max-width:680px;margin:0 auto">
+    <div style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:18px">Waarom DataCloser bestaat</div>
+    <p style="font-size:1.12rem;line-height:1.7;margin-bottom:16px">Vijftien jaar verkopen in B2B. Overtuigen is het vak &mdash; dat kon ik. Het echte obstakel lag elders: weten wie ik moest bellen.</p>
+    <p style="font-size:1.02rem;line-height:1.75;color:var(--muted);margin-bottom:16px">Hele ochtenden adressen overtypen uit Google Maps. Gegokte e-mailadressen die terugkomen als fout. Gekochte bestanden waarvan de helft van functie was veranderd.</p>
+    <p style="font-size:1.12rem;line-height:1.7;margin:0">DataCloser doet in enkele minuten wat ik jarenlang met de hand deed. Geen extra platform om te leren &mdash; <b style="color:var(--text)">de snelweg die ik had willen hebben</b>.</p>
+    <div style="margin-top:28px;padding-top:22px;border-top:1px solid var(--line)">
+      <div style="font-size:.98rem;font-weight:600;color:var(--text)">Jordan Baivier</div>
+      <div style="font-size:.86rem;color:var(--muted);margin-top:3px">Oprichter van DataCloser &middot; Belgi&euml;</div>
+      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:12px 0 0">Doel: B2B-prospectie toegankelijk maken voor kmo&#39;s. <a href="/a-propos.html" style="color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,229,176,.3)">Ons verhaal</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+<div class="wrap">
+<div class="sec-eyebrow">FAQ</div>
+<h2 style="margin-inline:auto;text-align:center">Veelgestelde vragen</h2>
+<div class="faq">
+<details>
+<summary>Waar komen de gegevens vandaan?</summary>
+<p>DataCloser doorzoekt Google Search en Google Maps in realtime op het moment van uw zoekopdracht, en analyseert vervolgens de website van elk gevonden bedrijf. Geen doorverkochte databases, geen verouderde gegevens: elke lead heeft een versheidsdatum.</p>
+</details>
+<details>
+<summary>Is dit AVG-conform?</summary>
+<p>Ja. De verzamelde gegevens zijn publiek en professioneel (B2B). De e-mailverrijking gebeurt via een AVG-gecertificeerde leverancier, en elke export vermeldt de herkomst en verzameldatum. E-mails verzonden via Outreach bevatten automatisch een afmeldvermelding.</p>
+</details>
+<details>
+<summary>Hoe werkt AI Outreach?</summary>
+<p>Verbind uw mailbox (Gmail, Outlook, OVH…) via SMTP in de Outreach-instellingen. Selecteer een leadbestand, schrijf uw template met dynamische variabelen en start. De AI stelt voor elke lead een gepersonaliseerde e-mail op met diens icebreaker, controleert de coherentie vóór verzending, en verstuurt vanaf uw eigen adres met een willekeurige anti-spamvertraging. 1 credit = 1 verzonden e-mail. De opvolgmails (dag+4/+9/+14, dag+9, dag+14) zijn gratis.</p>
+</details>
+<details>
+<summary>Is de opvolgmail echt gratis?</summary>
+<p>Ja. De automatische opvolgmail op dag+4/+9/+14 is gratis in alle abonnementen — er wordt geen extra credit afgeschreven. Ze wordt door de AI geschreven in een andere stijl dan de eerste e-mail, met een natuurlijke herinneringstoon.</p>
+</details>
+<details>
+<summary>Hoeveel leads krijg ik met mijn credits?</summary>
+<p>U betaalt alleen voor bruikbare leads. 1 credit wordt enkel afgeschreven wanneer een lead aan u wordt geleverd met een bruikbaar e-mailadres (nominatief geverifieerd of waarschijnlijk catch-all) — samen met de beslisser, de score /10 en de icebreaker. Leads zonder geldig e-mailadres, leads die wegens een lage score worden geweerd, of een onderbroken scan worden nooit aangerekend. Met 500 credits dekt het Starter-abonnement een intensieve prospectie over meerdere sectoren en steden.</p>
+</details>
+<details>
+<summary>Welke landen worden gedekt?</summary>
+<p>België, Frankrijk, Luxemburg en Zwitserland met native dekking, stad per stad. Via handmatige invoer kunt u ook elk ander land targeten.</p>
+</details>
+<details>
+<summary>Kan ik DataCloser koppelen aan mijn CRM?</summary>
+<p>Ja. Via het tabblad Exports &amp; CRM kunt u uw leads naar elke CRM of automatiseringstool sturen via webhook (Make, Zapier, n8n…), naast de klassieke CSV-export.</p>
+</details>
+<details>
+<summary>Is er een minimumtermijn?</summary>
+<p>Geen. De abonnementen zijn maandelijks en op elk moment opzegbaar, en eenmalige creditpakketten zonder abonnement zijn al vanaf €9,99 beschikbaar.</p>
+</details><details><summary>Hoe vind ik klanten als mijn prospects niet op LinkedIn zitten?</summary><p>De meeste ambachtslieden, handelaars en lokale kmo&#39;s hebben geen actief LinkedIn-profiel. DataCloser vertrekt van Google en hun eigen website, daar waar deze bedrijven werkelijk bestaan.</p></details><details><summary>Hoe lang duurt het om een lijst van 100 prospecten samen te stellen?</summary><p>Handmatig: drie tot vier uur zoeken, plus de verificatie van de e-mailadressen. Met DataCloser start u de zoekopdracht en komen de leads verrijkt, gescoord en klaar voor contact binnen.</p></details><details><summary>Hoe voorkom ik dat mijn prospectiemails in spam belanden?</summary><p>Drie hoofdoorzaken: ongeldige adressen die bounces veroorzaken, een te bruusk startvolume, en het ontbreken van SPF-, DKIM- en DMARC-configuratie. DataCloser sluit niet-geverifieerde adressen uit, spreidt de verzending en begeleidt u bij de configuratie van uw domein.</p></details><details><summary>Kan ik ook buiten Frankrijk prospecteren?</summary><p>Ja. De meeste Franstalige B2B-databases stoppen aan de Franse grens. DataCloser dekt Belgi&euml;, Frankrijk, Luxemburg, Zwitserland en Nederland, en detecteert de taal van elke prospect om de ijsbreker in die taal te schrijven.</p></details><details><summary>Is het legaal om bedrijven te mailen die ik niet ken?</summary><p>Ja, in B2B op basis van gerechtvaardigd belang (Art.&nbsp;6-1-f AVG), op voorwaarde dat u de bron van de gegevens vermeldt en uitschrijven in &eacute;&eacute;n klik mogelijk maakt (Art.&nbsp;14). DataCloser voegt beide automatisch toe.</p></details>
+</div>
+</div>
+</section>
 <!-- ════════ CTA FINAL ════════ -->
 <section class="final">
-  <div class="wrap">
-    <div class="sec-eyebrow" style="text-align:center">Klaar om te closen?</div>
-    <h2 style="text-align:center">Uw volgende klantenlijst<br>is maar één zoekopdracht ver.</h2>
-    <a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=nl">Maak gratis mijn account</a>
-    <p class="hero-note" style="text-align:center;margin-top:16px"><b>Gratis credits</b> · Geen kredietkaart · Geen minimumtermijn</p>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow" style="text-align:center">Klaar om te closen?</div>
+<h2 style="text-align:center">Uw volgende klantenlijst<br/>is maar één zoekopdracht ver.</h2>
+<a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=nl">Maak gratis mijn account</a>
+<p class="hero-note" style="text-align:center;margin-top:16px"><b>Gratis credits</b> · Geen kredietkaart · Geen minimumtermijn</p>
+</div>
 </section>
-
 <footer>
-  <div class="foot">
-    <div>
-      <div class="logo">Data<span style="color:var(--teal)">Closer</span></div>
-      <p style="margin-top:8px">Data die wegglipt? Wij closen ze.</p>
-      <p style="margin-top:4px">© 2026 DataCloser — Jordan Baivier, België.<br>Concept beschermd — i-DEPOT BOIP nr. 160599.</p>
-      <div class="foot-badges">
-        <a href="https://smolfind.com/projects/datacloser" target="_blank" rel="noopener noreferrer" title="Smol Find Top 1 Daily Winner">
-          <img loading="lazy" src="https://r2.direasy-multi-tenant.focusapps.app/uploads/616d0b1a-3979-4b8c-94d1-b4f1fedd3ead/1783046766775/sjxeszczb3i/top1-dark.svg" alt="Smol Find — Top 1 Daily Winner" style="width:195px;max-width:100%;height:auto;vertical-align:middle" />
-        </a>
-        <a href="https://www.uneed.best/tool/datacloser" target="_blank" rel="noopener">
-          <img loading="lazy" src="https://www.uneed.best/EMBED3.png" alt="Launching Soon on Uneed" style="width:250px;max-width:100%" />
-        </a>
-        
-        <a href="https://fazier.com/launches/datacloser.com" target="_blank">
-          <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light" width="120" alt="Fazier badge" />
-        </a>
-      </div>
-    </div>
-    <div class="foot-links">
-      <a href="https://app.datacloser.com/?lang=nl">Platform</a>
-      <a href="#tarifs">Tarieven</a>
-      <a href="#faq">FAQ</a>
-      <a href="/nl/blog/">Blog</a>
-      <a href="/nl/calculator.html">Calculator</a>
-      <a href="/">🇫🇷 Français</a>
-      <a href="mailto:jordan.baivier@datacloser.com">Contact</a>
-    </div>
-  </div>
+<div class="foot">
+<div>
+<div class="logo">Data<span style="color:var(--teal)">Closer</span></div>
+<p style="margin-top:8px">Data die wegglipt? Wij closen ze.</p>
+<p style="margin-top:4px">© 2026 DataCloser — Jordan Baivier, België.<br/>Concept beschermd — i-DEPOT BOIP nr. 160599.</p>
+<div class="foot-badges">
+<a href="https://smolfind.com/projects/datacloser" rel="noopener noreferrer" target="_blank" title="Smol Find Top 1 Daily Winner">
+<img alt="Smol Find — Top 1 Daily Winner" loading="lazy" src="https://r2.direasy-multi-tenant.focusapps.app/uploads/616d0b1a-3979-4b8c-94d1-b4f1fedd3ead/1783046766775/sjxeszczb3i/top1-dark.svg" style="width:195px;max-width:100%;height:auto;vertical-align:middle"/>
+</a>
+<a href="https://www.uneed.best/tool/datacloser" rel="noopener" target="_blank">
+<img alt="Launching Soon on Uneed" loading="lazy" src="https://www.uneed.best/EMBED3.png" style="width:250px;max-width:100%"/>
+</a>
+<a href="https://fazier.com/launches/datacloser.com" target="_blank">
+<img alt="Fazier badge" src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&amp;theme=light" width="120"/>
+</a>
+</div>
+</div>
+<div class="foot-links">
+<a href="https://app.datacloser.com/?lang=nl">Platform</a>
+<a href="#tarifs">Tarieven</a>
+<a href="#faq">FAQ</a>
+<a href="/nl/blog/">Blog</a>
+<a href="/nl/calculator.html">Calculator</a>
+<a href="/">🇫🇷 Français</a>
+<a href="mailto:jordan.baivier@datacloser.com">Contact</a>
+</div>
+</div>
 </footer>
-
 <script>
 const lines = [
   ['t-dim','&gt; Bestand vergrendeld: <span class="t-teal">prospectie_brussel.csv</span>'],
@@ -892,7 +974,6 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
   addLine();
 }
 </script>
-
 <script>
 (function(){
   try{
@@ -918,7 +999,14 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
   }catch(e){}
 })();
 </script>
-
-</body>
+<script>
+(function(){
+  var b=document.querySelector('.nav-burger'), l=document.getElementById('nav-links');
+  if(!b||!l)return;
+  function set(o){b.setAttribute('aria-expanded',o?'true':'false');l.classList.toggle('open',o);}
+  b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true');});
+  l.addEventListener('click',function(e){if(e.target.tagName==='A')set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+})();
+</script></body>
 </html>
-

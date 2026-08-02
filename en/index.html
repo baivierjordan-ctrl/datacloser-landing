@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DataCloser — AI B2B Lead Generation | Belgium, France, Luxembourg, Switzerland</title>
-<meta name="description" content="DataCloser: AI B2B lead generation for European SMEs. You only pay for usable leads, credits never expire. ICP profile, /10 scoring, email sequences up to day 14. Try it free.">
-<meta name="keywords" content="B2B lead generation, automated prospecting, qualified leads Belgium, decision-maker verified email, SME prospecting tool, leads scraping">
-<meta property="og:title" content="DataCloser — Stop prospecting. Start closing.">
-<meta property="og:description" content="AI B2B lead generation engine for European markets. Decision-makers, verified emails and icebreakers, ready to close.">
-<meta property="og:url" content="https://datacloser.com/en/">
-<meta property="og:image" content="https://datacloser.com/og-datacloser.png">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://datacloser.com/en/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DataCloser — B2B leads with verified email | You only pay for what you can reach</title>
+<meta content="DataCloser: AI B2B lead generation for European SMEs. You only pay for usable leads, credits never expire. ICP profile, /10 scoring, email sequences up to day 14. Try it free." name="description"/>
+<meta content="B2B lead generation, automated prospecting, qualified leads Belgium, decision-maker verified email, SME prospecting tool, leads scraping" name="keywords"/>
+<meta content="DataCloser — Stop prospecting. Start closing." property="og:title"/>
+<meta content="AI B2B lead generation engine for European markets. Decision-makers, verified emails and icebreakers, ready to close." property="og:description"/>
+<meta content="https://datacloser.com/en/" property="og:url"/>
+<meta content="https://datacloser.com/og-datacloser.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<link href="https://datacloser.com/en/" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --ink:#0d1117;
@@ -185,18 +186,50 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
   *,*::before,*::after{animation:none!important;transition:none!important}
   .term-body .ln{opacity:1}
 }
-</style>
 
-<link rel="alternate" hreflang="fr" href="https://datacloser.com/"/>
-<link rel="alternate" hreflang="nl" href="https://datacloser.com/nl/"/>
-<link rel="alternate" hreflang="en" href="https://datacloser.com/en/"/>
-<link rel="alternate" hreflang="x-default" href="https://datacloser.com/"/>
+/* ── Navigation mobile ── */
+.nav-burger{display:none;background:none;border:0;padding:8px;cursor:pointer;flex-direction:column;gap:5px;flex-shrink:0}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .22s,opacity .22s}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-burger:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:6px}
+@media(max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:rgba(13,17,23,.98);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:6px 16px 16px;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .26s ease,opacity .2s}
+  .nav-links.open{max-height:78vh;overflow-y:auto;opacity:1;pointer-events:auto}
+  .nav-links a{padding:13px 4px;font-size:.95rem;border-bottom:1px solid var(--line);white-space:normal}
+  .nav-links .lang-switch{display:flex;gap:18px;padding:13px 4px;border-bottom:1px solid var(--line)}
+  .nav-links .lang-switch a{border:0;padding:0}
+  .nav-links .btn{margin-top:14px;text-align:center;padding:13px;font-size:.95rem;border-bottom:0}
+  .nav-inner{position:relative;justify-content:space-between}
+}
+.cta-short{display:none}
+@media(max-width:640px){
+  .nav-inner{padding:12px 16px;gap:12px}
+  .nav-links{gap:10px;min-width:0}
+  .nav-links .btn{font-size:.78rem;padding:8px 13px}
+  .hero h1{font-size:clamp(28px,8.5vw,38px);line-height:1.06}
+  .hero .eyebrow{font-size:.68rem;letter-spacing:.1em;line-height:1.5}
+  .hero-ctas{flex-direction:column;gap:10px}
+  .hero-ctas .btn{width:100%;text-align:center;font-size:.95rem;padding:14px 18px}
+  .cta-long{display:none}.cta-short{display:inline}
+}
+/* ── Terminal collant ── */
+@media(min-width:921px){.hero{align-items:start}.hero-visual{position:sticky;top:88px;align-self:start}}
+@media(max-width:920px){.hero-visual{position:static}}
+@media(prefers-reduced-motion:reduce){.hero-visual{position:static}}
+</style>
+<link href="https://datacloser.com/" hreflang="fr" rel="alternate">
+<link href="https://datacloser.com/nl/" hreflang="nl" rel="alternate">
+<link href="https://datacloser.com/en/" hreflang="en" rel="alternate">
+<link href="https://datacloser.com/" hreflang="x-default" rel="alternate">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"DataCloser EN","description":"B2B lead generation tool for European markets","url":"https://datacloser.com/en/","inLanguage":"en"}</script>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="DataCloser — B2B Lead Generation for European SMEs"/>
-<meta name="twitter:description" content="Find and contact your B2B prospects in 10 minutes. Google scraping, AI scoring, verified emails. 50 free credits."/>
-<meta name="twitter:image" content="https://datacloser.com/og-datacloser.png"/>
-<meta name="twitter:site" content="@DataCloser"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="DataCloser — B2B Lead Generation for European SMEs" name="twitter:title">
+<meta content="Find and contact your B2B prospects in 10 minutes. Google scraping, AI scoring, verified emails. 50 free credits." name="twitter:description">
+<meta content="https://datacloser.com/og-datacloser.png" name="twitter:image">
+<meta content="@DataCloser" name="twitter:site">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Where does the data come from?","acceptedAnswer":{"@type":"Answer","text":"DataCloser queries Google Search and Google Maps in real time at the moment of your search, then analyzes each company's website. No resold databases, no stale data."}},
@@ -216,265 +249,255 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2"]},"url":"https://datacloser.com/en/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"DataCloser EN","url":"https://datacloser.com/en/","potentialAction":{"@type":"SearchAction","target":"https://datacloser.com/en/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-</head>
+</meta></meta></meta></meta></meta></link></link></link></link></head>
 <body>
-
 <nav>
-  <div class="nav-inner">
-    <div class="logo">Data<span>Closer</span></div>
-    <div class="nav-links">
-      <a href="#pipeline">How it works</a>
-      <a href="#outreach">Outreach</a>
-      <a href="#tarifs">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="/en/guides.html">Guides</a>
-      <a href="/en/calculator.html">Calculator</a>
+<div class="nav-inner">
+<div class="logo">Data<span>Closer</span></div>
+<button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+<a href="#pipeline">How it works</a>
+<a href="#outreach">Outreach</a>
+<a href="#tarifs">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="/en/guides.html">Guides</a>
+<a href="/en/calculator.html">Calculator</a>
+<a href="#pour-qui">For whom</a>
       <span class="lang-switch">
-        <a href="/" lang="fr" title="Voir en français">FR</a>
-        <a href="/nl/" lang="nl" title="Bekijk in het Nederlands">NL</a>
-      </span>
-      <a class="btn btn-primary" href="https://app.datacloser.com/?lang=en">Go to the platform</a>
-    </div>
-  </div>
+<a href="/" lang="fr" title="Voir en français">FR</a>
+<a href="/nl/" lang="nl" title="Bekijk in het Nederlands">NL</a>
+</span>
+<a class="btn btn-primary" href="https://app.datacloser.com/?lang=en">Go to the platform</a>
+</div>
+</div>
 </nav>
-
 <!-- ════════ HERO ════════ -->
 <header class="hero">
-  <div>
-    <div class="eyebrow">Engine live — Belgium · France · Luxembourg · Switzerland</div>
-    <h1>Stop prospecting.<br>Start <em>closing</em>.</h1>
-    <p class="lede">DataCloser scans the web in real time, identifies decision-makers, verifies their personal emails and writes an icebreaker for each — then sends the emails on your behalf.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=en">Start my first search</a>
-      <a class="btn btn-ghost btn-lg" href="#pipeline">See the engine</a>
-    </div>
-    <p class="hero-note"><b>Free credits at sign-up</b> — no credit card required.</p>
-  </div>
-  <div class="terminal" aria-label="Real-time extraction radar demo">
-    <div class="term-bar">
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="term-title">radar — real-time extraction</span>
-    </div>
-    <div class="term-body" id="term"></div>
-  </div>
-</header>
-
-<!-- ════════ STATS STRIP ════════ -->
-<div class="strip">
-  <div class="wrap">
-    <div class="stat"><div class="n">4 countries</div><div class="l">covered</div></div>
-    <div class="stat"><div class="n">19</div><div class="l">data points per lead</div></div>
-    <div class="stat"><div class="n">≥ 6/10</div><div class="l">minimum delivered score</div></div>
-    <div class="stat"><div class="n">100%</div><div class="l">emails checked before export</div></div>
-  </div>
+<div>
+<div class="eyebrow">Engine active — Belgium · France · Luxembourg · Switzerland · Netherlands</div>
+<h1>You only pay for leads<br/>you can actually <em>reach</em>.</h1>
+<p class="lede">Most prospecting files stop at <code style="font-family:'JetBrains Mono',monospace;font-size:.86em;color:var(--text);background:rgba(255,255,255,.06);padding:2px 7px;border-radius:5px">info@</code>. DataCloser finds the decision maker's name — <b style="color:var(--teal);font-weight:600">317 out of 317 on the last scan</b> —, verifies their email and writes an opener based on their own website.</p>
+<p style="margin:-18px 0 30px;font-size:.92rem;color:var(--muted)">An email we cannot find is never charged to you. <b style="color:var(--text);font-weight:600">No database to buy, no tool to configure.</b></p>
+<div class="hero-ctas">
+<a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=en"><span class="cta-long">Get my first 50 leads</span><span class="cta-short">Get my 50 leads</span></a>
+<a class="btn btn-ghost btn-lg" href="#pipeline">See the engine</a>
 </div>
+<p class="hero-note"><b>50 free credits on sign-up</b> — no credit card required.</p>
+<p class="hero-note" style="margin-top:8px;font-size:.82rem;opacity:.85">BOIP trademark · GDPR-native (Art. 14) · 1 087 indexed pages · Top 1 of the day on Smol Find</p>
+</div>
+<div class="hero-visual"><div aria-label="Real-time extraction radar demo" class="terminal">
+<div class="term-bar">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="term-title">radar — real-time extraction</span>
+</div>
+<div class="term-body" id="term"></div>
+</div></div>
+</header>
+<!-- ════════ STATS ════════ -->
+<div style="border-bottom:1px solid var(--line);padding:26px 24px">
+<div style="max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;text-align:center">
+<div class="stat"><div class="n">317/317</div><div class="l">decision makers named, last scan</div></div>
+<div class="stat"><div class="n">5 countries</div><div class="l">BE · FR · LU · CH · NL</div></div>
+<div class="stat"><div class="n">1</div><div class="l">unique opener per company</div></div>
+<div class="stat"><div class="n">0</div><div class="l">unusable emails charged</div></div>
+</div>
+</div>
+<!-- ════════ STATS STRIP ════════ -->
 
 <!-- ════════ PIPELINE ════════ -->
 <section id="pipeline">
-  <div class="wrap">
-    <div class="sec-eyebrow">The engine</div>
-    <h2>Four steps between your keyword and a file ready to close.</h2>
-    <p class="sec-sub">Each credit starts an analysis. The Premium Cascade filters automatically: only prospects scoring 6/10 or higher trigger full enrichment.</p>
-    <div class="pipe">
-      <div class="step">
-        <div class="tag">SCAN</div>
-        <h3>🔍 Real-time scan</h3>
-        <p>The engine queries Google Search and Google Maps based on your target and region — no static six-month-old database.</p>
-      </div>
-      <div class="step">
-        <div class="tag">SCORE</div>
-        <h3>🧠 AI brain</h3>
-        <p>Every company is analyzed and scored out of 10: top 3 detected needs, active hiring signals, technologies in use.</p>
-      </div>
-      <div class="step">
-        <div class="tag">ENRICH</div>
-        <h3>📧 Enrichment</h3>
-        <p>Decision-maker identified, personal email verified, linked LinkedIn profile, deliverability qualification. GDPR compliant.</p>
-      </div>
-      <div class="step">
-        <div class="tag">CLOSE</div>
-        <h3>💬 Icebreaker</h3>
-        <p>A unique opening line, based on the prospect's real context. All that's left is to hit Send.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow">The engine</div>
+<h2>Four steps between your keyword and a file ready to close.</h2>
+<p class="sec-sub">Each credit starts an analysis. The Premium Cascade filters automatically: only prospects scoring 6/10 or higher trigger full enrichment.</p>
+<div class="pipe">
+<div class="step">
+<div class="tag">SCAN</div>
+<h3>🔍 Real-time scan</h3>
+<p>The engine queries Google Search and Google Maps based on your target and region — no static six-month-old database.</p>
+</div>
+<div class="step">
+<div class="tag">SCORE</div>
+<h3>🧠 AI brain</h3>
+<p>Every company is analyzed and scored out of 10: top 3 detected needs, active hiring signals, technologies in use.</p>
+</div>
+<div class="step">
+<div class="tag">ENRICH</div>
+<h3>📧 Enrichment</h3>
+<p>Decision-maker identified, personal email verified, linked LinkedIn profile, deliverability qualification. GDPR compliant.</p>
+</div>
+<div class="step">
+<div class="tag">CLOSE</div>
+<h3>💬 Icebreaker</h3>
+<p>A unique opening line, based on the prospect's real context. All that's left is to hit Send.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ════════ LIVRABLE ════════ -->
 <section id="livrable" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-eyebrow">The deliverable</div>
-    <h2>A CSV file your team can use right away.</h2>
-    <p class="sec-sub">Excerpt of the delivered format — 19 columns, the essentials here:</p>
-    <div class="csv">
-      <table>
-        <thead>
-          <tr><th>Company</th><th>Decision-maker</th><th>Email</th><th>Qualification</th><th>AI score</th><th>Need #1</th><th>Hiring</th><th>LinkedIn</th><th>Icebreaker</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Agence Horizon</td><td>Marie Lefebvre</td><td>m.lefebvre@…</td>
-            <td><span class="badge ok">✓ Personal Pro</span></td><td><span class="badge hi">8/10</span></td>
-            <td class="t-dim">Lead generation</td><td class="t-dim">2 job posts</td><td class="t-dim">in/marie-lef…</td>
-            <td class="t-dim">&ldquo;I saw your redesign for&hellip;&rdquo;</td>
-          </tr>
-          <tr>
-            <td>Cabinet Delvaux</td><td>Thomas Delvaux</td><td>t.delvaux@…</td>
-            <td><span class="badge ok">✓ Personal Pro</span></td><td><span class="badge hi">7/10</span></td>
-            <td class="t-dim">CRM software</td><td class="t-dim">No signal</td><td class="t-dim">in/tdelvaux…</td>
-            <td class="t-dim">&ldquo;Your expansion in Liège&hellip;&rdquo;</td>
-          </tr>
-          <tr>
-            <td>SwissDigital Sàrl</td><td>Daniel Keller</td><td>d.keller@…</td>
-            <td><span class="badge ok">✓ Verified</span></td><td><span class="badge hi">9/10</span></td>
-            <td class="t-dim">SEO visibility</td><td class="t-dim">Hiring 1 developer</td><td class="t-dim">in/dkeller…</td>
-            <td class="t-dim">&ldquo;Congrats on your award&hellip;&rdquo;</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow">The deliverable</div>
+<h2>A CSV file your team can use right away.</h2>
+<p class="sec-sub">Excerpt of the delivered format — 19 columns, the essentials here:</p>
+<div class="csv">
+<table>
+<thead>
+<tr><th>Company</th><th>Decision-maker</th><th>Email</th><th>Qualification</th><th>AI score</th><th>Need #1</th><th>Hiring</th><th>LinkedIn</th><th>Icebreaker</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Agence Horizon</td><td>Marie Lefebvre</td><td>m.lefebvre@…</td>
+<td><span class="badge ok">✓ Personal Pro</span></td><td><span class="badge hi">8/10</span></td>
+<td class="t-dim">Lead generation</td><td class="t-dim">2 job posts</td><td class="t-dim">in/marie-lef…</td>
+<td class="t-dim">“I saw your redesign for…”</td>
+</tr>
+<tr>
+<td>Cabinet Delvaux</td><td>Thomas Delvaux</td><td>t.delvaux@…</td>
+<td><span class="badge ok">✓ Personal Pro</span></td><td><span class="badge hi">7/10</span></td>
+<td class="t-dim">CRM software</td><td class="t-dim">No signal</td><td class="t-dim">in/tdelvaux…</td>
+<td class="t-dim">“Your expansion in Liège…”</td>
+</tr>
+<tr>
+<td>SwissDigital Sàrl</td><td>Daniel Keller</td><td>d.keller@…</td>
+<td><span class="badge ok">✓ Verified</span></td><td><span class="badge hi">9/10</span></td>
+<td class="t-dim">SEO visibility</td><td class="t-dim">Hiring 1 developer</td><td class="t-dim">in/dkeller…</td>
+<td class="t-dim">“Congrats on your award…”</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-
 <!-- ════════ OUTREACH ════════ -->
-<section id="outreach" class="outreach-section">
-  <div class="wrap">
-    <div class="sec-eyebrow" style="color:var(--teal)">New — AI Outreach</div>
-    <h2>From search to send.<br><em style="font-style:normal;color:var(--teal)">In one click.</em></h2>
-    <p class="sec-sub">Connect your mailbox, select a lead file and let the AI write and send a personalized email to every decision-maker — from your own address, in their language, with randomized anti-spam delays.</p>
-
-    <!-- Flow -->
-    <div class="outreach-flow">
-      <div class="outreach-step">
-        <div class="icon">📂</div>
-        <h4>Select leads</h4>
-        <p>From your CSV exports</p>
-      </div>
-      <div class="outreach-arrow">→</div>
-      <div class="outreach-step">
-        <div class="icon">🧠</div>
-        <h4>AI drafting</h4>
-        <p>Email + built-in icebreaker</p>
-      </div>
-      <div class="outreach-arrow">→</div>
-      <div class="outreach-step verified">
-        <div class="badge-verify">AI check</div>
-        <div class="icon">✅</div>
-        <h4>Logic check</h4>
-        <p>Coherence + tone validated</p>
-      </div>
-      <div class="outreach-arrow">→</div>
-      <div class="outreach-step">
-        <div class="icon">📤</div>
-        <h4>Sent from your mailbox</h4>
-        <p>Randomized anti-spam delay</p>
-      </div>
-    </div>
-
-    <!-- Feature cards -->
-    <div class="outreach-features">
-      <div class="outreach-card">
-        <div class="label teal">Auto-language</div>
-        <h4>Language detection</h4>
-        <p>The AI detects the lead's language from their website and writes the icebreaker and email in that language — English, French, Dutch, German…</p>
-      </div>
-      <div class="outreach-card">
-        <div class="label teal">Follow-up included</div>
-        <h4>Follow-up day +4/+9/+14 free 🎁</h4>
-        <p>An automatic follow-up 4 days after first contact, written by the AI. <strong>No extra credit needed.</strong></p>
-      </div>
-      <div class="outreach-card">
-        <div class="label blue">Anti-spam</div>
-        <h4>Randomized delay</h4>
-        <p>Sending from your own mailbox (Gmail, Outlook, OVH…). Randomized delay between each send. Time window and days configurable.</p>
-      </div>
-      <div class="outreach-card">
-        <div class="label amber">1 credit = 1 email</div>
-        <h4>Transparent pricing</h4>
-        <p>You only pay for sent emails. No hidden fees. Follow-ups (day +4, +9, +14) are free on all plans.</p>
-      </div>
-      <div class="outreach-card">
-        <div class="label blue">Dashboard</div>
-        <h4>Real-time tracking</h4>
-        <p>Sent, failed, queued. Detailed logs per campaign. Pause and resume anytime from the interface.</p>
-      </div>
-      <div class="outreach-card">
-        <div class="label teal">GDPR</div>
-        <h4>STOP notice included</h4>
-        <p>Every email automatically includes an unsubscribe notice compliant with GDPR and European anti-spam laws.</p>
-      </div>
-    </div>
-
-    <!-- Banner comparatif -->
-    <div class="outreach-banner">
-      <div>
-        <strong style="font-family:var(--display);font-size:1.05rem;font-weight:600;">DataCloser replaces Lemlist, Instantly and Apollo — for European SME markets.</strong>
-        <p style="margin-top:6px;">Search + enrich + send + follow up. All in one tool, no extra subscription.</p>
-      </div>
-      <a class="btn btn-primary" href="https://app.datacloser.com/?lang=en">Try it free →</a>
-    </div>
-  </div>
+<section class="outreach-section" id="outreach">
+<div class="wrap">
+<div class="sec-eyebrow" style="color:var(--teal)">New — AI Outreach</div>
+<h2>From search to send.<br/><em style="font-style:normal;color:var(--teal)">In one click.</em></h2>
+<p class="sec-sub">Connect your mailbox, select a lead file and let the AI write and send a personalized email to every decision-maker — from your own address, in their language, with randomized anti-spam delays.</p>
+<!-- Flow -->
+<div class="outreach-flow">
+<div class="outreach-step">
+<div class="icon">📂</div>
+<h4>Select leads</h4>
+<p>From your CSV exports</p>
+</div>
+<div class="outreach-arrow">→</div>
+<div class="outreach-step">
+<div class="icon">🧠</div>
+<h4>AI drafting</h4>
+<p>Email + built-in icebreaker</p>
+</div>
+<div class="outreach-arrow">→</div>
+<div class="outreach-step verified">
+<div class="badge-verify">AI check</div>
+<div class="icon">✅</div>
+<h4>Logic check</h4>
+<p>Coherence + tone validated</p>
+</div>
+<div class="outreach-arrow">→</div>
+<div class="outreach-step">
+<div class="icon">📤</div>
+<h4>Sent from your mailbox</h4>
+<p>Randomized anti-spam delay</p>
+</div>
+</div>
+<!-- Feature cards -->
+<div class="outreach-features">
+<div class="outreach-card">
+<div class="label teal">Auto-language</div>
+<h4>Language detection</h4>
+<p>The AI detects the lead's language from their website and writes the icebreaker and email in that language — English, French, Dutch, German…</p>
+</div>
+<div class="outreach-card">
+<div class="label teal">Follow-up included</div>
+<h4>Follow-up day +4/+9/+14 free 🎁</h4>
+<p>An automatic follow-up 4 days after first contact, written by the AI. <strong>No extra credit needed.</strong></p>
+</div>
+<div class="outreach-card">
+<div class="label blue">Anti-spam</div>
+<h4>Randomized delay</h4>
+<p>Sending from your own mailbox (Gmail, Outlook, OVH…). Randomized delay between each send. Time window and days configurable.</p>
+</div>
+<div class="outreach-card">
+<div class="label amber">1 credit = 1 email</div>
+<h4>Transparent pricing</h4>
+<p>You only pay for sent emails. No hidden fees. Follow-ups (day +4, +9, +14) are free on all plans.</p>
+</div>
+<div class="outreach-card">
+<div class="label blue">Dashboard</div>
+<h4>Real-time tracking</h4>
+<p>Sent, failed, queued. Detailed logs per campaign. Pause and resume anytime from the interface.</p>
+</div>
+<div class="outreach-card">
+<div class="label teal">GDPR</div>
+<h4>STOP notice included</h4>
+<p>Every email automatically includes an unsubscribe notice compliant with GDPR and European anti-spam laws.</p>
+</div>
+</div>
+<!-- Banner comparatif -->
+<div class="outreach-banner">
+<div>
+<strong style="font-family:var(--display);font-size:1.05rem;font-weight:600;">DataCloser replaces Lemlist, Instantly and Apollo — for European SME markets.</strong>
+<p style="margin-top:6px;">Search + enrich + send + follow up. All in one tool, no extra subscription.</p>
+</div>
+<a class="btn btn-primary" href="https://app.datacloser.com/?lang=en">Try it free →</a>
+</div>
+</div>
 </section>
-
 <!-- ════════ MARCHÉ ════════ -->
 <section class="dl-demo" id="demo-live">
-  <div class="dl-wrap">
-    <p class="dl-kicker">Live demo</p>
-    <h2>Don't take our word for it.<br><em>Watch.</em></h2>
-    <p class="dl-sous">Pick a sector and a city. The engine finds real companies,
+<div class="dl-wrap">
+<p class="dl-kicker">Live demo</p>
+<h2>Don't take our word for it.<br/><em>Watch.</em></h2>
+<p class="dl-sous">Pick a sector and a city. The engine finds real companies,
       verifies their email and writes a personalized opener — before your eyes, no sign-up.</p>
-
-    <form class="dl-form" id="dl-form" novalidate>
-      <div class="dl-champs">
-        <label class="dl-champ">
-          <span>Sector</span>
-          <select id="dl-secteur" required>
-            <option value="agence immobilière">Real estate agency</option>
-            <option value="agence web">Web agency</option>
-            <option value="restaurant">Restaurant</option>
-            <option value="garage">Car garage</option>
-            <option value="comptable">Accountant</option>
-            <option value="architecte">Architect</option>
-            <option value="avocat">Lawyer</option>
-          </select>
-        </label>
-        <label class="dl-champ">
-          <span>City</span>
-          <input id="dl-ville" type="text" placeholder="Brussels" maxlength="40" required autocomplete="off">
-        </label>
-        <button type="submit" class="dl-btn" id="dl-btn">Start the hunt</button>
-      </div>
-      <p class="dl-mini">Demo limited to three results. No personal data is kept.</p>
-    </form>
-
-    <!-- États -->
-    <div class="dl-etat" id="dl-chargement" hidden>
-      <div class="dl-journal" id="dl-journal"></div>
-    </div>
-
-    <div class="dl-erreur" id="dl-erreur" hidden>
-      <p id="dl-erreur-txt"></p>
-    </div>
-
-    <div class="dl-resultats" id="dl-resultats" hidden>
-      <div class="dl-entete">
-        <span class="dl-compte" id="dl-compte"></span>
-        <span class="dl-source" id="dl-source"></span>
-      </div>
-      <div class="dl-liste" id="dl-liste"></div>
-
-      <div class="dl-conversion">
-        <p><strong>This is a preview.</strong> The full message, the email in plain text, the phone number
+<form class="dl-form" id="dl-form" novalidate="">
+<div class="dl-champs">
+<label class="dl-champ">
+<span>Sector</span>
+<select id="dl-secteur" required="">
+<option value="agence immobilière">Real estate agency</option>
+<option value="agence web">Web agency</option>
+<option value="restaurant">Restaurant</option>
+<option value="garage">Car garage</option>
+<option value="comptable">Accountant</option>
+<option value="architecte">Architect</option>
+<option value="avocat">Lawyer</option>
+</select>
+</label>
+<label class="dl-champ">
+<span>City</span>
+<input autocomplete="off" id="dl-ville" maxlength="40" placeholder="Brussels" required="" type="text"/>
+</label>
+<button class="dl-btn" id="dl-btn" type="submit">Start the hunt</button>
+</div>
+<p class="dl-mini">Demo limited to three results. No personal data is kept.</p>
+</form>
+<!-- États -->
+<div class="dl-etat" hidden="" id="dl-chargement">
+<div class="dl-journal" id="dl-journal"></div>
+</div>
+<div class="dl-erreur" hidden="" id="dl-erreur">
+<p id="dl-erreur-txt"></p>
+</div>
+<div class="dl-resultats" hidden="" id="dl-resultats">
+<div class="dl-entete">
+<span class="dl-compte" id="dl-compte"></span>
+<span class="dl-source" id="dl-source"></span>
+</div>
+<div class="dl-liste" id="dl-liste"></div>
+<div class="dl-conversion">
+<p><strong>This is a preview.</strong> The full message, the email in plain text, the phone number
            and the CSV export are reserved for accounts — creating one is free.</p>
-        <a class="dl-cta" href="https://app.datacloser.com/?lang=en&utm_source=demo_live&utm_medium=landing_en">
+<a class="dl-cta" href="https://app.datacloser.com/?lang=en&amp;utm_source=demo_live&amp;utm_medium=landing_en">
           Create an account and see the full results
         </a>
-        <p class="dl-mini">No credit card. Credits never expire.</p>
-      </div>
-    </div>
-  </div>
+<p class="dl-mini">No credit card. Credits never expire.</p>
+</div>
+</div>
+</div>
 </section>
-
 <style>
   .dl-demo{background:#0a0d12;color:#e6edf3;padding:96px 24px;font-family:'Inter',system-ui,sans-serif}
   .dl-wrap{max-width:920px;margin:0 auto}
@@ -550,7 +573,6 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     .dl-carte,.dl-journal p{opacity:1;transform:none}
   }
 </style>
-
 <script>
 (function(){
   var form = document.getElementById('dl-form');
@@ -679,176 +701,236 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
   });
 })();
 </script>
-
 <section style="padding-top:88px">
-  <div class="wrap">
-    <div class="sec-eyebrow">Why DataCloser</div>
-    <h2>The big US databases ignore European SMEs. We don't.</h2>
-    <div class="market">
-      <div class="m-card">
-        <h3><span class="flag">🇧🇪🇱🇺</span>Benelux</h3>
-        <p>Belgian and Luxembourg SMEs are underrepresented in the big English-language databases. DataCloser scans them straight from the source, city by city.</p>
-      </div>
-      <div class="m-card">
-        <h3><span class="flag">🇫🇷🇨🇭</span>France &amp; French-speaking Switzerland</h3>
-        <p>Native coverage of the local economic landscape: firms, agencies, B2B trade, industry — with decision-maker and business context.</p>
-      </div>
-      <div class="m-card">
-        <h3>⚡ Real time, not archives</h3>
-        <p>Business directories go stale within six months. Every DataCloser search queries the web the moment you launch it, with a freshness date on every lead.</p>
-      </div>
-      <div class="m-card">
-        <h3>🛡️ Strict filtering</h3>
-        <p>The AI brain automatically rejects directories, false positives and out-of-target companies. You don't pay for noise.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow">Why DataCloser</div>
+<h2>The big US databases ignore European SMEs. We don't.</h2>
+<div class="market">
+<div class="m-card">
+<h3><span class="flag">🇧🇪🇱🇺</span>Benelux</h3>
+<p>Belgian and Luxembourg SMEs are underrepresented in the big English-language databases. DataCloser scans them straight from the source, city by city.</p>
+</div>
+<div class="m-card">
+<h3><span class="flag">🇫🇷🇨🇭</span>France &amp; French-speaking Switzerland</h3>
+<p>Native coverage of the local economic landscape: firms, agencies, B2B trade, industry — with decision-maker and business context.</p>
+</div>
+<div class="m-card">
+<h3>⚡ Real time, not archives</h3>
+<p>Business directories go stale within six months. Every DataCloser search queries the web the moment you launch it, with a freshness date on every lead.</p>
+</div>
+<div class="m-card">
+<h3>🛡️ Strict filtering</h3>
+<p>The AI brain automatically rejects directories, false positives and out-of-target companies. You don't pay for noise.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ════════ TARIFS ════════ -->
 <section style="max-width:1100px;margin:0 auto;padding:0 24px 72px">
-  <a href="/en/calculator.html" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(135deg,rgba(0,229,176,.08),rgba(0,85,255,.06));border:1px solid rgba(0,229,176,.3);border-radius:14px;padding:26px 30px;text-decoration:none">
-    <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#e6edf3">How much does a qualified lead <span style="color:#00e5b0">really</span> cost you?</div>
-    <div style="color:#8b98a5;font-size:.9rem;margin-top:6px">Set 6 sliders to your reality. The number surprises — transparent math, no email required.</div></div>
-    <span style="background:#00e5b0;color:#04070a;font-weight:700;padding:12px 22px;border-radius:8px;white-space:nowrap">Open the calculator →</span>
-  </a>
+<a href="/en/calculator.html" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(135deg,rgba(0,229,176,.08),rgba(0,85,255,.06));border:1px solid rgba(0,229,176,.3);border-radius:14px;padding:26px 30px;text-decoration:none">
+<div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#e6edf3">How much does a qualified lead <span style="color:#00e5b0">really</span> cost you?</div>
+<div style="color:#8b98a5;font-size:.9rem;margin-top:6px">Set 6 sliders to your reality. The number surprises — transparent math, no email required.</div></div>
+<span style="background:#00e5b0;color:#04070a;font-weight:700;padding:12px 22px;border-radius:8px;white-space:nowrap">Open the calculator →</span>
+</a>
 </section>
 <section id="tarifs">
-  <div class="wrap">
-    <div class="sec-eyebrow">Pricing</div>
-    <h2>One credit = one engine search. Transparent from first to last lead.</h2>
-    <p class="sec-sub">You only pay for usable leads: 1 credit per lead delivered with verified email, decision-maker and icebreaker. Leads without a valid email are free. Outreach and follow-ups (day +4/+9/+14) are included in all plans.</p>
-    <div class="plans">
-      <div class="plan">
-        <div class="name">🥉 Starter</div>
-        <div class="price">€49<small> / month</small></div>
-        <div class="credits">500 credits / month</div>
-        <ul>
-          <li>AI qualification &amp; Premium Cascade</li>
-          <li>Verified personal email included</li>
-          <li>Personalized icebreakers</li>
-          <li>Unlimited CSV export</li>
-          <li>AI Outreach included</li>
-          <li class="gift">Follow-up day +4/+9/+14 free</li>
-          <li>Standard support</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://app.datacloser.com/?lang=en">Get started</a>
-      </div>
-      <div class="plan featured">
-        <div class="name">🥈 Pro</div>
-        <div class="price">€149<small> / month</small></div>
-        <div class="credits">2,000 credits / month</div>
-        <ul>
-          <li>Everything in Starter</li>
-          <li>4x volume for sales teams</li>
-          <li>CRM connection via webhook</li>
-          <li>AI Outreach included</li>
-          <li class="gift">Follow-up day +4/+9/+14 free</li>
-          <li>Priority support</li>
-        </ul>
-        <a class="btn btn-primary" href="https://app.datacloser.com/?lang=en">Choose Pro</a>
-      </div>
-      <div class="plan">
-        <div class="name">🥇 Elite</div>
-        <div class="price">€399<small> / month</small></div>
-        <div class="credits">10,000 credits / month</div>
-        <ul>
-          <li>Everything in Pro</li>
-          <li>Volume for agencies &amp; large accounts</li>
-          <li>Personal onboarding</li>
-          <li>AI Outreach included</li>
-          <li class="gift">Follow-up day +4/+9/+14 free</li>
-          <li>Best price per lead on the market</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://app.datacloser.com/?lang=en">Choose Elite</a>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow">Pricing</div>
+<h2>One credit = one engine search. Transparent from first to last lead.</h2>
+<p class="sec-sub">You only pay for usable leads: 1 credit per lead delivered with verified email, decision-maker and icebreaker. Leads without a valid email are free. Outreach and follow-ups (day +4/+9/+14) are included in all plans.</p>
+<div class="plans">
+<div class="plan">
+<div class="name">🥉 Starter</div>
+<div class="price">€49<small> / month</small></div>
+<div class="credits">500 credits / month</div>
+<ul>
+<li>AI qualification &amp; Premium Cascade</li>
+<li>Verified personal email included</li>
+<li>Personalized icebreakers</li>
+<li>Unlimited CSV export</li>
+<li>AI Outreach included</li>
+<li class="gift">Follow-up day +4/+9/+14 free</li>
+<li>Standard support</li>
+</ul>
+<a class="btn btn-ghost" href="https://app.datacloser.com/?lang=en">Get started</a>
+</div>
+<div class="plan featured">
+<div class="name">🥈 Pro</div>
+<div class="price">€149<small> / month</small></div>
+<div class="credits">2,000 credits / month</div>
+<ul>
+<li>Everything in Starter</li>
+<li>4x volume for sales teams</li>
+<li>CRM connection via webhook</li>
+<li>AI Outreach included</li>
+<li class="gift">Follow-up day +4/+9/+14 free</li>
+<li>Priority support</li>
+</ul>
+<a class="btn btn-primary" href="https://app.datacloser.com/?lang=en">Choose Pro</a>
+</div>
+<div class="plan">
+<div class="name">🥇 Elite</div>
+<div class="price">€399<small> / month</small></div>
+<div class="credits">10,000 credits / month</div>
+<ul>
+<li>Everything in Pro</li>
+<li>Volume for agencies &amp; large accounts</li>
+<li>Personal onboarding</li>
+<li>AI Outreach included</li>
+<li class="gift">Follow-up day +4/+9/+14 free</li>
+<li>Best price per lead on the market</li>
+</ul>
+<a class="btn btn-ghost" href="https://app.datacloser.com/?lang=en">Choose Elite</a>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ════════ FAQ ════════ -->
-<section id="faq" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-eyebrow">FAQ</div>
-    <h2 style="margin-inline:auto;text-align:center">Frequently asked questions</h2>
-    <div class="faq">
-      <details>
-        <summary>Where does the data come from?</summary>
-        <p>DataCloser queries Google Search and Google Maps in real time at the moment of your search, then analyzes each company's website. No resold databases, no stale data: every lead has a freshness date.</p>
-      </details>
-      <details>
-        <summary>Is this GDPR compliant?</summary>
-        <p>Yes. The collected data is public and professional (B2B). Email enrichment is done through a GDPR-certified provider, and every export states the source and collection date. Emails sent via Outreach automatically include an unsubscribe notice.</p>
-      </details>
-      <details>
-        <summary>How does AI Outreach work?</summary>
-        <p>Connect your mailbox (Gmail, Outlook, OVH…) via SMTP in the Outreach settings. Select a lead file, write your template with dynamic variables and launch. The AI drafts a personalized email for every lead using their icebreaker, checks coherence before sending, and sends from your own address with a randomized anti-spam delay. 1 credit = 1 sent email. Follow-ups (day +4, +9, +14) are free.</p>
-      </details>
-      <details>
-        <summary>Are follow-ups really free?</summary>
-        <p>Yes. The automatic follow-up on day +4/+9/+14 is free on all plans — no extra credit is charged. It's written by the AI in a different style from the first email, with a natural reminder tone.</p>
-      </details>
-      <details>
-        <summary>How many leads do I get with my credits?</summary>
-        <p>You only pay for usable leads. 1 credit is only deducted when a lead is delivered with a usable email (personally verified or likely catch-all) — along with the decision-maker, the /10 score and the icebreaker. Leads without a valid email, leads rejected for low score, or an interrupted scan are never charged. With 500 credits, the Starter plan covers intensive prospecting across multiple sectors and cities.</p>
-      </details>
-      <details>
-        <summary>Which countries are covered?</summary>
-        <p>Belgium, France, Luxembourg and Switzerland with native coverage, city by city. Manual input also lets you target any other country.</p>
-      </details>
-      <details>
-        <summary>Can I connect DataCloser to my CRM?</summary>
-        <p>Yes. Through the Exports &amp; CRM tab you can send your leads to any CRM or automation tool via webhook (Make, Zapier, n8n…), alongside the classic CSV export.</p>
-      </details>
-      <details>
-        <summary>Is there a minimum term?</summary>
-        <p>None. Plans are monthly and cancellable anytime, and one-off credit packs without subscription start at €9.99.</p>
-      </details>
+
+
+<!-- ════════ POUR QUI ════════ -->
+<section id="pour-qui" style="border-bottom:1px solid var(--line);padding:64px 24px;scroll-margin-top:80px">
+  <div style="max-width:1000px;margin:0 auto">
+    <h2 style="text-align:center;margin-bottom:8px">Who uses DataCloser</h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:34px;font-size:.95rem">Three ways to use the same engine.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <a href="/en/b2b-prospecting-agencies.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(0,229,176,.4)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div style="font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px">Agencies</div>
+        <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text)">Web and marketing</h3>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.65;margin:0">Find your own clients, and deliver qualified lists to the ones you work for. One subscription for both.</p>
+        <span style="display:inline-block;margin-top:14px;color:var(--teal);font-size:.85rem;font-weight:500">Learn more &#8594;</span>
+      </a>
+      <a href="/en/b2b-prospecting-freelancers.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(0,229,176,.4)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div style="font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px">Freelancers</div>
+        <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text)">Consultants and solos</h3>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.65;margin:0">Break the feast-and-famine cycle. Twenty contacts a week, without giving up your evenings.</p>
+        <span style="display:inline-block;margin-top:14px;color:var(--teal);font-size:.85rem;font-weight:500">Learn more &#8594;</span>
+      </a>
+      <a href="/en/b2b-prospecting-smes.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(0,229,176,.4)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div style="font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px">SMEs</div>
+        <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text)">Sales teams</h3>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.65;margin:0">Give your sales reps back the hours they spend searching instead of selling.</p>
+        <span style="display:inline-block;margin-top:14px;color:var(--teal);font-size:.85rem;font-weight:500">Learn more &#8594;</span>
+      </a>
     </div>
   </div>
 </section>
 
+<!-- ════════ MET / ZONDER ════════ -->
+<section style="border-bottom:1px solid var(--line);padding:64px 24px">
+  <div style="max-width:900px;margin:0 auto">
+    <h2 style="text-align:center;margin-bottom:10px">Finding 100 potential clients: with or without DataCloser</h2>
+    <p style="text-align:center;color:var(--muted);max-width:560px;margin:0 auto 34px;font-size:.95rem">Same goal, same 100 companies. Here is what each step actually costs you.</p>
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px">
+      <thead><tr>
+        <th style="text-align:left;padding:13px 14px;background:var(--panel);border-bottom:2px solid var(--line);font-weight:600;color:var(--text);width:30%">Step</th>
+        <th style="text-align:left;padding:13px 14px;background:var(--panel);border-bottom:2px solid var(--line);font-weight:600;color:var(--muted)">By hand, or with several tools</th>
+        <th style="text-align:left;padding:13px 14px;background:rgba(0,229,176,.07);border-bottom:2px solid var(--teal);font-weight:600;color:var(--teal)">With DataCloser</th>
+      </tr></thead>
+      <tbody><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Finding the companies</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Google Maps, directories, LinkedIn. Copy-pasting line by line. Count on 3 to 4 hours.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">One sector, one city. The engine searches while you do something else.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Finding the decision maker</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Hunting for the owner's name on every site, or writing to <em>info@</em> and hoping.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Decision maker's name detected automatically when public.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Verifying emails</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Guessing the format, testing, absorbing bounces. Or paying for a separate enrichment tool.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Verified personal email. An unusable address is never charged.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Knowing who to call first</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">On instinct, or in the order of the spreadsheet.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Score out of 10, computed on 19 criteria. You start at the top.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Writing the messages</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">One template for everyone, or 100 messages to personalise one by one.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">One unique opener per company, written from their own website.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Sending and following up</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Another emailing tool to configure. Follow-ups handled by hand.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Sequences at day+0, +4, +9, +14. Included in the plan.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Unsubscribes and GDPR</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Tracked manually. One mistake and it is a complaint.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Data source and unsubscribe link in every email. Opt-outs blocked automatically.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Outside France</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Most databases stop at the French border.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)">Belgium, France, Luxembourg, Switzerland, Netherlands. Opener in the prospect's language.</td></tr><tr><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--text);font-weight:500">Monthly cost</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);color:var(--muted)">Two or three stacked subscriptions, plus your hours.</td><td style="padding:13px 14px;border-bottom:1px solid var(--line);background:rgba(0,229,176,.035);color:var(--text)"><b style="color:var(--teal)">&euro;49</b> for the whole chain.</td></tr></tbody>
+    </table></div>
+    <div style="text-align:center;margin-top:32px">
+      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=en">Get my first 50 leads</a>
+      <p class="hero-note" style="margin-top:12px"><b>50 free credits</b> &middot; No credit card</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ ORIGIN ════════ -->
+<section style="border-bottom:1px solid var(--line);padding:52px 24px">
+  <div style="max-width:680px;margin:0 auto">
+    <div style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:18px">Why DataCloser exists</div>
+    <p style="font-size:1.12rem;line-height:1.7;margin-bottom:16px">Fifteen years selling in B2B. Convincing people is the job &mdash; that part I knew. The real obstacle was elsewhere: knowing who to call.</p>
+    <p style="font-size:1.02rem;line-height:1.75;color:var(--muted);margin-bottom:16px">Whole mornings retyping addresses from Google Maps. Guessed emails bouncing back. Purchased files where half the contacts had changed jobs.</p>
+    <p style="font-size:1.12rem;line-height:1.7;margin:0">DataCloser does in minutes what I did by hand for years. Not another platform to learn &mdash; <b style="color:var(--text)">the shortcut I wish I&#39;d had</b>.</p>
+    <div style="margin-top:28px;padding-top:22px;border-top:1px solid var(--line)">
+      <div style="font-size:.98rem;font-weight:600;color:var(--text)">Jordan Baivier</div>
+      <div style="font-size:.86rem;color:var(--muted);margin-top:3px">Founder of DataCloser &middot; Belgium</div>
+      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:12px 0 0">Goal: make B2B prospecting accessible to small businesses. <a href="/about.html" style="color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,229,176,.3)">Our story</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+<div class="wrap">
+<div class="sec-eyebrow">FAQ</div>
+<h2 style="margin-inline:auto;text-align:center">Frequently asked questions</h2>
+<div class="faq">
+<details>
+<summary>Where does the data come from?</summary>
+<p>DataCloser queries Google Search and Google Maps in real time at the moment of your search, then analyzes each company's website. No resold databases, no stale data: every lead has a freshness date.</p>
+</details>
+<details>
+<summary>Is this GDPR compliant?</summary>
+<p>Yes. The collected data is public and professional (B2B). Email enrichment is done through a GDPR-certified provider, and every export states the source and collection date. Emails sent via Outreach automatically include an unsubscribe notice.</p>
+</details>
+<details>
+<summary>How does AI Outreach work?</summary>
+<p>Connect your mailbox (Gmail, Outlook, OVH…) via SMTP in the Outreach settings. Select a lead file, write your template with dynamic variables and launch. The AI drafts a personalized email for every lead using their icebreaker, checks coherence before sending, and sends from your own address with a randomized anti-spam delay. 1 credit = 1 sent email. Follow-ups (day +4, +9, +14) are free.</p>
+</details>
+<details>
+<summary>Are follow-ups really free?</summary>
+<p>Yes. The automatic follow-up on day +4/+9/+14 is free on all plans — no extra credit is charged. It's written by the AI in a different style from the first email, with a natural reminder tone.</p>
+</details>
+<details>
+<summary>How many leads do I get with my credits?</summary>
+<p>You only pay for usable leads. 1 credit is only deducted when a lead is delivered with a usable email (personally verified or likely catch-all) — along with the decision-maker, the /10 score and the icebreaker. Leads without a valid email, leads rejected for low score, or an interrupted scan are never charged. With 500 credits, the Starter plan covers intensive prospecting across multiple sectors and cities.</p>
+</details>
+<details>
+<summary>Which countries are covered?</summary>
+<p>Belgium, France, Luxembourg and Switzerland with native coverage, city by city. Manual input also lets you target any other country.</p>
+</details>
+<details>
+<summary>Can I connect DataCloser to my CRM?</summary>
+<p>Yes. Through the Exports &amp; CRM tab you can send your leads to any CRM or automation tool via webhook (Make, Zapier, n8n…), alongside the classic CSV export.</p>
+</details>
+<details>
+<summary>Is there a minimum term?</summary>
+<p>None. Plans are monthly and cancellable anytime, and one-off credit packs without subscription start at €9.99.</p>
+</details><details><summary>How do I find clients when my prospects are not on LinkedIn?</summary><p>Most tradespeople, shop owners and local small businesses have no active LinkedIn profile. DataCloser starts from Google and their own website, where these companies actually exist.</p></details><details><summary>How long does it take to build a list of 100 prospects?</summary><p>By hand: three to four hours of searching, plus verifying the emails. With DataCloser you launch the search and the leads arrive enriched, scored and ready to contact.</p></details><details><summary>How do I stop my prospecting emails going to spam?</summary><p>Three main causes: invalid addresses generating bounces, too brutal a starting volume, and missing SPF, DKIM and DMARC configuration. DataCloser excludes unverified addresses, spreads sending across a controlled window and guides you through domain setup.</p></details><details><summary>Can I prospect outside France?</summary><p>Yes. Most French-language B2B databases stop at the French border. DataCloser natively covers Belgium, France, Luxembourg, Switzerland and the Netherlands, and detects each prospect&#39;s language to write the opener in it.</p></details><details><summary>Is it legal to email companies I don&#39;t know?</summary><p>Yes, in B2B under legitimate interest (Art.&nbsp;6-1-f GDPR), provided you state the source of the data and allow one-click unsubscribe (Art.&nbsp;14). DataCloser inserts both automatically.</p></details>
+</div>
+</div>
+</section>
 <!-- ════════ CTA FINAL ════════ -->
 <section class="final">
-  <div class="wrap">
-    <div class="sec-eyebrow" style="text-align:center">Ready to close?</div>
-    <h2 style="text-align:center">Your next client list<br>is just one search away.</h2>
-    <a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=en">Create my free account</a>
-    <p class="hero-note" style="text-align:center;margin-top:16px"><b>Free credits</b> · No credit card · No minimum term</p>
-  </div>
+<div class="wrap">
+<div class="sec-eyebrow" style="text-align:center">Ready to close?</div>
+<h2 style="text-align:center">Your next client list<br/>is just one search away.</h2>
+<a class="btn btn-primary btn-lg" href="https://app.datacloser.com/?lang=en">Create my free account</a>
+<p class="hero-note" style="text-align:center;margin-top:16px"><b>Free credits</b> · No credit card · No minimum term</p>
+</div>
 </section>
-
 <footer>
-  <div class="foot">
-    <div>
-      <div class="logo">Data<span style="color:var(--teal)">Closer</span></div>
-      <p style="margin-top:8px">Stop prospecting. Start closing.</p>
-      <p style="margin-top:4px">© 2026 DataCloser — Jordan Baivier, Belgium.<br>Protected concept — i-DEPOT BOIP no. 160599.</p>
-      <div class="foot-badges">
-        <a href="https://smolfind.com/projects/datacloser" target="_blank" rel="noopener noreferrer" title="Smol Find Top 1 Daily Winner">
-          <img loading="lazy" src="https://r2.direasy-multi-tenant.focusapps.app/uploads/616d0b1a-3979-4b8c-94d1-b4f1fedd3ead/1783046766775/sjxeszczb3i/top1-dark.svg" alt="Smol Find — Top 1 Daily Winner" style="width:195px;max-width:100%;height:auto;vertical-align:middle" />
-        </a>
-        <a href="https://www.uneed.best/tool/datacloser" target="_blank" rel="noopener">
-          <img loading="lazy" src="https://www.uneed.best/EMBED3.png" alt="Launching Soon on Uneed" style="width:250px;max-width:100%" />
-        </a>
-        
-        <a href="https://fazier.com/launches/datacloser.com" target="_blank">
-          <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light" width="120" alt="Fazier badge" />
-        </a>
-      </div>
-    </div>
-    <div class="foot-links">
-      <a href="https://app.datacloser.com/?lang=en">Platform</a>
-      <a href="#tarifs">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="/en/guides.html">Guides</a>
-      <a href="/">🇫🇷 Français</a>
-      <a href="/nl/">🇳🇱 Nederlands</a>
-      <a href="mailto:jordan.baivier@datacloser.com">Contact</a>
-    </div>
-  </div>
+<div class="foot">
+<div>
+<div class="logo">Data<span style="color:var(--teal)">Closer</span></div>
+<p style="margin-top:8px">Stop prospecting. Start closing.</p>
+<p style="margin-top:4px">© 2026 DataCloser — Jordan Baivier, Belgium.<br/>Protected concept — i-DEPOT BOIP no. 160599.</p>
+<div class="foot-badges">
+<a href="https://smolfind.com/projects/datacloser" rel="noopener noreferrer" target="_blank" title="Smol Find Top 1 Daily Winner">
+<img alt="Smol Find — Top 1 Daily Winner" loading="lazy" src="https://r2.direasy-multi-tenant.focusapps.app/uploads/616d0b1a-3979-4b8c-94d1-b4f1fedd3ead/1783046766775/sjxeszczb3i/top1-dark.svg" style="width:195px;max-width:100%;height:auto;vertical-align:middle"/>
+</a>
+<a href="https://www.uneed.best/tool/datacloser" rel="noopener" target="_blank">
+<img alt="Launching Soon on Uneed" loading="lazy" src="https://www.uneed.best/EMBED3.png" style="width:250px;max-width:100%"/>
+</a>
+<a href="https://fazier.com/launches/datacloser.com" target="_blank">
+<img alt="Fazier badge" src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&amp;theme=light" width="120"/>
+</a>
+</div>
+</div>
+<div class="foot-links">
+<a href="https://app.datacloser.com/?lang=en">Platform</a>
+<a href="#tarifs">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="/en/guides.html">Guides</a>
+<a href="/">🇫🇷 Français</a>
+<a href="/nl/">🇳🇱 Nederlands</a>
+<a href="mailto:jordan.baivier@datacloser.com">Contact</a>
+</div>
+</div>
 </footer>
-
 <script>
 const lines = [
   ['t-dim','&gt; File locked: <span class="t-teal">prospecting_brussels.csv</span>'],
@@ -892,7 +974,6 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
   addLine();
 }
 </script>
-
 <script>
 (function(){
   try{
@@ -918,7 +999,14 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
   }catch(e){}
 })();
 </script>
-
-</body>
+<script>
+(function(){
+  var b=document.querySelector('.nav-burger'), l=document.getElementById('nav-links');
+  if(!b||!l)return;
+  function set(o){b.setAttribute('aria-expanded',o?'true':'false');l.classList.toggle('open',o);}
+  b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true');});
+  l.addEventListener('click',function(e){if(e.target.tagName==='A')set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+})();
+</script></body>
 </html>
-
