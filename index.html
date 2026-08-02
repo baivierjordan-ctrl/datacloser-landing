@@ -209,7 +209,22 @@ img,pre{max-width:100%}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .term-body .ln{opacity:1}
 }
-</style>
+
+/* ── Correctifs mobile ── */
+@media(max-width:640px){
+  .nav-inner{padding:12px 16px;gap:12px}
+  .nav-links{gap:10px;min-width:0}
+  .nav-links .btn{font-size:.78rem;padding:8px 13px}
+  .hero h1{font-size:clamp(28px,8.5vw,38px);line-height:1.06}
+  .hero .eyebrow{font-size:.68rem;letter-spacing:.1em;line-height:1.5}
+  .hero-ctas{flex-direction:column;gap:10px}
+  .hero-ctas .btn{width:100%;text-align:center;font-size:.95rem;padding:14px 18px}
+  .sticky-cta{padding:10px 14px}
+}
+/* La barre collante fait doublon tant que le CTA du hero est visible */
+.sticky-cta{opacity:0;pointer-events:none;transition:opacity .25s}
+.sticky-cta.on{opacity:1;pointer-events:auto}
+.cta-short{display:none}@media(max-width:640px){.cta-long{display:none}.cta-short{display:inline}}</style>
 
 <!-- hreflang -->
 <link rel="alternate" hreflang="fr" href="https://datacloser.com/"/>
@@ -490,12 +505,12 @@ img,pre{max-width:100%}
 <!-- ════════ HERO ════════ -->
 <header class="hero">
   <div>
-    <div class="eyebrow">Moteur actif — Belgique · France · Luxembourg · Suisse</div>
+    <div class="eyebrow">Moteur actif — Belgique · France · Luxembourg · Suisse · Pays-Bas</div>
     <h1>Ne prospectez plus.<br>Commencez à <em>closer</em>.</h1>
     <p class="lede">DataCloser scanne le web en temps réel, identifie les décideurs, vérifie leurs emails nominatifs et rédige un icebreaker pour chacun — puis envoie les emails à votre place.</p>
     <p style="margin:-18px 0 30px;font-size:.92rem;color:var(--muted)">Aucune base à acheter. Aucun outil à configurer. <b style="color:var(--text);font-weight:600">Aucune compétence technique requise.</b></p>
     <div class="hero-ctas">
-      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com">Obtenir mes 50 premiers leads</a>
+      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com"><span class="cta-long">Obtenir mes 50 premiers leads</span><span class="cta-short">Obtenir mes 50 leads</span></a>
       <a class="btn btn-ghost btn-lg" href="#demo-live">Voir le moteur en direct</a>
     </div>
     <p class="hero-note"><b>50 crédits offerts à l'inscription</b> — sans carte bancaire.</p>
@@ -1037,7 +1052,7 @@ img,pre{max-width:100%}
       </div>
     </div>
     <div style="text-align:center;margin-top:36px">
-      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com">Obtenir mes 50 premiers leads</a>
+      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com"><span class="cta-long">Obtenir mes 50 premiers leads</span><span class="cta-short">Obtenir mes 50 leads</span></a>
       <p class="hero-note" style="margin-top:12px"><b>50 crédits offerts à l'inscription</b> — sans carte bancaire.</p>
     </div>
   </div>
@@ -1154,7 +1169,7 @@ img,pre{max-width:100%}
           <li class="gift">Relance J+4 offerte</li>
           <li>Support standard</li>
         </ul>
-        <a class="btn btn-ghost" href="https://app.datacloser.com">Obtenir mes 50 premiers leads</a>
+        <a class="btn btn-ghost" href="https://app.datacloser.com"><span class="cta-long">Obtenir mes 50 premiers leads</span><span class="cta-short">Obtenir mes 50 leads</span></a>
       </div>
       <div class="plan featured">
         <div class="name">🥈 Pro</div>
@@ -1168,7 +1183,7 @@ img,pre{max-width:100%}
           <li class="gift">Relance J+4 offerte</li>
           <li>Support prioritaire</li>
         </ul>
-        <a class="btn btn-primary" href="https://app.datacloser.com">Obtenir mes 50 premiers leads</a>
+        <a class="btn btn-primary" href="https://app.datacloser.com"><span class="cta-long">Obtenir mes 50 premiers leads</span><span class="cta-short">Obtenir mes 50 leads</span></a>
       </div>
       <div class="plan">
         <div class="name">🥇 Élite</div>
@@ -1182,7 +1197,7 @@ img,pre{max-width:100%}
           <li class="gift">Relance J+4 offerte</li>
           <li>Meilleur coût par lead du marché</li>
         </ul>
-        <a class="btn btn-ghost" href="https://app.datacloser.com">Obtenir mes 50 premiers leads</a>
+        <a class="btn btn-ghost" href="https://app.datacloser.com"><span class="cta-long">Obtenir mes 50 premiers leads</span><span class="cta-short">Obtenir mes 50 leads</span></a>
       </div>
     </div>
   </div>
@@ -1284,7 +1299,7 @@ img,pre{max-width:100%}
     </div>
 
     <div style="text-align:center;margin-top:32px">
-      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com">Obtenir mes 50 premiers leads</a>
+      <a class="btn btn-primary btn-lg" href="https://app.datacloser.com"><span class="cta-long">Obtenir mes 50 premiers leads</span><span class="cta-short">Obtenir mes 50 leads</span></a>
       <p class="hero-note" style="margin-top:12px"><b>50 cr&#233;dits offerts</b> &middot; Sans carte bancaire</p>
     </div>
   </div>
@@ -1344,7 +1359,7 @@ img,pre{max-width:100%}
   <div class="wrap">
     <div class="sec-eyebrow" style="text-align:center">Prêt à closer ?</div>
     <h2 style="text-align:center">Votre prochaine liste de clients<br>est à une chasse d'ici.</h2>
-    <a class="btn btn-primary btn-lg" href="https://app.datacloser.com">Obtenir mes 50 premiers leads</a>
+    <a class="btn btn-primary btn-lg" href="https://app.datacloser.com"><span class="cta-long">Obtenir mes 50 premiers leads</span><span class="cta-short">Obtenir mes 50 leads</span></a>
     <p class="hero-note" style="text-align:center;margin-top:16px"><b>50 crédits offerts</b> · Sans carte bancaire · Sans engagement</p>
   </div>
 </section>
@@ -1671,7 +1686,14 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
 })();
 </script>
 
-</body>
+<script>
+(function(){
+  var s=document.querySelector('.sticky-cta'), h=document.querySelector('.hero');
+  if(!s||!h||!('IntersectionObserver' in window)){if(s)s.classList.add('on');return;}
+  new IntersectionObserver(function(e){s.classList.toggle('on',!e[0].isIntersecting);},{threshold:0})
+    .observe(h);
+})();
+</script></body>
 </html>
 
 
