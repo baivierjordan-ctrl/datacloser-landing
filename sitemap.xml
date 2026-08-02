@@ -3653,5 +3653,8 @@
   </url>
     <url><loc>https://datacloser.com/vs/fullenrich.html</loc><lastmod>2026-08-02</lastmod></url>
     <url><loc>https://datacloser.com/blog/alternative-fullenrich.html</loc><lastmod>2026-08-02</lastmod></url>
+    <url><loc>https://datacloser.com/prospection-b2b-agences-web.html</loc><lastmod>2026-08-02</lastmod><priority>0.8</priority></url>
+    <url><loc>https://datacloser.com/prospection-b2b-independants.html</loc><lastmod>2026-08-02</lastmod><priority>0.8</priority></url>
+    <url><loc>https://datacloser.com/prospection-b2b-pme.html</loc><lastmod>2026-08-02</lastmod><priority>0.8</priority></url>
 </urlset>
 
