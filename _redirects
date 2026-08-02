@@ -1,4 +1,5 @@
 # Redirects pour DataCloser (Render Static)
+/vs/FullEnrich.html   /vs/fullenrich.html   301
 /faq           /faq.html           200
 /vs            /vs/index.html      301
 /blog          /blog/index.html    301
