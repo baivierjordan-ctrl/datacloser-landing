@@ -260,6 +260,23 @@ img,pre{max-width:100%}
 }
 @media(max-width:920px){.hero-visual{position:static}}
 @media(prefers-reduced-motion:reduce){.hero-visual{position:static}}
+
+/* ── Démo : champ unique et verdict ── */
+.dl-champ-url{flex:1 1 320px}
+.dl-lien{background:none;border:0;color:var(--teal);cursor:pointer;font:inherit;font-size:inherit;text-decoration:underline;padding:0;margin-left:4px}
+.dl-lien:hover{opacity:.8}
+.dl-lien:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+.dl-btn-2{background:transparent;border:1px solid var(--line);color:var(--text)}
+/* `hidden` doit l'emporter sur le display:flex de .dl-champs */
+#dl-manuel[hidden]{display:none!important}
+#dl-manuel{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.dl-verdict{background:linear-gradient(180deg,rgba(0,229,176,.09),rgba(0,229,176,.03));border:1px solid rgba(0,229,176,.32);border-radius:14px;padding:20px 22px;margin:22px 0 4px;animation:dlIn .45s ease both}
+.dl-verdict-lab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:9px}
+.dl-verdict p{font-family:"Space Grotesk",sans-serif;font-size:1.06rem;font-weight:500;line-height:1.5;color:var(--text)}
+.dl-verdict-pied{margin-top:13px;font-size:.86rem;color:var(--muted)}
+@keyframes dlIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.dl-verdict{animation:none}}
+@media(max-width:640px){.dl-champ-url{flex-basis:100%}.dl-btn{width:100%}}
 </style>
 <!-- hreflang -->
 <link href="https://datacloser.com/" hreflang="fr" rel="alternate">
@@ -631,14 +648,24 @@ img,pre{max-width:100%}
 <div class="dl-wrap">
 <p class="dl-kicker">Démonstration</p>
 <h2>Ne nous croyez pas sur parole.<br/><em>Regardez.</em></h2>
-<p class="dl-sous">Choisissez un secteur et une ville. Le moteur va chercher de vraies entreprises,
-      vérifie leur email et rédige une accroche personnalisée — sous vos yeux, sans inscription.</p>
+<p class="dl-sous">Collez l&#39;adresse de votre site. Le moteur le lit, en d&#233;duit qui sont vos clients,
+      puis cherche de vraies entreprises qui y correspondent &mdash; sous vos yeux, sans inscription.</p>
 <form class="dl-form" id="dl-form" novalidate="">
 <div class="dl-champs">
+<label class="dl-champ dl-champ-url">
+<span>L&#39;adresse de votre site</span>
+<input autocomplete="url" id="dl-url" maxlength="100" placeholder="votre-entreprise.be" required="" type="text" spellcheck="false"/>
+</label>
+<button class="dl-btn" id="dl-btn" type="submit">Trouver mes prospects</button>
+</div>
+<p class="dl-mini">D&#233;monstration limit&#233;e &#224; trois r&#233;sultats. Aucune donn&#233;e personnelle n&#39;est conserv&#233;e.
+  <button class="dl-lien" id="dl-basculer" type="button">Je pr&#233;f&#232;re choisir un secteur</button></p>
+
+<div class="dl-champs" id="dl-manuel" hidden="">
 <label class="dl-champ">
 <span>Secteur</span>
-<select id="dl-secteur" required="">
-<option value="agence immobilière">Agence immobilière</option>
+<select id="dl-secteur">
+<option value="agence immobilière">Agence immobili&#232;re</option>
 <option value="agence web">Agence web</option>
 <option value="restaurant">Restaurant</option>
 <option value="garage">Garage</option>
@@ -649,12 +676,18 @@ img,pre{max-width:100%}
 </label>
 <label class="dl-champ">
 <span>Ville</span>
-<input autocomplete="off" id="dl-ville" maxlength="40" placeholder="Namur" required="" type="text"/>
+<input autocomplete="off" id="dl-ville" maxlength="40" placeholder="Namur" type="text"/>
 </label>
-<button class="dl-btn" id="dl-btn" type="submit">Lancer la chasse</button>
+<button class="dl-btn dl-btn-2" id="dl-btn-manuel" type="button">Lancer la chasse</button>
 </div>
-<p class="dl-mini">Démonstration limitée à trois résultats. Aucune donnée personnelle n'est conservée.</p>
 </form>
+
+<div class="dl-verdict" hidden="" id="dl-verdict">
+  <div class="dl-verdict-lab">Ce que le moteur a compris</div>
+  <p id="dl-verdict-txt"></p>
+  <div class="dl-verdict-pied">Ce n&#39;est pas &#231;a&nbsp;?
+    <button class="dl-lien" id="dl-corriger" type="button">Corriger ma cible</button></div>
+</div>
 <!-- États -->
 <div class="dl-etat" hidden="" id="dl-chargement">
 <div class="dl-journal" id="dl-journal"></div>
@@ -837,46 +870,128 @@ img,pre{max-width:100%}
     erreurTxt.textContent = msg;
   }
 
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(enCours) return;
+  /* ─────────── Chaîne : URL → cible déduite → recherche ─────────── */
+  var API = 'https://datacloser-chat-proxy.onrender.com';
+  var urlInput   = document.getElementById('dl-url');
+  var manuel     = document.getElementById('dl-manuel');
+  var basculer   = document.getElementById('dl-basculer');
+  var corriger   = document.getElementById('dl-corriger');
+  var btnManuel  = document.getElementById('dl-btn-manuel');
+  var verdict    = document.getElementById('dl-verdict');
+  var verdictTxt = document.getElementById('dl-verdict-txt');
+  var LIB_BTN    = btn.textContent;
 
-    var secteur = document.getElementById('dl-secteur').value;
-    var ville = document.getElementById('dl-ville').value.trim();
-    if(ville.length < 2){ montrerErreur('Indiquez une ville.'); return; }
+  function ouvrirManuel(message){
+    manuel.hidden = false;
+    if(message){ montrerErreur(message); }
+    var s = document.getElementById('dl-ville');
+    if(s) s.focus();
+    manuel.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+  if(basculer) basculer.addEventListener('click', function(){ ouvrirManuel(''); });
+  if(corriger) corriger.addEventListener('click', function(){ ouvrirManuel(''); });
 
-    enCours = true;
-    btn.disabled = true;
-    btn.textContent = 'Chasse en cours…';
-    cacher();
-    chargement.hidden = false;
-    jouerJournal();
+  function relacher(){ btn.disabled = false; btn.textContent = LIB_BTN; enCours = false; }
 
-    var debut = Date.now();
-
-    fetch('https://datacloser-chat-proxy.onrender.com/api/demo-scan', {
+  /* Étape 2 — la recherche proprement dite */
+  function lancerScan(secteur, ville, jeton, debut){
+    fetch(API + '/api/demo-scan', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({secteur: secteur, ville: ville, langue: 'fr'})
+      body: JSON.stringify({secteur: secteur, ville: ville, jeton: jeton || undefined, langue: 'fr'})
     })
     .then(function(r){ return r.json().then(function(j){ return {code: r.status, data: j}; }); })
     .then(function(res){
-      /* On laisse le journal se dérouler un minimum : la vitesse brute inquiète plus qu'elle ne rassure */
       var reste = Math.max(0, 2600 - (Date.now() - debut));
       setTimeout(function(){
         if(res.code === 200 && res.data.ok){ afficher(res.data); }
         else if(res.code === 429){ montrerErreur('Vous avez atteint la limite de démonstrations pour aujourd\u2019hui. Créez un compte gratuit pour continuer.'); }
         else if(res.code === 503){ montrerErreur('La démonstration est très demandée en ce moment. Réessayez dans quelques minutes.'); }
-        else if(res.code === 404){ montrerErreur('Aucune entreprise trouvée pour ce secteur dans cette ville. Essayez une ville voisine.'); }
+        else if(res.code === 404){ montrerErreur('Aucune entreprise trouvée sur cette cible. Essayez une ville voisine.'); ouvrirManuel(''); }
         else { montrerErreur(res.data && res.data.erreur ? res.data.erreur : 'Une erreur est survenue.'); }
-        btn.disabled = false; btn.textContent = 'Lancer la chasse'; enCours = false;
+        relacher();
       }, reste);
     })
     .catch(function(){
       timers.forEach(clearTimeout);
       montrerErreur('Impossible de joindre le moteur. Réessayez dans un instant.');
-      btn.disabled = false; btn.textContent = 'Lancer la chasse'; enCours = false;
+      relacher();
     });
+  }
+
+  /* Étape 1 — lire le site du visiteur et en déduire sa cible */
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(enCours) return;
+
+    var url = (urlInput.value || '').trim();
+    if(url.length < 4 || url.indexOf('.') === -1){
+      montrerErreur('Indiquez l\u2019adresse de votre site, par exemple votre-entreprise.be');
+      return;
+    }
+
+    enCours = true;
+    btn.disabled = true;
+    btn.textContent = 'Lecture de votre site…';
+    cacher();
+    verdict.hidden = true;
+    chargement.hidden = false;
+    journal.innerHTML = '';
+    timers.forEach(clearTimeout); timers = [];
+    var p0 = document.createElement('p');
+    p0.innerHTML = '<b>›</b> ' + echapper('Lecture de ' + url + '…');
+    p0.className = 'actif';
+    journal.appendChild(p0);
+
+    var debut = Date.now();
+
+    fetch(API + '/api/demo-icp', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({url: url, langue: 'fr'})
+    })
+    .then(function(r){ return r.json().then(function(j){ return {code: r.status, data: j}; }); })
+    .then(function(res){
+      var d = res.data || {};
+      if(res.code !== 200 || !d.ok){
+        timers.forEach(clearTimeout);
+        if(res.code === 429){ montrerErreur('Vous avez atteint la limite de démonstrations pour aujourd\u2019hui. Créez un compte gratuit pour continuer.'); }
+        else if(res.code === 503){ montrerErreur('La démonstration est très demandée en ce moment. Réessayez dans quelques minutes.'); }
+        else { ouvrirManuel(d.erreur || 'Ce site n\u2019a pas pu être analysé.'); }
+        relacher();
+        return;
+      }
+
+      /* Le verdict : le moment où le visiteur se sent compris */
+      if(d.verdict){
+        verdictTxt.textContent = d.verdict;
+        verdict.hidden = false;
+      }
+      btn.textContent = 'Recherche en cours…';
+      jouerJournal();
+      lancerScan(d.secteur, d.ville, d.jeton, debut);
+    })
+    .catch(function(){
+      timers.forEach(clearTimeout);
+      montrerErreur('Impossible de joindre le moteur. Réessayez dans un instant.');
+      relacher();
+    });
+  });
+
+  /* Repli manuel : secteur + ville, comme avant */
+  if(btnManuel) btnManuel.addEventListener('click', function(){
+    if(enCours) return;
+    var secteur = document.getElementById('dl-secteur').value;
+    var ville = (document.getElementById('dl-ville').value || '').trim();
+    if(ville.length < 2){ montrerErreur('Indiquez une ville.'); return; }
+    enCours = true;
+    btn.disabled = true;
+    btn.textContent = 'Chasse en cours…';
+    cacher();
+    verdict.hidden = true;
+    chargement.hidden = false;
+    jouerJournal();
+    lancerScan(secteur, ville, null, Date.now());
   });
 })();
 </script>
