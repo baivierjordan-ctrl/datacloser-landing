@@ -277,6 +277,18 @@ img,pre{max-width:100%}
 @keyframes dlIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.dl-verdict{animation:none}}
 @media(max-width:640px){.dl-champ-url{flex-basis:100%}.dl-btn{width:100%}}
+
+/* ── Démo : capture email ── */
+.dl-capture-titre{font-family:"Space Grotesk",sans-serif;font-size:1.02rem;color:var(--text);margin-bottom:4px}
+.dl-capture-titre strong{color:var(--teal)}
+.dl-capture-champs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.dl-capture-champs input{flex:1 1 240px;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:13px 15px;color:var(--text);font-family:"JetBrains Mono",monospace;font-size:13.5px}
+.dl-capture-champs input:focus{outline:none;border-color:var(--teal)}
+.dl-lien-cta{color:var(--teal);text-decoration:underline}
+#dl-capture-msg.err{color:#ff6b81}
+#dl-capture-msg.ok{color:var(--teal)}
+.dl-merci{animation:dlIn .45s ease both}
+@media(max-width:640px){.dl-capture-champs input,.dl-capture-champs .dl-btn{flex-basis:100%;width:100%}}
 </style>
 <!-- hreflang -->
 <link href="https://datacloser.com/" hreflang="fr" rel="alternate">
@@ -701,13 +713,22 @@ img,pre{max-width:100%}
 <span class="dl-source" id="dl-source"></span>
 </div>
 <div class="dl-liste" id="dl-liste"></div>
-<div class="dl-conversion">
-<p><strong>C'est un aperçu.</strong> Le message complet, l'email en clair, le téléphone
-           et l'export CSV sont réservés aux comptes — la création est gratuite.</p>
-<a class="dl-cta" href="https://app.datacloser.com?utm_source=demo_live&amp;utm_medium=landing">
-          Obtenir mes 50 premiers leads
-        </a>
-<p class="dl-mini">Aucune carte bancaire. Les crédits n'expirent pas.</p>
+<div class="dl-conversion" id="dl-capture">
+<p class="dl-capture-titre"><strong id="dl-reste">D&#39;autres entreprises</strong> correspondent &#224; votre profil.</p>
+<p class="dl-mini" style="margin-bottom:14px">Recevez la liste compl&#232;te par email &mdash; entreprise, score et accroche pour chacune.</p>
+<div class="dl-capture-champs">
+  <input autocomplete="email" id="dl-email" maxlength="120" placeholder="contact@votre-domaine.be" type="email"/>
+  <button class="dl-btn" id="dl-envoyer" type="button">Recevoir ma liste</button>
+</div>
+<p class="dl-mini" id="dl-capture-msg">Un seul email, pas de spam, d&#233;sinscription en un clic.</p>
+<p class="dl-mini" style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line)">
+  Ou cr&#233;ez directement votre compte : <a class="dl-lien-cta" href="https://app.datacloser.com?utm_source=demo_live&amp;utm_medium=landing">obtenir mes 50 premiers leads</a> &mdash; sans carte bancaire.</p>
+</div>
+
+<div class="dl-merci" hidden="" id="dl-merci">
+<p class="dl-capture-titre"><strong>C&#39;est parti.</strong> Votre liste arrive dans quelques minutes.</p>
+<p class="dl-mini" style="margin-top:8px">Elle contient les prospects trouv&#233;s pour vous. Les adresses email compl&#232;tes vous attendent dans votre espace &mdash; votre profil de ciblage y est d&#233;j&#224; configur&#233;.</p>
+<a class="dl-cta" href="https://app.datacloser.com?utm_source=demo_mail&amp;utm_medium=landing">Cr&#233;er mon compte gratuit</a>
 </div>
 </div>
 </div>
@@ -833,6 +854,16 @@ img,pre{max-width:100%}
   function afficher(data){
     cacher();
     resultats.hidden = false;
+    ctx.affiche = Date.now();
+    if(capture){ capture.hidden = false; }
+    if(merci){ merci.hidden = true; }
+    if(btnEnvoyer){ btnEnvoyer.disabled = false; btnEnvoyer.textContent = 'Recevoir ma liste'; }
+    messageCapture(MSG_NEUTRE, '');
+    var reste = (data.total_disponible || 0) - (data.leads ? data.leads.length : 0);
+    var elReste = document.getElementById('dl-reste');
+    if(elReste){
+      elReste.textContent = reste > 0 ? (reste + ' autres entreprises') : "D'autres entreprises";
+    }
     document.getElementById('dl-compte').textContent =
       data.leads.length + ' entreprise' + (data.leads.length > 1 ? 's' : '') + ' trouvée' + (data.leads.length > 1 ? 's' : '');
     document.getElementById('dl-source').textContent =
@@ -880,6 +911,8 @@ img,pre{max-width:100%}
   var verdict    = document.getElementById('dl-verdict');
   var verdictTxt = document.getElementById('dl-verdict-txt');
   var LIB_BTN    = btn.textContent;
+  /* Ce que la démo retient d'une exécution à l'autre */
+  var ctx = {jeton: null, domaine: '', total: 0, affiche: Date.now()};
 
   function ouvrirManuel(message){
     manuel.hidden = false;
@@ -967,6 +1000,12 @@ img,pre{max-width:100%}
         verdictTxt.textContent = d.verdict;
         verdict.hidden = false;
       }
+      ctx.jeton = d.jeton || null;
+      ctx.domaine = d.domaine || '';
+      /* Il a collé son domaine : on lui propose son adresse plutôt qu'un champ vide */
+      if(champEmail && ctx.domaine && !champEmail.value){
+        champEmail.placeholder = 'contact@' + ctx.domaine;
+      }
       btn.textContent = 'Recherche en cours…';
       jouerJournal();
       lancerScan(d.secteur, d.ville, d.jeton, debut);
@@ -975,6 +1014,63 @@ img,pre{max-width:100%}
       timers.forEach(clearTimeout);
       montrerErreur('Impossible de joindre le moteur. Réessayez dans un instant.');
       relacher();
+    });
+  });
+
+  /* ─────────── Capture de l'adresse, après les résultats ─────────── */
+  var champEmail = document.getElementById('dl-email');
+  var btnEnvoyer = document.getElementById('dl-envoyer');
+  var capture    = document.getElementById('dl-capture');
+  var merci      = document.getElementById('dl-merci');
+  var captureMsg = document.getElementById('dl-capture-msg');
+  var MSG_NEUTRE = captureMsg ? captureMsg.textContent : '';
+
+  function messageCapture(txt, etat){
+    if(!captureMsg) return;
+    captureMsg.textContent = txt;
+    captureMsg.className = 'dl-mini' + (etat ? ' ' + etat : '');
+  }
+
+  if(btnEnvoyer) btnEnvoyer.addEventListener('click', function(){
+    var email = (champEmail.value || '').trim();
+    if(email.indexOf('@') === -1 || email.indexOf('.') === -1){
+      messageCapture('Indiquez une adresse email valide.', 'err');
+      champEmail.focus();
+      return;
+    }
+    if(!ctx.jeton){
+      messageCapture('Relancez une recherche avant de demander la liste.', 'err');
+      return;
+    }
+    btnEnvoyer.disabled = true;
+    var libelle = btnEnvoyer.textContent;
+    btnEnvoyer.textContent = 'Envoi…';
+    messageCapture(MSG_NEUTRE, '');
+
+    fetch(API + '/api/demo-lead', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: email, jeton: ctx.jeton, langue: 'fr',
+        duree: (Date.now() - ctx.affiche) / 1000
+      })
+    })
+    .then(function(r){ return r.json().then(function(j){ return {code: r.status, data: j}; }); })
+    .then(function(res){
+      if(res.code === 200 && res.data.ok){
+        capture.hidden = true;
+        merci.hidden = false;
+        merci.scrollIntoView({behavior:'smooth', block:'nearest'});
+      } else {
+        messageCapture((res.data && res.data.erreur) || 'L\u2019envoi a échoué. Réessayez.', 'err');
+        btnEnvoyer.disabled = false;
+        btnEnvoyer.textContent = libelle;
+      }
+    })
+    .catch(function(){
+      messageCapture('Impossible de joindre le serveur. Réessayez dans un instant.', 'err');
+      btnEnvoyer.disabled = false;
+      btnEnvoyer.textContent = libelle;
     });
   });
 
