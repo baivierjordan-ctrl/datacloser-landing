@@ -943,12 +943,13 @@ img,pre{max-width:100%}
   }
 
   /* Étape 2 — la recherche proprement dite */
-  function lancerScan(secteur, ville, jeton, debut, motsCles){
+  function lancerScan(secteur, ville, jeton, debut, motsCles, profil){
     fetch(API + '/api/demo-scan', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({secteur: secteur, ville: ville, jeton: jeton || undefined,
-                            mots_cles: motsCles || [], langue: 'fr'})
+                            mots_cles: motsCles || [], profil: profil || undefined,
+                            langue: 'fr'})
     })
     .then(function(r){ return r.json().then(function(j){ return {code: r.status, data: j}; }); })
     .then(function(res){
@@ -1025,7 +1026,7 @@ img,pre{max-width:100%}
       }
       btn.textContent = 'Recherche en cours…';
       jouerJournal();
-      lancerScan(d.secteur, d.ville, d.jeton, debut, d.mots_cles);
+      lancerScan(d.secteur, d.ville, d.jeton, debut, d.mots_cles, d.profil);
     })
     .catch(function(){
       timers.forEach(clearTimeout);
