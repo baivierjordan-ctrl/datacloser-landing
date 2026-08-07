@@ -475,7 +475,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 <span>Stad</span>
 <input autocomplete="off" id="dl-ville" maxlength="40" placeholder="Gent" required="" type="text"/>
 </label>
-<button class="dl-btn" id="dl-btn" type="submit">Start de jacht</button>
+<button class="dl-btn" id="dl-btn" type="submit">Start de scan</button>
 </div>
 <p class="dl-mini">Demonstratie beperkt tot drie resultaten. Er worden geen persoonsgegevens bewaard.</p>
 </form>
@@ -629,7 +629,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
     document.getElementById('dl-compte').textContent =
       data.leads.length + (data.leads.length > 1 ? ' bedrijven gevonden' : ' bedrijf gevonden');
     document.getElementById('dl-source').textContent =
-      data.source === 'cache' ? 'recente resultaten' : 'jacht zonet uitgevoerd';
+      data.source === 'cache' ? 'recente resultaten' : 'scan zonet uitgevoerd';
 
     liste.innerHTML = '';
     data.leads.forEach(function(l, i){
@@ -673,7 +673,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 
     enCours = true;
     btn.disabled = true;
-    btn.textContent = 'Jacht bezig…';
+    btn.textContent = 'Scan bezig…';
     cacher();
     chargement.hidden = false;
     jouerJournal();
@@ -695,13 +695,13 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
         else if(res.code === 503){ montrerErreur('De demonstratie is momenteel erg gevraagd. Probeer over enkele minuten opnieuw.'); }
         else if(res.code === 404){ montrerErreur('Geen bedrijven gevonden voor deze sector in deze stad. Probeer een naburige stad.'); }
         else { montrerErreur(res.data && res.data.erreur ? res.data.erreur : 'Er is een fout opgetreden.'); }
-        btn.disabled = false; btn.textContent = 'Start de jacht'; enCours = false;
+        btn.disabled = false; btn.textContent = 'Start de scan'; enCours = false;
       }, reste);
     })
     .catch(function(){
       timers.forEach(clearTimeout);
       montrerErreur('Kan de motor niet bereiken. Probeer zo dadelijk opnieuw.');
-      btn.disabled = false; btn.textContent = 'Start de jacht'; enCours = false;
+      btn.disabled = false; btn.textContent = 'Start de scan'; enCours = false;
     });
   });
 })();

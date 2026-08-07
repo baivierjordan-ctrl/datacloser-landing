@@ -475,7 +475,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 <span>City</span>
 <input autocomplete="off" id="dl-ville" maxlength="40" placeholder="Brussels" required="" type="text"/>
 </label>
-<button class="dl-btn" id="dl-btn" type="submit">Start the hunt</button>
+<button class="dl-btn" id="dl-btn" type="submit">Start the scan</button>
 </div>
 <p class="dl-mini">Demo limited to three results. No personal data is kept.</p>
 </form>
@@ -673,7 +673,7 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
 
     enCours = true;
     btn.disabled = true;
-    btn.textContent = 'Hunt in progress…';
+    btn.textContent = 'Scan in progress…';
     cacher();
     chargement.hidden = false;
     jouerJournal();
@@ -695,13 +695,13 @@ footer{border-top:1px solid var(--line);padding:48px 24px;background:var(--ink-2
         else if(res.code === 503){ montrerErreur('The demo is in high demand right now. Try again in a few minutes.'); }
         else if(res.code === 404){ montrerErreur('No companies found for this sector in this city. Try a nearby city.'); }
         else { montrerErreur(res.data && res.data.erreur ? res.data.erreur : 'Something went wrong.'); }
-        btn.disabled = false; btn.textContent = 'Start the hunt'; enCours = false;
+        btn.disabled = false; btn.textContent = 'Start the scan'; enCours = false;
       }, reste);
     })
     .catch(function(){
       timers.forEach(clearTimeout);
       montrerErreur('Couldn\u2019t reach the engine. Try again in a moment.');
-      btn.disabled = false; btn.textContent = 'Start the hunt'; enCours = false;
+      btn.disabled = false; btn.textContent = 'Start the scan'; enCours = false;
     });
   });
 })();
