@@ -15,7 +15,7 @@ Fondateur : Jordan Baivier — Trazegnies, Belgique. Lancé en juin 2026.
 - SMTP intégré (Gmail, OVH, Outlook) avec AES-256
 - Webhook CRM : Make, Zapier, n8n, HubSpot, Pipedrive
 - Analytics dashboard + Health score compte
-- Replay de chasse en 1 clic
+- Replay de scan en 1 clic
 - Link Building Engine (plan Agency)
 - API REST DataCloser (plan Agency — bientôt)
 

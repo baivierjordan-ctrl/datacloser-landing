@@ -690,7 +690,7 @@ img,pre{max-width:100%}
 <span>Ville</span>
 <input autocomplete="off" id="dl-ville" maxlength="40" placeholder="Namur" type="text"/>
 </label>
-<button class="dl-btn dl-btn-2" id="dl-btn-manuel" type="button">Lancer la chasse</button>
+<button class="dl-btn dl-btn-2" id="dl-btn-manuel" type="button">Lancer le scan</button>
 </div>
 </form>
 
@@ -867,7 +867,7 @@ img,pre{max-width:100%}
     document.getElementById('dl-compte').textContent =
       data.leads.length + ' entreprise' + (data.leads.length > 1 ? 's' : '') + ' trouvée' + (data.leads.length > 1 ? 's' : '');
     document.getElementById('dl-source').textContent =
-      data.source === 'cache' ? 'résultats récents' : 'chasse effectuée à l\u2019instant';
+      data.source === 'cache' ? 'résultats récents' : 'scan effectué à l\u2019instant';
 
     liste.innerHTML = '';
     data.leads.forEach(function(l, i){
@@ -1100,7 +1100,7 @@ img,pre{max-width:100%}
     if(ville.length < 2){ montrerErreur('Indiquez une ville.'); return; }
     enCours = true;
     btn.disabled = true;
-    btn.textContent = 'Chasse en cours…';
+    btn.textContent = 'Scan en cours…';
     cacher();
     verdict.hidden = true;
     chargement.hidden = false;
@@ -1249,7 +1249,7 @@ img,pre{max-width:100%}
 <div>
 <div class="num">2</div>
 <h3>Le moteur scanne votre zone en direct</h3>
-<p class="desc">Google Search et Google Maps sont interrogés au moment où vous lancez la chasse — jamais une base figée datant de six mois.</p>
+<p class="desc">Google Search et Google Maps sont interrogés au moment où vous lancez le scan — jamais une base figée datant de six mois.</p>
 <ul>
 <li>Les entreprises locales que LinkedIn ne référence pas</li>
 <li>Annuaires et faux positifs rejetés automatiquement</li>
@@ -1351,7 +1351,7 @@ img,pre{max-width:100%}
 <section class="outreach-section" id="outreach">
 <div class="wrap">
 <div class="sec-eyebrow" style="color:var(--teal)">Nouveau — Outreach IA</div>
-<h2>De la chasse à l'envoi.<br/><em style="font-style:normal;color:var(--teal)">En un clic.</em></h2>
+<h2>Du scan à l'envoi.<br/><em style="font-style:normal;color:var(--teal)">En un clic.</em></h2>
 <p class="sec-sub">Connectez votre boîte mail, sélectionnez un fichier de leads et laissez l'IA rédiger et envoyer un email personnalisé à chaque décideur — depuis votre propre adresse, dans sa langue, avec délai aléatoire anti-spam.</p>
 <div class="outreach-flow">
 <div class="outreach-step">
@@ -1414,7 +1414,7 @@ img,pre{max-width:100%}
 <div class="outreach-banner">
 <div>
 <strong style="font-family:var(--display);font-size:1.05rem;font-weight:600;">DataCloser remplace Lemlist, Instantly et Apollo — pour le marché francophone.</strong>
-<p style="margin-top:6px;">Chasse + enrichissement + envoi + relance. Tout dans un seul outil, sans abonnement supplémentaire.</p>
+<p style="margin-top:6px;">Scan + enrichissement + envoi + relance. Tout dans un seul outil, sans abonnement supplémentaire.</p>
 </div>
 <a class="btn btn-primary" href="https://app.datacloser.com">Obtenir mes 50 premiers leads →</a>
 </div>
@@ -1609,7 +1609,7 @@ img,pre{max-width:100%}
 <section class="final">
 <div class="wrap">
 <div class="sec-eyebrow" style="text-align:center">Prêt à closer ?</div>
-<h2 style="text-align:center">Votre prochaine liste de clients<br/>est à une chasse d'ici.</h2>
+<h2 style="text-align:center">Votre prochaine liste de clients<br/>est à un scan d'ici.</h2>
 <a class="btn btn-primary btn-lg" href="https://app.datacloser.com"><span class="cta-long">Obtenir mes 50 premiers leads</span><span class="cta-short">Obtenir mes 50 leads</span></a>
 <p class="hero-note" style="text-align:center;margin-top:16px"><b>50 crédits offerts</b> · Sans carte bancaire · Sans engagement</p>
 </div>
