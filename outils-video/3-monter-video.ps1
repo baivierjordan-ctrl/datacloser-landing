@@ -12,6 +12,7 @@ $sortie     = "$env:USERPROFILE\Downloads\datacloser-clips"
 $dossier    = "$sortie\vertical"
 $fichierFin = "$sortie\datacloser-demo-vertical.mp4"
 
+$dureeCible = 30     # duree visee pour la video finale, cartons Remotion compris
 $transition = 0.5    # duree du fondu entre deux clips, en secondes
 $ouverture  = 0.4    # fondu d'ouverture
 $fermeture  = 0.8    # fondu de fermeture
@@ -120,12 +121,28 @@ Write-Host ""
 Write-Host "Video montee : $fichierFin" -ForegroundColor Green
 Write-Host ""
 
-if ($dureeFinale -lt 28) {
-    $parClip = [Math]::Ceiling((30 + ($clips.Count - 1) * $transition) / $clips.Count)
-    Write-Host "Pour viser 30 s pile avec $($clips.Count) clips, il faut environ $parClip s par clip :" -ForegroundColor Yellow
-    Write-Host "remonte le champ 'duree' dans 2-decouper-clips.ps1 et relance les etapes 2 et 3." -ForegroundColor Yellow
-    Write-Host "L'autre option est d'ajouter un titre d'ouverture et un ecran de fin," -ForegroundColor Yellow
-    Write-Host "qui se font au montage Remotion plutot qu'ici." -ForegroundColor Yellow
+# Rappel de l'arithmetique : chaque fondu enchaine fait perdre
+# $transition secondes, donc n clips de d secondes donnent
+# n*d - (n-1)*$transition, et pas n*d.
+if ($dureeFinale -lt $dureeCible) {
+    $reste = [Math]::Round($dureeCible - $dureeFinale, 1)
+    Write-Host ("Il reste {0} s a remplir pour atteindre {1} s : c'est la place du titre" -f $reste, $dureeCible) -ForegroundColor Yellow
+    Write-Host "d'ouverture et de l'ecran de fin, a faire au montage Remotion." -ForegroundColor Yellow
+    Write-Host ""
+
+    # Variante : atteindre la cible avec les seuls clips.
+    $totalClips = $dureeCible + ($clips.Count - 1) * $transition
+    $base       = [Math]::Floor($totalClips / $clips.Count)
+    $repartition = @()
+    $restant = $totalClips
+    for ($i = 0; $i -lt $clips.Count; $i++) {
+        if ($i -eq $clips.Count - 1) { $repartition += [Math]::Round($restant, 1) }
+        else { $repartition += $base; $restant -= $base }
+    }
+    Write-Host ("Sans cartons, il faudrait {0} s de clips au total (les {1} fondus en mangent {2} s)," -f `
+        $totalClips, ($clips.Count - 1), (($clips.Count - 1) * $transition)) -ForegroundColor DarkGray
+    Write-Host ("soit par exemple {0} s. A regler dans le champ 'duree' de 2-decouper-clips.ps1." -f `
+        ($repartition -join " + ")) -ForegroundColor DarkGray
     Write-Host ""
 }
 

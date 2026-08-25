@@ -4,23 +4,24 @@
 #  MODIFIE LA LISTE CI-DESSOUS avec les moments reperes a l'etape 1,
 #  puis : clic droit > "Executer avec PowerShell"
 #
-#  Sortie principale : 1080x1920, fond #0a0d12 (LinkedIn + landing).
+#  Sortie : 1080x1350, le 4:5 natif de LinkedIn. C'est le format le plus
+#  haut que LinkedIn affiche sans recadrer ; du 1080x1920 y serait de
+#  toute facon rogne ou reduit.
 #
 #  LE POINT IMPORTANT : LE CADRAGE
 #  L'enregistrement est tres large (1894x990, presque du 2:1). Colle tel
-#  quel dans un cadre vertical, il n'occupe que 29 % de la hauteur :
-#  une bande fine perdue au milieu de deux gros aplats. Illisible sur
-#  un telephone.
+#  quel dans un cadre vertical, il ne remplit qu'une bande fine au
+#  milieu de deux aplats de fond. Illisible sur un telephone.
 #  La solution est de recadrer dans la source. Chaque moment a donc un
 #  champ "cadre" :
 #
-#    "large"    toute la largeur      -> bande 1080x565  (29 % du cadre)
-#    "carre"    recadre en 1:1        -> 1080x1080       (56 % du cadre)
-#    "portrait" recadre en 4:5        -> 1080x1350       (70 % du cadre)
+#    "portrait" recadre en 4:5 (792x990) -> 1080x1350, plein cadre
+#    "carre"    recadre en 1:1 (990x990) -> 1080x1080, 80 % du cadre
+#    "large"    toute la largeur         -> 1080x564,  42 % du cadre
 #
-#  "carre" est le bon reglage par defaut. Utilise "portrait" quand
-#  l'action se concentre sur une colonne (une liste, un formulaire),
-#  et "large" seulement s'il faut absolument montrer toute la largeur.
+#  "portrait" est le reglage par defaut : c'est le seul qui remplit le
+#  cadre sans aucune bande. Prends "carre" s'il faut un peu plus de
+#  largeur, "large" seulement s'il faut vraiment montrer tout l'ecran.
 #
 #  Le champ "focusX" dit OU recadrer horizontalement :
 #    0 = bord gauche, 0.5 = centre, 1 = bord droit.
@@ -29,6 +30,12 @@
 
 $source = "C:\Users\Baivi\Downloads\Enregistrement 1er partie datacloser .mp4"
 $sortie = "$env:USERPROFILE\Downloads\datacloser-clips"
+
+# Format de sortie. 1080x1350 = 4:5, le format LinkedIn.
+# Passe a 1920 si tu veux du 9:16 pour des stories ou du Reels : le
+# cadrage suit, les clips seront simplement plus hauts avec du fond.
+$largeurSortie = 1080
+$hauteurSortie = 1350
 
 # Genere aussi une version horizontale 1280 ? (pas necessaire pour la
 # video verticale, utile si tu veux le meme extrait pour YouTube)
@@ -39,13 +46,13 @@ $genererHorizontal = $false
 #  debut  = ou commence le clip, format hh:mm:ss
 #  duree  = combien de secondes garder
 #  nom    = nom du fichier de sortie, sans espaces ni accents
-#  cadre  = "carre" | "portrait" | "large"
+#  cadre  = "portrait" | "carre" | "large"
 #  focusX = 0 a 1, ou recadrer horizontalement (0.5 = centre)
 # ---------------------------------------------------------------------
 $moments = @(
-    @{ debut = "00:00:20"; duree = 8; nom = "01-lancement-scan"; cadre = "carre";    focusX = 0.5 },
+    @{ debut = "00:00:20"; duree = 8; nom = "01-lancement-scan"; cadre = "portrait"; focusX = 0.5 },
     @{ debut = "00:01:30"; duree = 8; nom = "02-liste-leads";    cadre = "portrait"; focusX = 0.5 },
-    @{ debut = "00:02:40"; duree = 8; nom = "03-email-genere";   cadre = "carre";    focusX = 0.5 }
+    @{ debut = "00:02:40"; duree = 8; nom = "03-email-genere";   cadre = "portrait"; focusX = 0.5 }
 )
 # ---------------------------------------------------------------------
 
@@ -111,8 +118,8 @@ foreach ($m in $moments) {
     if ([double]$m.duree -le 0) {
         Pause-Et-Quitter "Duree invalide pour '$($m.nom)' : $($m.duree)" "Red"
     }
-    if ($m.cadre -and $m.cadre -notin @("large", "carre", "portrait")) {
-        Pause-Et-Quitter "Cadre inconnu pour '$($m.nom)' : '$($m.cadre)'. Attendu : carre, portrait ou large." "Red"
+    if ($m.cadre -and $m.cadre -notin @("portrait", "carre", "large")) {
+        Pause-Et-Quitter "Cadre inconnu pour '$($m.nom)' : '$($m.cadre)'. Attendu : portrait, carre ou large." "Red"
     }
     $depart = [TimeSpan]::Parse($m.debut).TotalSeconds
     if ($dureeSource -gt 0 -and ($depart + [double]$m.duree) -gt $dureeSource) {
@@ -134,7 +141,7 @@ foreach ($m in $moments) {
     $compteur++
 
     # --- Calcul du recadrage dans la source ---------------------------
-    $cadre = if ($m.cadre) { $m.cadre } else { "carre" }
+    $cadre = if ($m.cadre) { $m.cadre } else { "portrait" }
     $ratio = switch ($cadre) {
         "carre"    { 1.0 }      # 1:1
         "portrait" { 0.8 }      # 4:5
@@ -154,15 +161,25 @@ foreach ($m in $moments) {
     if ($cropX + $cropW -gt $largeurSource) { $cropX = PairDecalage ($largeurSource - $cropW) }
     if ($cropY + $cropH -gt $hauteurSource) { $cropY = PairDecalage ($hauteurSource - $cropH) }
 
-    $hauteurFinale = Pair (1080.0 * $cropH / $cropW)
+    # Taille reellement occupee dans le cadre de sortie, une fois l'image
+    # mise a l'echelle pour y entrer. Le reste, s'il y en a, est du fond.
+    $echelle       = [Math]::Min($largeurSortie / $cropW, $hauteurSortie / $cropH)
+    $largeurImage  = Pair ($cropW * $echelle)
+    $hauteurImage  = Pair ($cropH * $echelle)
+    $occupation    = [Math]::Round(100.0 * $hauteurImage / $hauteurSortie)
 
     Write-Host ""
-    Write-Host ("[{0}/{1}] {2} - depuis {3}, {4}s - cadre {5} -> 1080x{6}" -f `
-        $compteur, $moments.Count, $m.nom, $m.debut, $m.duree, $cadre, $hauteurFinale) -ForegroundColor Cyan
+    Write-Host ("[{0}/{1}] {2} - depuis {3}, {4}s - cadre {5} -> image {6}x{7} dans {8}x{9} ({10} % du cadre)" -f `
+        $compteur, $moments.Count, $m.nom, $m.debut, $m.duree, $cadre,
+        $largeurImage, $hauteurImage, $largeurSortie, $hauteurSortie, $occupation) -ForegroundColor Cyan
 
+    # force_original_aspect_ratio=decrease : l'image entre toujours dans le
+    # cadre. force_divisible_by=2 : dimensions paires, exigees par yuv420p.
+    # En cadre "portrait" la source recadree fait deja du 4:5 : la mise a
+    # l'echelle tombe pile sur 1080x1350 et le pad ne fait rien.
     $filtreVertical = "crop=${cropW}:${cropH}:${cropX}:${cropY}," +
-                      "scale=1080:-2," +
-                      "pad=1080:1920:(ow-iw)/2:(oh-ih)/2:$fond," +
+                      "scale=${largeurSortie}:${hauteurSortie}:force_original_aspect_ratio=decrease:force_divisible_by=2," +
+                      "pad=${largeurSortie}:${hauteurSortie}:(ow-iw)/2:(oh-ih)/2:$fond," +
                       "setsar=1"
 
     # -ss avant -i : saut direct dans le fichier, sans decoder 3h21.
@@ -200,7 +217,7 @@ $reussis | ForEach-Object { "$_.mp4" } | Out-File -FilePath "$sortie\vertical\or
 Write-Host ""
 if ($rates.Count -eq 0) {
     $total = ($moments | ForEach-Object { [double]$_.duree } | Measure-Object -Sum).Sum
-    Write-Host "Termine. $compteur clips verticaux, $total s au total." -ForegroundColor Green
+    Write-Host "Termine. $compteur clips en ${largeurSortie}x${hauteurSortie}, $total s au total." -ForegroundColor Green
 } else {
     Write-Host "Termine avec $($rates.Count) echec(s) : $($rates -join ', ')" -ForegroundColor Yellow
 }

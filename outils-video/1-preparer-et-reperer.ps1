@@ -2,15 +2,16 @@
 #  ETAPE 1 - Preparer l'outil et reperer les moments interessants
 #
 #  L'enregistrement fait plus de 3 heures : on ne parcourt pas ca image
-#  par image. Le reperage se fait en deux passes.
+#  par image. Deux facons de s'en servir.
 #
-#    PASSE 1 (reglage par defaut) : une vignette toutes les 2 minutes
-#            sur toute la video -> une centaine d'images, tu reperes
-#            les 3 ou 4 zones interessantes.
+#    REGLAGE ACTUEL - passe fine : une vignette toutes les 5 secondes
+#            entre $debutZone et $finZone, quand tu sais deja dans
+#            quelle tranche chercher. Sur 4 minutes : 48 vignettes.
 #
-#    PASSE 2 : tu remplis $debutZone / $finZone avec une de ces zones,
-#            tu mets $intervalle a 5, tu relances -> tu trouves la
-#            seconde exacte.
+#    Passe large : si tu dois explorer toute la video, mets
+#            $intervalle a 120 et vide $finZone -> ~101 vignettes sur
+#            les 3 h 21, de quoi reperer les zones interessantes, puis
+#            reviens au reglage fin sur la zone retenue.
 #
 #  A la fin, une planche s'ouvre dans le navigateur : toutes les
 #  vignettes cote a cote avec leur timecode.
@@ -24,9 +25,9 @@ $sortie = "$env:USERPROFILE\Downloads\datacloser-clips\reperage"
 # ---------------------------------------------------------------------
 #  A MODIFIER entre les deux passes
 # ---------------------------------------------------------------------
-$intervalle = 120          # secondes entre deux vignettes (120 = passe 1, 5 = passe 2)
+$intervalle = 5            # secondes entre deux vignettes (5 = fin, 120 = survol de toute la video)
 $debutZone  = "00:00:00"   # debut de la zone a explorer
-$finZone    = ""           # fin de la zone ; vide = jusqu'au bout de la video
+$finZone    = "00:04:00"   # fin de la zone ; vide = jusqu'au bout de la video
 # ---------------------------------------------------------------------
 
 function Pause-Et-Quitter($message, $couleur) {
@@ -106,8 +107,8 @@ Write-Host "$nbPrevu vignettes a generer."
 if ($nbPrevu -gt 300) {
     Write-Host ""
     Write-Host "C'est beaucoup d'images a parcourir a l'oeil." -ForegroundColor Yellow
-    Write-Host "Conseil : garde l'intervalle a 120 pour la premiere passe," -ForegroundColor Yellow
-    Write-Host "puis descends a 5 sur une zone de quelques minutes." -ForegroundColor Yellow
+    Write-Host "Conseil : passe l'intervalle a 120 pour survoler toute la video," -ForegroundColor Yellow
+    Write-Host "puis reviens a 5 sur une zone de quelques minutes." -ForegroundColor Yellow
     $reponse = Read-Host "Continuer quand meme ? (o/n)"
     if ($reponse -ne "o") { exit }
 }
@@ -188,8 +189,8 @@ Write-Host "$nb vignettes generees." -ForegroundColor Green
 Write-Host "Dossier : $dossier"
 Write-Host ""
 Write-Host "La planche s'ouvre dans ton navigateur : chaque image porte son timecode."
-Write-Host "Passe 1 terminee ? Remets $intervalle a 5, renseigne la zone reperee"
-Write-Host "dans `$debutZone / `$finZone, et relance ce script."
+Write-Host "Rien d'interessant dans cette zone ? Deplace `$debutZone / `$finZone"
+Write-Host "et relance ce script : chaque zone a son propre sous-dossier."
 Write-Host ""
 
 Start-Process $fichierPlanche

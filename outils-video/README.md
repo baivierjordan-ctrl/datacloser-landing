@@ -1,7 +1,8 @@
 # Outils video DataCloser
 
 Scripts PowerShell (Windows) qui transforment l'enregistrement d'ecran
-de la demo en une video verticale courte pour LinkedIn et la landing.
+de la demo en clips verticaux **1080x1350 (4:5)**, le format natif de
+LinkedIn, prets a etre montes dans Remotion.
 
 La source de reference : 3 h 21 (12 050 s), 8,7 Go, **1894x990**, 30 fps,
 **sans piste audio**. Les trois scripts sont regles pour ce format.
@@ -10,50 +11,51 @@ La source de reference : 3 h 21 (12 050 s), 8,7 Go, **1894x990**, 30 fps,
 
 | Script | Ce qu'il fait |
 |---|---|
-| `1-preparer-et-reperer.ps1` | installe ffmpeg si besoin, extrait des vignettes et ouvre une planche de contact pour trouver les timecodes |
-| `2-decouper-clips.ps1` | decoupe les moments choisis en clips verticaux 1080x1920 |
+| `1-preparer-et-reperer.ps1` | installe ffmpeg si besoin, extrait des vignettes toutes les 5 s et ouvre une planche de contact pour trouver les timecodes |
+| `2-decouper-clips.ps1` | decoupe les moments choisis en clips verticaux 1080x1350 |
 | `3-monter-video.ps1` | enchaine les clips en une seule video, avec fondus |
 
 Chacun se lance par clic droit > **Executer avec PowerShell**.
 
-## Etape 1 - reperer, en deux passes
+## Etape 1 - reperer
 
-Sur 3 h 21, une vignette toutes les 10 s ferait 1 206 images a parcourir.
-Le reperage se fait donc en deux temps :
+Regle par defaut sur une **passe fine** : une vignette toutes les 5 s
+entre `$debutZone` et `$finZone`, pre-remplis sur `00:00:00` ->
+`00:04:00`, soit 48 vignettes.
 
-- **Passe 1** (reglage par defaut) : `$intervalle = 120` sur toute la
-  video, soit ~101 vignettes. Tu identifies les 3 ou 4 zones utiles.
-- **Passe 2** : tu renseignes `$debutZone` / `$finZone` avec une de ces
-  zones, tu mets `$intervalle = 5`, tu relances. Tu obtiens la seconde
-  exacte.
+Si tu dois explorer toute la video, mets `$intervalle = 120` et vide
+`$finZone` : ~101 vignettes sur les 3 h 21 (a 5 s ce serait 2 410, et
+1 206 a 10 s). Tu reperes les zones interessantes, puis tu reviens au
+reglage fin sur la zone retenue. Chaque zone ecrit dans son propre
+sous-dossier, les passes ne s'ecrasent pas. Le script demande
+confirmation au-dela de 300 vignettes.
 
-Chaque passe ecrit dans son propre sous-dossier et genere une
-`planche.html` : toutes les vignettes cote a cote avec leur timecode,
-lisible dans le navigateur. Le script demande confirmation au-dela de
-300 vignettes.
+Chaque passe genere une `planche.html` : toutes les vignettes cote a
+cote avec leur timecode, lisible dans le navigateur.
 
-Le timecode est porte par le **nom du fichier** (`00-42-10.jpg` =
-00:42:10) et non incruste dans l'image : le filtre `drawtext` de ffmpeg
+Le timecode est porte par le **nom du fichier** (`00-02-35.jpg` =
+00:02:35) et non incruste dans l'image : le filtre `drawtext` de ffmpeg
 a besoin de fontconfig et echoue sur la plupart des builds Windows.
 
 ## Etape 2 - decouper, et surtout cadrer
 
-C'est le point qui compte pour du vertical. L'enregistrement fait
-1894x990, presque du 2:1. Colle tel quel dans un cadre 1080x1920, il
-n'occupe que **29 % de la hauteur** : une bande fine entre deux gros
-aplats, illisible sur un telephone. Il faut recadrer *dans* la source.
+C'est le point qui compte. L'enregistrement fait 1894x990, presque du
+2:1. Colle tel quel dans un cadre vertical, il ne remplit qu'une bande
+fine entre deux aplats de fond : illisible sur un telephone. Il faut
+recadrer *dans* la source.
 
-Chaque moment a donc un champ `cadre` :
+Chaque moment a donc un champ `cadre`, et la sortie fait 1080x1350 :
 
-| `cadre` | recadrage source | resultat | occupation du cadre |
+| `cadre` | recadrage source | image obtenue | occupation du cadre |
 |---|---|---|---|
-| `"large"` | toute la largeur | 1080x565 | 29 % |
-| `"carre"` | 1:1 (990x990) | 1080x1080 | 56 % |
-| `"portrait"` | 4:5 (792x990) | 1080x1350 | 70 % |
+| `"portrait"` | 4:5 (792x990) | 1080x1350 | **100 %**, plein cadre |
+| `"carre"` | 1:1 (990x990) | 1080x1080 | 80 % |
+| `"large"` | pleine largeur | 1080x564 | 42 % |
 
-`"carre"` est le bon defaut. `"portrait"` quand l'action tient dans une
-colonne (une liste, un formulaire). `"large"` seulement s'il faut
-vraiment montrer toute la largeur de l'ecran.
+`"portrait"` est le defaut : c'est le seul qui remplit le cadre sans
+aucune bande, puisque le recadrage 4:5 et la sortie 4:5 coincident.
+`"carre"` donne un peu plus de largeur au prix de deux bandes,
+`"large"` montre tout l'ecran mais reduit fortement l'image.
 
 `focusX` dit ou recadrer horizontalement : `0` = bord gauche, `0.5` =
 centre, `1` = bord droit. C'est le reglage a ajuster si l'element
@@ -61,16 +63,20 @@ interessant est sur un cote.
 
 ```powershell
 $moments = @(
-    @{ debut = "00:42:10"; duree = 8; nom = "01-lancement-scan"; cadre = "carre";    focusX = 0.5 },
-    @{ debut = "01:07:30"; duree = 8; nom = "02-liste-leads";    cadre = "portrait"; focusX = 0.6 },
-    @{ debut = "02:14:05"; duree = 8; nom = "03-email-genere";   cadre = "carre";    focusX = 0.4 }
+    @{ debut = "00:00:35"; duree = 8; nom = "01-lancement-scan"; cadre = "portrait"; focusX = 0.5 },
+    @{ debut = "00:01:50"; duree = 8; nom = "02-liste-leads";    cadre = "portrait"; focusX = 0.6 },
+    @{ debut = "00:03:20"; duree = 8; nom = "03-email-genere";   cadre = "portrait"; focusX = 0.4 }
 )
 ```
 
-Les dimensions de recadrage sont calculees a partir des dimensions
-reelles lues par `ffprobe` : si tu changes de source, les cadres
-suivent. La version horizontale 1280 reste disponible via
-`$genererHorizontal = $true` (inutile pour la video verticale).
+Le format de sortie se change en haut du script via `$largeurSortie` /
+`$hauteurSortie` : `1080x1920` donne du 9:16 pour des stories, avec les
+memes cadrages (le `"portrait"` y occupe alors 70 % du cadre). Les
+dimensions de recadrage sont calculees a partir des dimensions reelles
+lues par `ffprobe` : si tu changes de source, les cadres suivent.
+
+La version horizontale 1280 reste disponible via
+`$genererHorizontal = $true`.
 
 ## Etape 3 - monter
 
@@ -78,22 +84,27 @@ Assemble les clips dans l'ordre de `ordre.txt` (ecrit par l'etape 2),
 avec un fondu enchaine de 0,5 s entre chacun, un fondu d'ouverture et
 un fondu de fermeture sur le fond de la charte.
 
-Sortie : `datacloser-demo-vertical.mp4`, 1080x1920, 30 fps, muet.
+Sortie : `datacloser-demo-vertical.mp4`, 1080x1350, 30 fps, muet. C'est
+la base a passer dans Remotion pour le titre et l'ecran de fin.
 
-**Arithmetique de la duree** : 3 clips de 8 s avec deux fondus de 0,5 s
-donnent **23 s**, pas 30. Pour 30 s pile il faut soit des clips de 11 s,
-soit un titre d'ouverture et un ecran de fin — qui relevent du montage
-Remotion, pas de ffmpeg (du texte incruste ramenerait le probleme de
-police de l'etape 1). Le script affiche le calcul a la fin.
+**Arithmetique de la duree.** Chaque fondu enchaine fait perdre 0,5 s,
+donc n clips de d secondes donnent `n*d - (n-1)*0,5`, pas `n*d` :
+
+- 3 clips de 8 s -> **23 s**, ce qui laisse 7 s de cartons Remotion
+  pour tomber sur 30 s.
+- pour 30 s avec les seuls clips il faut **31 s** de clips au total,
+  soit 10 + 10 + 11 s (3 x 11 s donnerait 32 s, pas 30).
+
+Le script affiche les deux chiffres a la fin.
 
 ## Ce qui sort
 
 `%USERPROFILE%\Downloads\datacloser-clips\`
 
-- `reperage\pas-120s_00-00-00\` : vignettes + `planche.html` (une par passe)
-- `vertical\` : les clips 1080x1920 + `ordre.txt`
+- `reperage\pas-5s_00-00-00\` : vignettes + `planche.html` (une par zone)
+- `vertical\` : les clips 1080x1350 + `ordre.txt`
 - `horizontal\` : seulement si `$genererHorizontal = $true`
-- `datacloser-demo-vertical.mp4` : la video montee
+- `datacloser-demo-vertical.mp4` : les clips assembles, base du montage Remotion
 
 Encodage H.264 `yuv420p`, `+faststart` (lecture web immediate dans un
 `<video>` de la landing), `-an` : la source n'ayant aucune piste audio,
